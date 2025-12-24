@@ -1,0 +1,1641 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/png" href="./chat.png">
+  <title>Terms & Conditions | Atirath Technology</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Bootstrap 5 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #0a0f25 0%, #050b1e 100%);
+      color: white;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* Background Animation */
+    .animated-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -2;
+      overflow: hidden;
+    }
+
+    .gradient-circle {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(60px);
+      opacity: 0.15;
+      animation: float 15s infinite ease-in-out;
+    }
+
+    .circle-1 {
+      width: 500px;
+      height: 500px;
+      background: linear-gradient(135deg, #7cfaff, #8b5cf6);
+      top: -200px;
+      left: -200px;
+      animation-delay: 0s;
+    }
+
+    .circle-2 {
+      width: 400px;
+      height: 400px;
+      background: linear-gradient(135deg, #ff6b9d, #8b5cf6);
+      bottom: -150px;
+      right: -150px;
+      animation-delay: 5s;
+    }
+
+    .circle-3 {
+      width: 300px;
+      height: 300px;
+      background: linear-gradient(135deg, #7cfaff, #ff6b9d);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      animation-delay: 10s;
+    }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translate(0, 0) scale(1);
+      }
+
+      33% {
+        transform: translate(30px, 30px) scale(1.1);
+      }
+
+      66% {
+        transform: translate(-20px, -20px) scale(0.9);
+      }
+    }
+
+    /* Navbar */
+    .nav-glass {
+      background: rgba(5, 11, 30, 0.95);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(139, 92, 246, 0.3);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+      z-index: 1000;
+    }
+
+    .brand-title {
+      font-size: 1.6rem;
+      /* Reduced from 1.8rem */
+      font-weight: 900;
+      background: linear-gradient(135deg, #7cfaff 0%, #8b5cf6 50%, #ff6b9d 100%);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-shadow: 0 0 30px rgba(139, 92, 246, 0.4);
+      letter-spacing: 0.5px;
+      /* Reduced from 1px */
+      position: relative;
+      display: inline-block;
+      padding: 0 5px;
+      /* Reduced from 10px */
+      animation: titleGlow 3s ease-in-out infinite alternate;
+      line-height: 1;
+      /* Added to reduce vertical space */
+    }
+
+    @keyframes titleGlow {
+      0% {
+        text-shadow: 0 0 20px rgba(139, 92, 246, 0.4);
+      }
+
+      100% {
+        text-shadow: 0 0 40px rgba(124, 250, 255, 0.6);
+      }
+    }
+
+    .navbar-logo {
+      height: 90px;
+      /* Reduced from 100px to 50px */
+      width: 200px;
+      margin-right: 5px;
+      /* Reduced from 12px to 5px */
+      filter: drop-shadow(0 0 10px rgba(55, 56, 56, 0.5));
+      transition: transform 0.3s ease;
+      
+    }
+
+    .navbar-logo:hover {
+      transform: scale(1.1);
+    }
+
+    /* Content Container */
+    .content-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .glass-card {
+      background: rgba(20, 25, 50, 0.7);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(139, 92, 246, 0.3);
+      border-radius: 24px;
+      box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      overflow: hidden;
+    }
+
+    .header-gradient {
+      background: linear-gradient(135deg, rgba(124, 250, 255, 0.1), rgba(139, 92, 246, 0.1));
+      padding: 60px 40px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .header-gradient::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #7cfaff, #8b5cf6, #ff6b9d);
+    }
+
+    .main-title {
+      font-size: 3.5rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #7cfaff, #8b5cf6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 10px;
+      text-shadow: 0 10px 30px rgba(139, 92, 246, 0.3);
+    }
+
+    .subtitle {
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Terms Content */
+    .terms-content {
+      padding: 50px;
+    }
+
+    .section-container {
+      margin-bottom: 40px;
+      position: relative;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 25px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .section-header:hover {
+      transform: translateX(10px);
+    }
+
+    .section-number {
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, #7cfaff, #8b5cf6);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1.5rem;
+      color: white;
+      box-shadow: 0 8px 20px rgba(124, 250, 255, 0.3);
+      flex-shrink: 0;
+    }
+
+    .section-title {
+      font-size: 1.8rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #7cfaff, #8b5cf6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin: 0;
+    }
+
+    .section-body {
+      background: rgba(30, 35, 60, 0.5);
+      border-radius: 16px;
+      padding: 30px;
+      border-left: 4px solid #7cfaff;
+      transition: all 0.3s ease;
+    }
+
+    .section-body:hover {
+      background: rgba(40, 45, 70, 0.6);
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .section-body p {
+      color: #e2e8f0;
+      line-height: 1.8;
+      margin-bottom: 15px;
+      font-size: 1.1rem;
+    }
+
+    .highlight-list {
+      list-style: none;
+      padding: 0;
+      margin: 20px 0;
+    }
+
+    .highlight-list li {
+      padding: 12px 20px;
+      margin-bottom: 10px;
+      background: rgba(124, 250, 255, 0.1);
+      border-radius: 10px;
+      border-left: 3px solid #8b5cf6;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      transition: all 0.3s ease;
+    }
+
+    .highlight-list li:hover {
+      background: rgba(124, 250, 255, 0.2);
+      transform: translateX(5px);
+    }
+
+    .highlight-list i {
+      color: #7cfaff;
+      font-size: 1.2rem;
+    }
+
+    /* Action Buttons */
+    .action-buttons {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      margin-top: 50px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #7cfaff, #8b5cf6);
+      color: white;
+      padding: 16px 40px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 10px 30px rgba(124, 250, 255, 0.3);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(124, 250, 255, 0.4);
+      color: white;
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      padding: 16px 40px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(124, 250, 255, 0.3);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateY(-5px);
+      color: white;
+    }
+
+    /* Footer */
+    .footer-info {
+      text-align: center;
+      margin-top: 60px;
+      padding-top: 30px;
+      border-top: 1px solid rgba(124, 250, 255, 0.2);
+    }
+
+    .contact-info {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #a0aec0;
+      font-size: 0.9rem;
+    }
+
+    .contact-item i {
+      color: #7cfaff;
+    }
+
+    /* Scroll Animation */
+    .section-container {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s ease;
+    }
+
+    .section-container.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .main-title {
+        font-size: 2.5rem;
+      }
+
+      .terms-content {
+        padding: 30px 20px;
+      }
+
+      .section-title {
+        font-size: 1.5rem;
+      }
+
+      .action-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .btn-primary,
+      .btn-secondary {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .header-gradient {
+        padding: 40px 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .main-title {
+        font-size: 2rem;
+      }
+
+      .section-number {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+      }
+
+      .section-body {
+        padding: 20px;
+      }
+    }
+
+    /* ===== Responsive Breakpoints & Layout Adjustments ===== */
+
+    /* General responsive adjustments */
+    @media (max-width: 1536px) {
+      .content-container {
+        max-width: 1100px;
+      }
+    }
+
+    @media (max-width: 1280px) {
+      .content-container {
+        max-width: 1000px;
+      }
+    }
+
+    /* Large Tablets and Small Laptops */
+    @media (max-width: 1024px) {
+      .content-container {
+        max-width: 800px;
+      }
+
+      /* Navbar adjustments */
+      .navbar-logo {
+        height: 70px;
+      }
+
+      .brand-title {
+        font-size: 1.4rem;
+      }
+
+      .main-title {
+        font-size: 3rem;
+      }
+
+      .subtitle {
+        font-size: 1.1rem;
+        padding: 0 20px;
+      }
+
+      .terms-content {
+        padding: 40px;
+      }
+
+      .section-title {
+        font-size: 1.6rem;
+      }
+
+      .section-body {
+        padding: 25px;
+      }
+    }
+
+    /* Tablets */
+    @media (max-width: 768px) {
+      .content-container {
+        max-width: 95%;
+      }
+
+      /* Navbar */
+      .navbar-logo {
+        height: 60px;
+      }
+
+      .brand-title {
+        font-size: 1.2rem;
+      }
+
+      /* Header */
+      .header-gradient {
+        padding: 50px 20px;
+      }
+
+      .main-title {
+        font-size: 2.5rem;
+      }
+
+      .pt-32 {
+        padding-top: 120px !important;
+      }
+
+      .pb-20 {
+        padding-bottom: 40px !important;
+      }
+
+      /* Content */
+      .terms-content {
+        padding: 30px 20px;
+      }
+
+      .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+
+      .section-number {
+        width: 45px;
+        height: 45px;
+        font-size: 1.3rem;
+      }
+
+      .section-title {
+        font-size: 1.4rem;
+      }
+
+      .section-body {
+        padding: 20px;
+        border-left-width: 3px;
+      }
+
+      .section-body p {
+        font-size: 1rem;
+        line-height: 1.6;
+      }
+
+      /* Highlight List */
+      .highlight-list li {
+        padding: 10px 15px;
+        font-size: 0.95rem;
+      }
+
+      .highlight-list i {
+        font-size: 1rem;
+      }
+
+      /* Grid Layouts */
+      .grid-cols-2,
+      .grid-cols-1.md\:grid-cols-2 {
+        grid-template-columns: 1fr !important;
+      }
+
+      /* Action Buttons */
+      .action-buttons {
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 40px;
+      }
+
+      .btn-primary,
+      .btn-secondary {
+        width: 100%;
+        justify-content: center;
+        padding: 14px 30px;
+        font-size: 1rem;
+      }
+
+      /* Footer Info */
+      .footer-info {
+        margin-top: 40px;
+        padding-top: 20px;
+      }
+
+      .bg-gray-900\/50 {
+        padding: 20px;
+      }
+
+      .contact-info {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+      }
+
+      .contact-item {
+        width: 100%;
+        justify-content: center;
+      }
+
+      /* Background circles */
+      .gradient-circle {
+        filter: blur(40px);
+      }
+
+      .circle-1 {
+        width: 400px;
+        height: 400px;
+      }
+
+      .circle-2 {
+        width: 300px;
+        height: 300px;
+      }
+
+      .circle-3 {
+        width: 200px;
+        height: 200px;
+      }
+
+      /* Back button adjustments */
+      .btn-secondary {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+      }
+
+      /* Badge container */
+      .mt-6.flex {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px;
+      }
+
+      .mt-6.flex span {
+        font-size: 0.8rem;
+        padding: 6px 12px;
+      }
+    }
+
+    /* Mobile Phones */
+    @media (max-width: 640px) {
+      .content-container {
+        max-width: 100%;
+        padding: 0 15px;
+      }
+
+      /* Navbar */
+      .navbar-logo {
+        height: 50px;
+      }
+
+      .brand-title {
+        font-size: 1.1rem;
+      }
+
+      /* Header */
+      .header-gradient {
+        padding: 40px 15px;
+      }
+
+      .main-title {
+        font-size: 2rem;
+      }
+
+      .subtitle {
+        font-size: 1rem;
+        padding: 0 10px;
+      }
+
+      .pt-32 {
+        padding-top: 100px !important;
+      }
+
+      .px-6 {
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+      }
+
+      /* Section Styling */
+      .section-number {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+      }
+
+      .section-title {
+        font-size: 1.3rem;
+        line-height: 1.3;
+      }
+
+      .section-body {
+        padding: 18px;
+        border-left-width: 2px;
+      }
+
+      .section-body p {
+        font-size: 0.95rem;
+        line-height: 1.5;
+      }
+
+      /* Lists and grids */
+      .highlight-list li {
+        padding: 8px 12px;
+        font-size: 0.9rem;
+        margin-bottom: 8px;
+      }
+
+      .space-y-4.mb-6 .flex {
+        align-items: flex-start;
+      }
+
+      .space-y-4.mb-6 .flex .w-10.h-10 {
+        width: 35px !important;
+        height: 35px !important;
+        flex-shrink: 0;
+      }
+
+      .space-y-4.mb-6 .flex .w-10.h-10 i {
+        font-size: 0.9rem;
+      }
+
+      .space-y-4.mb-6 .flex div h4 {
+        font-size: 0.95rem;
+      }
+
+      .space-y-4.mb-6 .flex div p {
+        font-size: 0.85rem;
+      }
+
+      /* Gradient boxes */
+      .bg-gradient-to-r,
+      .bg-gradient-to-br {
+        padding: 15px !important;
+      }
+
+      .bg-gradient-to-r p,
+      .bg-gradient-to-br p {
+        font-size: 0.9rem;
+      }
+
+      .bg-gradient-to-r h4,
+      .bg-gradient-to-br h4 {
+        font-size: 1rem;
+      }
+
+      /* Action buttons */
+      .btn-primary i,
+      .btn-secondary i {
+        font-size: 0.9rem;
+      }
+
+      /* Footer */
+      .bg-gray-900\/50 h3 {
+        font-size: 1.1rem;
+      }
+
+      .bg-gray-900\/50 p {
+        font-size: 0.9rem;
+      }
+
+      .text-gray-500.text-sm {
+        font-size: 0.8rem;
+        text-align: center;
+        line-height: 1.4;
+      }
+
+      /* Hide some decorative elements on small screens */
+      .circle-3 {
+        display: none;
+      }
+    }
+
+    /* Small Mobile Phones */
+    @media (max-width: 480px) {
+
+      /* Navbar */
+      .navbar-logo {
+        height: 40px;
+      }
+
+      .brand-title {
+        font-size: 1rem;
+        padding: 0 3px;
+      }
+
+      /* Header */
+      .main-title {
+        font-size: 1.8rem;
+      }
+
+      .subtitle {
+        font-size: 0.95rem;
+      }
+
+      /* Section elements */
+      .section-number {
+        width: 35px;
+        height: 35px;
+        font-size: 1.1rem;
+        border-radius: 8px;
+      }
+
+      .section-title {
+        font-size: 1.2rem;
+      }
+
+      .section-body {
+        padding: 15px;
+        border-radius: 12px;
+      }
+
+      .section-body p {
+        font-size: 0.9rem;
+      }
+
+      /* Icon sizes */
+      .highlight-list i {
+        font-size: 0.9rem;
+      }
+
+      .text-2xl,
+      .text-3xl {
+        font-size: 1.5rem !important;
+      }
+
+      /* Grid and flex containers */
+      .p-4,
+      .p-5,
+      .p-6 {
+        padding: 12px !important;
+      }
+
+      .p-4 i,
+      .p-5 i,
+      .p-6 i {
+        font-size: 1.2rem !important;
+        margin-bottom: 5px !important;
+      }
+
+      .p-4 h4,
+      .p-5 h4,
+      .p-6 h4 {
+        font-size: 0.95rem !important;
+      }
+
+      .p-4 p,
+      .p-5 p,
+      .p-6 p {
+        font-size: 0.85rem !important;
+      }
+
+      /* Footer */
+      .bg-gray-900\/50 {
+        padding: 15px;
+      }
+
+      .contact-item {
+        font-size: 0.85rem;
+      }
+
+      .contact-item i {
+        font-size: 0.9rem;
+      }
+
+      /* Reduce padding */
+      .px-6 {
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+      }
+
+      .pt-32 {
+        padding-top: 90px !important;
+      }
+
+      .pb-20 {
+        padding-bottom: 30px !important;
+      }
+
+      /* Action buttons */
+      .btn-primary,
+      .btn-secondary {
+        padding: 12px 20px;
+        font-size: 0.95rem;
+      }
+    }
+
+    /* Very Small Mobile Phones */
+    @media (max-width: 360px) {
+      .main-title {
+        font-size: 1.6rem;
+      }
+
+      .subtitle {
+        font-size: 0.9rem;
+      }
+
+      .section-number {
+        width: 30px;
+        height: 30px;
+        font-size: 1rem;
+      }
+
+      .section-title {
+        font-size: 1.1rem;
+      }
+
+      .section-body p {
+        font-size: 0.85rem;
+      }
+
+      .highlight-list li {
+        font-size: 0.85rem;
+        padding: 6px 10px;
+      }
+
+      .btn-primary,
+      .btn-secondary {
+        padding: 10px 15px;
+        font-size: 0.9rem;
+      }
+
+      .text-sm {
+        font-size: 0.75rem !important;
+      }
+    }
+
+    /* ===== Landscape Orientation ===== */
+    @media (max-height: 500px) and (orientation: landscape) {
+      .pt-32 {
+        padding-top: 80px !important;
+      }
+
+      .navbar-logo {
+        height: 40px;
+      }
+
+      .brand-title {
+        font-size: 1rem;
+      }
+
+      .header-gradient {
+        padding: 30px 20px;
+      }
+
+      .main-title {
+        font-size: 2rem;
+      }
+
+      .section-container {
+        margin-bottom: 20px;
+      }
+
+      .section-body {
+        padding: 15px;
+      }
+
+      .terms-content {
+        padding: 20px;
+      }
+    }
+
+    /* ===== High Resolution Screens ===== */
+    @media (min-width: 1920px) {
+      .content-container {
+        max-width: 1400px;
+      }
+
+      .main-title {
+        font-size: 4rem;
+      }
+
+      .subtitle {
+        font-size: 1.3rem;
+      }
+
+      .section-title {
+        font-size: 2rem;
+      }
+
+      .section-body p {
+        font-size: 1.15rem;
+      }
+
+      .section-number {
+        width: 60px;
+        height: 60px;
+        font-size: 1.8rem;
+      }
+    }
+
+    /* ===== Print Styles ===== */
+    @media print {
+
+      .nav-glass,
+      .animated-bg,
+      .action-buttons,
+      .btn-secondary,
+      .footer-info,
+      .contact-info,
+      .bg-gradient-to-r,
+      .bg-gradient-to-br,
+      .grid-cols-2,
+      .space-y-4,
+      .highlight-list li i,
+      .section-header {
+        display: none !important;
+      }
+
+      body {
+        background: white !important;
+        color: black !important;
+        font-size: 12pt;
+      }
+
+      .glass-card {
+        box-shadow: none !important;
+        border: 1px solid #ddd !important;
+        background: white !important;
+        border-radius: 0 !important;
+        margin: 0 !important;
+      }
+
+      .main-title,
+      .section-title {
+        -webkit-text-fill-color: black !important;
+        background: none !important;
+        color: black !important;
+      }
+
+      .main-title {
+        font-size: 24pt !important;
+        text-shadow: none !important;
+      }
+
+      .section-title {
+        font-size: 16pt !important;
+      }
+
+      .section-number {
+        background: #f0f0f0 !important;
+        color: black !important;
+        box-shadow: none !important;
+      }
+
+      .section-body {
+        background: white !important;
+        border-left: 1px solid #ccc !important;
+        box-shadow: none !important;
+        margin: 10px 0 !important;
+      }
+
+      .section-body p {
+        color: black !important;
+        font-size: 11pt !important;
+      }
+
+      .highlight-list li {
+        background: #f9f9f9 !important;
+        color: black !important;
+        border-left: 2px solid #666 !important;
+      }
+
+      .pt-32 {
+        padding-top: 20px !important;
+      }
+
+      .pb-20 {
+        padding-bottom: 20px !important;
+      }
+
+      .header-gradient {
+        padding: 30px 20px !important;
+        background: white !important;
+      }
+
+      .header-gradient::before {
+        display: none;
+      }
+
+      .content-container {
+        max-width: 100% !important;
+      }
+    }
+
+    /* ===== Performance Optimizations for Mobile ===== */
+    @media (max-width: 768px) {
+
+      /* Reduce animations on mobile for better performance */
+      .gradient-circle,
+      .brand-title {
+        animation-duration: 0s !important;
+        animation: none !important;
+      }
+
+      /* Reduce blur effects on low-end devices */
+      .glass-card,
+      .nav-glass,
+      .section-body {
+        backdrop-filter: blur(10px) !important;
+        -webkit-backdrop-filter: blur(10px) !important;
+      }
+
+      /* Disable hover effects on touch devices */
+      .section-header:hover,
+      .section-body:hover,
+      .highlight-list li:hover,
+      .btn-primary:hover,
+      .btn-secondary:hover {
+        transform: none !important;
+      }
+
+      /* Optimize gradient effects */
+      .header-gradient,
+      .bg-gradient-to-r,
+      .bg-gradient-to-br {
+        background-attachment: scroll;
+      }
+    }
+
+    /* ===== Touch Device Optimizations ===== */
+    @media (hover: none) and (pointer: coarse) {
+
+      /* Increase tap target sizes for mobile */
+      a,
+      button,
+      .btn-primary,
+      .btn-secondary,
+      .section-header,
+      .highlight-list li {
+        min-height: 44px;
+        min-width: 44px;
+      }
+
+      /* Better touch targets for section headers */
+      .section-header {
+        padding: 10px 0;
+      }
+
+      /* Mobile menu improvements */
+      .btn-secondary {
+        padding: 12px 24px;
+      }
+
+      /* Prevent text selection on interactive elements */
+      .section-header,
+      .btn-primary,
+      .btn-secondary {
+        -webkit-user-select: none;
+        user-select: none;
+      }
+
+      /* Improve touch scrolling */
+      .terms-content {
+        -webkit-overflow-scrolling: touch;
+      }
+    }
+
+    /* ===== Accessibility Improvements ===== */
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+
+      .gradient-circle,
+      .brand-title,
+      .section-header,
+      .section-body,
+      .highlight-list li,
+      .btn-primary,
+      .btn-secondary {
+        animation: none !important;
+        transition: none !important;
+      }
+    }
+
+    /* ===== Dark Mode Support ===== */
+    @media (prefers-color-scheme: dark) {
+
+      /* Ensure proper contrast in dark mode */
+      .text-gray-300 {
+        color: #d1d5db !important;
+      }
+
+      .section-body {
+        background: rgba(30, 35, 60, 0.6) !important;
+      }
+
+      .highlight-list li {
+        background: rgba(124, 250, 255, 0.15) !important;
+      }
+    }
+
+    /* ===== Fix for iOS Safari 100vh issue ===== */
+    @supports (-webkit-touch-callout: none) {
+      body {
+        min-height: -webkit-fill-available;
+      }
+    }
+
+    /* ===== Fix for gradient circles on very small screens ===== */
+    @media (max-width: 320px) {
+      .gradient-circle {
+        opacity: 0.1;
+      }
+
+      .circle-1,
+      .circle-2 {
+        width: 200px;
+        height: 200px;
+      }
+    }
+
+    /* ===== Prevent horizontal scrolling ===== */
+    @media (max-width: 768px) {
+      body {
+        overflow-x: hidden;
+        width: 100%;
+      }
+
+      .glass-card {
+        overflow: hidden;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Animated Background -->
+  <div class="animated-bg">
+    <div class="gradient-circle circle-1"></div>
+    <div class="gradient-circle circle-2"></div>
+    <div class="gradient-circle circle-3"></div>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="fixed top-0 w-full z-50 nav-glass">
+    <div class="max-w-7xl mx-auto px-3 py-1 flex justify-between items-center">
+      <div class="flex items-center gap-1">
+        <img src="Atirath Technologies Transparent Logo.png" alt="Atirath Technology Logo" class="navbar-logo">
+        
+      </div>
+      <a href="index.html" class="btn-secondary">
+        <i class="fas fa-arrow-left"></i> Back to Home
+      </a>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="pt-32 pb-20 px-6">
+    <div class="content-container">
+      <div class="glass-card">
+        <!-- Header -->
+        <div class="header-gradient">
+          <h1 class="main-title">Terms & Conditions</h1>
+          <p class="subtitle">Understanding how we protect your data and ensure transparent communication</p>
+          <div class="mt-6 flex justify-center gap-4 flex-wrap">
+            <span class="px-4 py-2 bg-cyan-500/20 text-cyan-400 rounded-full text-sm font-medium">
+              <i class="fas fa-shield-alt mr-2"></i>Data Protection
+            </span>
+            <span class="px-4 py-2 bg-violet-500/20 text-violet-400 rounded-full text-sm font-medium">
+              <i class="fas fa-lock mr-2"></i>Privacy First
+            </span>
+            <span class="px-4 py-2 bg-pink-500/20 text-pink-400 rounded-full text-sm font-medium">
+              <i class="fas fa-file-contract mr-2"></i>Legal Compliance
+            </span>
+          </div>
+        </div>
+
+        <!-- Terms Content -->
+        <div class="terms-content">
+          <!-- Section 1 -->
+          <div class="section-container" id="section1">
+            <div class="section-header" onclick="scrollToSection('section1')">
+              <div class="section-number">1</div>
+              <h2 class="section-title">Purpose of Data Collection</h2>
+            </div>
+            <div class="section-body">
+              <p>Your information is collected exclusively for:</p>
+              <ul class="highlight-list">
+                <li><i class="fas fa-comment-dots"></i> Responding to your enquiries promptly</li>
+                <li><i class="fas fa-info-circle"></i> Providing detailed information about our comprehensive services
+                </li>
+                <li><i class="fas fa-handshake"></i> Facilitating project discussions and service-related communication
+                </li>
+                <li><i class="fas fa-quote-right"></i> Delivering accurate quotations and proposals</li>
+              </ul>
+              <p>We believe in transparent communication and will always inform you how your data is being used.</p>
+            </div>
+          </div>
+
+          <!-- Section 2 -->
+          <div class="section-container" id="section2">
+            <div class="section-header" onclick="scrollToSection('section2')">
+              <div class="section-number">2</div>
+              <h2 class="section-title">Data Usage & Confidentiality</h2>
+            </div>
+            <div class="section-body">
+              <p>Your privacy is our priority. We maintain the highest standards of data protection:</p>
+              <ul class="highlight-list">
+                <li><i class="fas fa-ban"></i> <strong>No Data Trading:</strong> We never sell, rent, or trade your
+                  contact information</li>
+                <li><i class="fas fa-user-shield"></i> <strong>Internal Access Only:</strong> Data is shared only with
+                  relevant team members</li>
+                <li><i class="fas fa-vault"></i> <strong>Secure Storage:</strong> Encrypted storage systems protect your
+                  information</li>
+                <li><i class="fas fa-eye-slash"></i> <strong>Limited Visibility:</strong> Only authorized personnel
+                  access sensitive data</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Section 3 -->
+          <div class="section-container" id="section3">
+            <div class="section-header" onclick="scrollToSection('section3')">
+              <div class="section-number">3</div>
+              <h2 class="section-title">Communication Consent</h2>
+            </div>
+            <div class="section-body">
+              <p>By contacting us, you agree to receive communications through:</p>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                <div class="p-4 bg-cyan-500/10 rounded-xl border border-cyan-500/20">
+                  <i class="fas fa-envelope text-cyan-400 text-2xl mb-2"></i>
+                  <h4 class="font-bold">Email Updates</h4>
+                  <p class="text-sm text-gray-300">Service information and project updates</p>
+                </div>
+                <div class="p-4 bg-violet-500/10 rounded-xl border border-violet-500/20">
+                  <i class="fas fa-phone text-violet-400 text-2xl mb-2"></i>
+                  <h4 class="font-bold">Phone Calls</h4>
+                  <p class="text-sm text-gray-300">Direct consultations and support</p>
+                </div>
+              </div>
+              <p><strong>Opt-Out Available:</strong> You can unsubscribe from communications at any time using the link
+                in our emails or by contacting us directly.</p>
+            </div>
+          </div>
+
+          <!-- Section 4 -->
+          <div class="section-container" id="section4">
+            <div class="section-header" onclick="scrollToSection('section4')">
+              <div class="section-number">4</div>
+              <h2 class="section-title">Accuracy of Information</h2>
+            </div>
+            <div class="section-body">
+              <p>We rely on the accuracy of the information you provide to deliver optimal service:</p>
+              <div class="bg-gradient-to-r from-cyan-500/10 to-violet-500/10 p-6 rounded-2xl mb-6">
+                <div class="flex items-start gap-3">
+                  <i class="fas fa-exclamation-triangle text-yellow-400 text-xl mt-1"></i>
+                  <div>
+                    <h4 class="font-bold text-lg mb-2">Important Notice</h4>
+                    <p class="text-gray-300">Atirath Technology is not responsible for communication failures or service
+                      delays resulting from incorrect or incomplete information provided by you.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Section 5 -->
+          <div class="section-container" id="section5">
+            <div class="section-header" onclick="scrollToSection('section5')">
+              <div class="section-number">5</div>
+              <h2 class="section-title">No Service Obligation</h2>
+            </div>
+            <div class="section-body">
+              <p>Contacting us does not create a service obligation:</p>
+              <ul class="highlight-list">
+                <li><i class="fas fa-hand-paper"></i> <strong>No Guarantee:</strong> Enquiry doesn't guarantee project
+                  acceptance</li>
+                <li><i class="fas fa-file-signature"></i> <strong>Formal Agreement Required:</strong> Services require
+                  signed contracts</li>
+                <li><i class="fas fa-search"></i> <strong>Feasibility Assessment:</strong> All projects undergo
+                  technical review</li>
+                <li><i class="fas fa-balance-scale"></i> <strong>Mutual Agreement:</strong> Both parties must agree to
+                  terms</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Section 6 -->
+          <div class="section-container" id="section6">
+            <div class="section-header" onclick="scrollToSection('section6')">
+              <div class="section-number">6</div>
+              <h2 class="section-title">Intellectual Property</h2>
+            </div>
+            <div class="section-body">
+              <p>We respect and protect intellectual property rights:</p>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <div class="bg-gradient-to-br from-cyan-500/10 to-transparent p-5 rounded-xl">
+                  <i class="fas fa-brain text-cyan-400 text-2xl mb-3"></i>
+                  <h4 class="font-bold mb-2">Confidential Handling</h4>
+                  <p class="text-sm">Your ideas and documents remain confidential during discussions</p>
+                </div>
+                <div class="bg-gradient-to-br from-violet-500/10 to-transparent p-5 rounded-xl">
+                  <i class="fas fa-copyright text-violet-400 text-2xl mb-3"></i>
+                  <h4 class="font-bold mb-2">Formal Transfer</h4>
+                  <p class="text-sm">IP rights transfer only upon signed agreement</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Section 7 -->
+          <div class="section-container" id="section7">
+            <div class="section-header" onclick="scrollToSection('section7')">
+              <div class="section-number">7</div>
+              <h2 class="section-title">Security Measures</h2>
+            </div>
+            <div class="section-body">
+              <p>We employ robust security protocols:</p>
+              <div class="space-y-4 mb-6">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-full bg-green-500/20 flex items-center justify-center">
+                    <i class="fas fa-check-circle text-green-400"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-bold">Advanced Encryption</h4>
+                    <p class="text-sm text-gray-400">State-of-the-art encryption for all stored data</p>
+                  </div>
+                </div>
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center">
+                    <i class="fas fa-server text-blue-400"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-bold">Secure Infrastructure</h4>
+                    <p class="text-sm text-gray-400">Protected servers with regular security audits</p>
+                  </div>
+                </div>
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-full bg-yellow-500/20 flex items-center justify-center">
+                    <i class="fas fa-exclamation-triangle text-yellow-400"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-bold">Limited Liability</h4>
+                    <p class="text-sm text-gray-400">Not liable for third-party breaches beyond our control</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Section 8 -->
+          <div class="section-container" id="section8">
+            <div class="section-header" onclick="scrollToSection('section8')">
+              <div class="section-number">8</div>
+              <h2 class="section-title">Policy Updates</h2>
+            </div>
+            <div class="section-body">
+              <div class="bg-gradient-to-r from-pink-500/10 to-cyan-500/10 p-6 rounded-2xl mb-6">
+                <div class="flex items-center gap-4">
+                  <i class="fas fa-sync-alt text-2xl text-pink-400"></i>
+                  <div>
+                    <h4 class="font-bold text-lg mb-2">Dynamic Policy Framework</h4>
+                    <p class="text-gray-300">We reserve the right to update these terms to reflect changing regulations
+                      and business practices. Continued use of our services implies acceptance of revised terms.</p>
+                  </div>
+                </div>
+              </div>
+              <p><strong>Notification:</strong> While we may update terms without prior notice, significant changes will
+                be communicated to active clients.</p>
+            </div>
+          </div>
+
+          <!-- Section 9 -->
+          <div class="section-container" id="section9">
+            <div class="section-header" onclick="scrollToSection('section9')">
+              <div class="section-number">9</div>
+              <h2 class="section-title">Governing Law</h2>
+            </div>
+            <div class="section-body">
+              <div class="flex items-center gap-4 p-5 bg-gradient-to-r from-violet-500/10 to-cyan-500/10 rounded-2xl">
+                <i class="fas fa-balance-scale-right text-3xl text-violet-400"></i>
+                <div>
+                  <h4 class="font-bold text-xl mb-2">Legal Jurisdiction</h4>
+                  <p class="text-gray-300">These terms and conditions shall be governed by and interpreted in accordance
+                    with the laws of India. Any disputes shall be subject to the exclusive jurisdiction of the courts in
+                    India.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="action-buttons">
+            <a href="index.html#contact" class="btn-primary">
+              <i class="fas fa-paper-plane"></i> Contact Us Now
+            </a>
+            <a href="index.html" class="btn-secondary">
+              <i class="fas fa-home"></i> Return to Homepage
+            </a>
+            <!-- <button onclick="window.print()" class="btn-secondary">
+              <i class="fas fa-print"></i> Print Terms
+            </button> -->
+          </div>
+
+          <!-- Footer Info -->
+          <div class="footer-info">
+            <div class="bg-gray-900/50 rounded-2xl p-6 max-w-2xl mx-auto">
+              <h3 class="text-xl font-bold mb-4 text-center">Need Help Understanding These Terms?</h3>
+              <p class="text-gray-300 text-center mb-6">Our team is here to clarify any aspect of our terms and
+                conditions. We believe in transparent communication.</p>
+
+              <div class="contact-info">
+                <div class="contact-item">
+                  <i class="fas fa-envelope"></i>
+                  <span>info@atirathtradersltd.com</span>
+                </div>
+                <div class="contact-item">
+                  <i class="fas fa-phone"></i>
+                  <span>+91 96764 64756</span>
+                </div>
+                <div class="contact-item">
+                  <i class="fas fa-clock"></i>
+                  <span>Mon-Fri, 9AM-6PM IST</span>
+                </div>
+              </div>
+            </div>
+
+            <p class="text-gray-500 text-sm mt-8 text-center">
+              <i class="fas fa-history mr-2"></i> Last Updated: January 2025 |
+              <i class="fas fa-file-contract ml-4 mr-2"></i> Document Version: 2.1
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Scroll Animation
+    function checkVisibility() {
+      const sections = document.querySelectorAll('.section-container');
+
+      sections.forEach(section => {
+        const sectionTop = section.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+
+        if (sectionTop < windowHeight * 0.85) {
+          section.classList.add('visible');
+        }
+      });
+    }
+
+    // Smooth scroll to section
+    function scrollToSection(sectionId) {
+      const section = document.getElementById(sectionId);
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+        // Add pulse effect
+        section.style.animation = 'none';
+        setTimeout(() => {
+          section.style.animation = 'pulse 0.5s';
+        }, 10);
+        setTimeout(() => {
+          section.style.animation = '';
+        }, 500);
+      }
+    }
+
+    // Initialize
+    document.addEventListener('DOMContentLoaded', function () {
+      // Check visibility on load
+      checkVisibility();
+
+      // Check visibility on scroll
+      window.addEventListener('scroll', checkVisibility);
+
+      // Add click handlers to all section headers
+      document.querySelectorAll('.section-header').forEach(header => {
+        header.style.cursor = 'pointer';
+      });
+
+      // Add smooth scroll for all anchor links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const targetId = this.getAttribute('href');
+          if (targetId === '#') return;
+
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop - 100,
+              behavior: 'smooth'
+            });
+          }
+        });
+      });
+
+      // Add print button functionality
+      const printBtn = document.querySelector('[onclick="window.print()"]');
+      if (printBtn) {
+        printBtn.addEventListener('click', function () {
+          window.print();
+        });
+      }
+    });
+
+    // Add print styles
+    const style = document.createElement('style');
+    style.textContent = `
+      @media print {
+        .nav-glass, .action-buttons, .btn-secondary, .animated-bg {
+          display: none !important;
+        }
+        
+        body {
+          background: white !important;
+          color: black !important;
+        }
+        
+        .glass-card {
+          box-shadow: none !important;
+          border: 1px solid #ddd !important;
+          background: white !important;
+        }
+        
+        .main-title, .section-title {
+          -webkit-text-fill-color: black !important;
+          background: none !important;
+        }
+        
+        .section-number {
+          background: #f0f0f0 !important;
+          color: black !important;
+        }
+      }
+    `;
+    document.head.appendChild(style);
+  </script>
+</body>
+
+</html>

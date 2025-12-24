@@ -1,0 +1,2668 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/png" href="./chat.png">
+  <title>Mobile Application Development | Atirath Technologies</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Bootstrap 5 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #050b1e;
+      color: white;
+      overflow-x: hidden;
+    }
+
+    /* ===== Enhanced Glass Navbar ===== */
+    .nav-glass {
+      background: rgba(5, 11, 30, 0.95);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(139, 92, 246, 0.3);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+      z-index: 1000;
+    }
+
+    /* ===== Brand Title ===== */
+    .brand-title {
+      font-size: 1.6rem;
+      /* Reduced from 1.8rem */
+      font-weight: 900;
+      background: linear-gradient(135deg, #7cfaff 0%, #8b5cf6 50%, #ff6b9d 100%);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-shadow: 0 0 30px rgba(139, 92, 246, 0.4);
+      letter-spacing: 0.5px;
+      /* Reduced from 1px */
+      position: relative;
+      display: inline-block;
+      padding: 0 5px;
+      /* Reduced from 10px */
+      animation: titleGlow 3s ease-in-out infinite alternate;
+      line-height: 1;
+      /* Added to reduce vertical space */
+    }
+
+    @keyframes titleGlow {
+      0% {
+        text-shadow: 0 0 20px rgba(139, 92, 246, 0.4);
+      }
+
+      100% {
+        text-shadow: 0 0 40px rgba(124, 250, 255, 0.6);
+      }
+    }
+
+    /* ===== Service Hero Section ===== */
+    .service-hero {
+      min-height: 70vh;
+      background: linear-gradient(135deg, rgba(5, 11, 30, 0.9), rgba(10, 26, 60, 0.9)),
+        url('https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .service-hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 20% 30%, rgba(124, 250, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
+    }
+
+    /* ===== Floating Animation ===== */
+    .floating-element {
+      animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0px);
+      }
+
+      50% {
+        transform: translateY(-20px);
+      }
+    }
+
+    /* ===== Mobile Screen Animation ===== */
+    .mobile-device {
+      width: 300px;
+      height: 600px;
+      position: relative;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 768px) {
+      .mobile-device {
+        width: 280px;
+        height: 560px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .mobile-device {
+        width: 260px;
+        height: 520px;
+      }
+    }
+
+    .mobile-frame {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(145deg, #1a1f38, #0a0f25);
+      border-radius: 40px;
+      position: relative;
+      overflow: hidden;
+      box-shadow:
+        0 0 50px rgba(124, 250, 255, 0.3),
+        0 0 100px rgba(139, 92, 246, 0.2),
+        inset 0 0 20px rgba(255, 255, 255, 0.1);
+      border: 12px solid #0a1329;
+    }
+
+    @media (max-width: 768px) {
+      .mobile-frame {
+        border-radius: 35px;
+        border-width: 10px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .mobile-frame {
+        border-radius: 30px;
+        border-width: 8px;
+      }
+    }
+
+    .mobile-notch {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 140px;
+      height: 25px;
+      background: #0a1329;
+      border-radius: 0 0 15px 15px;
+      z-index: 20;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    @media (max-width: 768px) {
+      .mobile-notch {
+        width: 120px;
+        height: 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .mobile-notch {
+        width: 100px;
+        height: 18px;
+      }
+    }
+
+    .notch-camera {
+      width: 8px;
+      height: 8px;
+      background: #333;
+      border-radius: 50%;
+      margin-right: 6px;
+    }
+
+    .notch-speaker {
+      width: 50px;
+      height: 5px;
+      background: #222;
+      border-radius: 3px;
+    }
+
+    @media (max-width: 480px) {
+      .notch-camera {
+        width: 6px;
+        height: 6px;
+      }
+
+      .notch-speaker {
+        width: 40px;
+        height: 4px;
+      }
+    }
+
+    .mobile-screen {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(145deg, #0a1a3c, #050b1e);
+    }
+
+    .status-bar {
+      position: absolute;
+      top: 10px;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: space-between;
+      padding: 0 25px;
+      font-size: 11px;
+      color: white;
+      font-weight: 600;
+      z-index: 15;
+    }
+
+    @media (max-width: 480px) {
+      .status-bar {
+        padding: 0 20px;
+        font-size: 10px;
+      }
+    }
+
+    /* App Opening Animation */
+    .app-screen {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(145deg, #0a1a3c, #050b1e);
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      transform-origin: center;
+    }
+
+    .home-screen {
+      padding: 60px 20px 0;
+      display: flex;
+      flex-direction: column;
+    }
+
+    @media (max-width: 768px) {
+      .home-screen {
+        padding: 50px 15px 0;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .home-screen {
+        padding: 45px 12px 0;
+      }
+    }
+
+    .app-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+      margin-top: 30px;
+    }
+
+    @media (max-width: 768px) {
+      .app-grid {
+        gap: 12px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .app-grid {
+        gap: 10px;
+      }
+    }
+
+    .app-icon {
+      width: 70px;
+      height: 70px;
+      border-radius: 18px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 768px) {
+      .app-icon {
+        width: 65px;
+        height: 65px;
+        border-radius: 16px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .app-icon {
+        width: 60px;
+        height: 60px;
+        border-radius: 14px;
+      }
+    }
+
+    .app-icon i {
+      font-size: 26px;
+      margin-bottom: 6px;
+      z-index: 2;
+    }
+
+    @media (max-width: 768px) {
+      .app-icon i {
+        font-size: 24px;
+        margin-bottom: 5px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .app-icon i {
+        font-size: 22px;
+        margin-bottom: 4px;
+      }
+    }
+
+    .app-icon span {
+      font-size: 11px;
+      font-weight: 500;
+      z-index: 2;
+      text-align: center;
+    }
+
+    @media (max-width: 480px) {
+      .app-icon span {
+        font-size: 10px;
+      }
+    }
+
+    .app-icon::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      opacity: 0.9;
+      z-index: 1;
+    }
+
+    .app-icon:hover {
+      transform: translateY(-5px) scale(1.1);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+    }
+
+    /* AT App Icons - 6 Different Colors */
+    .at-icon-1 {
+      background: linear-gradient(135deg, #7cfaff, #3498db);
+    }
+
+    .at-icon-2 {
+      background: linear-gradient(135deg, #8b5cf6, #9b59b6);
+    }
+
+    .at-icon-3 {
+      background: linear-gradient(135deg, #ff6b9d, #c13584);
+    }
+
+    .at-icon-4 {
+      background: linear-gradient(135deg, #2ecc71, #27ae60);
+    }
+
+    .at-icon-5 {
+      background: linear-gradient(135deg, #ff9f43, #e67e22);
+    }
+
+    .at-icon-6 {
+      background: linear-gradient(135deg, #3498db, #2980b9);
+    }
+
+    /* App Content Screens */
+    .app-content {
+      padding: 60px 15px 15px;
+      display: flex;
+      flex-direction: column;
+      opacity: 0;
+      transform: scale(0.9) translateY(20px);
+      pointer-events: none;
+    }
+
+    @media (max-width: 768px) {
+      .app-content {
+        padding: 55px 12px 12px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .app-content {
+        padding: 50px 10px 10px;
+      }
+    }
+
+    .app-content.active {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+      pointer-events: all;
+    }
+
+    .app-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 25px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba(124, 250, 255, 0.2);
+    }
+
+    @media (max-width: 480px) {
+      .app-header {
+        gap: 10px;
+        margin-bottom: 20px;
+      }
+    }
+
+    .back-button {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(124, 250, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      flex-shrink: 0;
+    }
+
+    @media (max-width: 480px) {
+      .back-button {
+        width: 32px;
+        height: 32px;
+      }
+    }
+
+    .back-button:hover {
+      background: rgba(124, 250, 255, 0.2);
+      transform: scale(1.1);
+    }
+
+    .app-header h3 {
+      font-size: 20px;
+      font-weight: 600;
+      background: linear-gradient(135deg, #7cfaff, #8b5cf6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    @media (max-width: 480px) {
+      .app-header h3 {
+        font-size: 18px;
+      }
+    }
+
+    .app-body {
+      flex: 1;
+      overflow-y: auto;
+      padding-right: 5px;
+    }
+
+    .app-body::-webkit-scrollbar {
+      width: 3px;
+    }
+
+    .app-body::-webkit-scrollbar-track {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 2px;
+    }
+
+    .app-body::-webkit-scrollbar-thumb {
+      background: linear-gradient(135deg, #7cfaff, #8b5cf6);
+      border-radius: 2px;
+    }
+
+    /* App Details Content */
+    .app-details {
+      animation: fadeIn 0.5s ease-out;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .feature-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px;
+      margin-bottom: 8px;
+      background: rgba(124, 250, 255, 0.05);
+      border-radius: 10px;
+      border-left: 4px solid;
+      transition: all 0.3s ease;
+    }
+
+    @media (max-width: 480px) {
+      .feature-item {
+        padding: 8px;
+        gap: 8px;
+      }
+    }
+
+    .feature-item:hover {
+      background: rgba(124, 250, 255, 0.1);
+      transform: translateX(5px);
+    }
+
+    .feature-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+
+    @media (max-width: 480px) {
+      .feature-icon {
+        width: 32px;
+        height: 32px;
+        font-size: 14px;
+      }
+    }
+
+    /* App Opening Animation Effects */
+    .app-open-animation {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: inherit;
+      z-index: 100;
+      animation: appOpen 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+      transform-origin: center;
+      border-radius: 30px;
+    }
+
+    @keyframes appOpen {
+      0% {
+        transform: scale(0.3);
+        opacity: 0;
+        border-radius: 50%;
+      }
+
+      50% {
+        transform: scale(1.05);
+        opacity: 1;
+        border-radius: 30px;
+      }
+
+      100% {
+        transform: scale(1);
+        opacity: 1;
+        border-radius: 0;
+      }
+    }
+
+    /* Process Steps Animation ===== */
+    .process-step {
+      opacity: 0;
+      transform: translateX(50px);
+      transition: all 0.8s ease;
+    }
+
+    .process-step.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    /* ===== Tech Stack Animation ===== */
+    .tech-icon {
+      width: 80px;
+      height: 80px;
+      background: rgba(20, 25, 50, 0.8);
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 40px;
+      margin: 0 auto;
+      transition: all 0.4s ease;
+      border: 2px solid transparent;
+    }
+
+    .tech-icon:hover {
+      transform: translateY(-10px) scale(1.1);
+      border-color: #7cfaff;
+      box-shadow: 0 10px 30px rgba(124, 250, 255, 0.3);
+    }
+
+    /* ===== Footer Social Links with Gradient ===== */
+    .social-link {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 18px;
+      transition: all 0.3s ease;
+      position: relative;
+      z-index: 1;
+      overflow: hidden;
+    }
+
+    .social-link::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: -1;
+      transition: opacity 0.3s ease;
+    }
+
+    .social-link.facebook::before {
+      background: linear-gradient(135deg, #1877F2, #0A5BC4);
+    }
+
+    .social-link.twitter::before {
+      background: linear-gradient(135deg, #1DA1F2, #0C85D0);
+    }
+
+    .social-link.instagram::before {
+      background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
+    }
+
+    .social-link.linkedin::before {
+      background: linear-gradient(135deg, #0077B5, #005582);
+    }
+
+    .social-link:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .social-link:hover::before {
+      opacity: 0.9;
+    }
+
+    /* ===== Particles ===== */
+    .particles {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .particle {
+      position: absolute;
+      width: 3px;
+      height: 3px;
+      background: #7cfaff;
+      border-radius: 50%;
+      animation: particleFloat 20s infinite linear;
+    }
+
+    @keyframes particleFloat {
+      0% {
+        transform: translateY(100vh) translateX(0);
+        opacity: 0;
+      }
+
+      10% {
+        opacity: 1;
+      }
+
+      90% {
+        opacity: 1;
+      }
+
+      100% {
+        transform: translateY(-100px) translateX(100px);
+        opacity: 0;
+      }
+    }
+
+    /* ===== Logo in Navbar ===== */
+    .navbar-logo {
+      height: 60px;
+      /* Reduced from 100px to 50px */
+      width: 200px;
+      margin-right: 5px;
+      /* Reduced from 12px to 5px */
+      filter: drop-shadow(0 0 10px rgba(55, 56, 56, 0.5));
+      transition: transform 0.3s ease;
+     
+    }
+
+    .navbar-logo:hover {
+      transform: scale(1.1);
+    }
+
+    /* ===== Section Spacing ===== */
+    .section-padding {
+      padding-top: 100px;
+      padding-bottom: 100px;
+    }
+
+    /* ===== Glass Card ===== */
+    .glass-card {
+      background: rgba(20, 25, 50, 0.7);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(124, 250, 255, 0.2);
+      border-radius: 20px;
+      transition: all 0.4s ease;
+    }
+
+    .glass-card:hover {
+      transform: translateY(-10px);
+      border-color: rgba(139, 92, 246, 0.5);
+      box-shadow: 0 20px 40px rgba(139, 92, 246, 0.3);
+    }
+
+    /* ===== Section Background ===== */
+    .section-bg {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .section-bg::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background:
+        radial-gradient(circle at 20% 30%, rgba(124, 250, 255, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(139, 92, 246, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 40% 80%, rgba(255, 107, 157, 0.03) 0%, transparent 50%);
+      z-index: -1;
+      animation: bgFloat 20s infinite alternate ease-in-out;
+    }
+
+    @keyframes bgFloat {
+      0% {
+        transform: scale(1) rotate(0deg);
+      }
+
+      100% {
+        transform: scale(1.1) rotate(2deg);
+      }
+    }
+
+    /* ===== Dropdown Menu ===== */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      min-width: 240px;
+      background: rgba(10, 15, 35, 0.98);
+      backdrop-filter: blur(25px);
+      border: 1px solid rgba(139, 92, 246, 0.3);
+      border-radius: 12px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+      padding: 15px 0;
+      z-index: 1100;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .dropdown-content a {
+      display: block;
+      padding: 12px 25px;
+      color: #e2e8f0;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      border-left: 3px solid transparent;
+    }
+
+    .dropdown-content a:hover {
+      background: rgba(124, 250, 255, 0.1);
+      color: #7cfaff;
+      padding-left: 30px;
+      border-left: 3px solid #8b5cf6;
+    }
+
+    /* ===== Footer Styles ===== */
+    .unique-footer {
+      position: relative;
+      background: linear-gradient(180deg, #050b1e 0%, #0a0f25 100%);
+      overflow: hidden;
+      padding: 60px 0 30px 0;
+    }
+
+    .unique-footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #7cfaff, #8b5cf6, #ff6b9d, transparent);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 50px;
+      margin-bottom: 30px;
+      align-items: start;
+    }
+
+    .footer-column:first-child {
+      padding-right: 40px;
+      border-right: 1px solid rgba(124, 250, 255, 0.1);
+    }
+
+    .footer-column:nth-child(2) {
+      padding-left: 40px;
+      padding-right: 15px;
+    }
+
+    .footer-column:nth-child(3) {
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+
+    .footer-column:nth-child(4) {
+      padding-left: 15px;
+      padding-right: 0;
+    }
+
+    .footer-column h4 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 15px;
+      background: linear-gradient(135deg, #7cfaff, #8b5cf6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      padding-bottom: 8px;
+      border-bottom: 1px solid rgba(124, 250, 255, 0.1);
+    }
+
+    .footer-column ul {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .footer-column ul li {
+      margin-bottom: 0;
+    }
+
+    .footer-column p {
+      line-height: 1.6;
+      margin-bottom: 15px;
+    }
+
+    .footer-column:nth-child(4) ul {
+      gap: 10px;
+    }
+
+    .footer-wave {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 80px;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" fill="%238b5cf6"/><path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" fill="%238b5cf6"/><path d="M0,0V5.63C149.93,59,314.09,71.78,475.83,42.57,430,21.69,388.14,6.21,345,6c-48.97-.22-96.94,11.71-135.26,35C170.67,59.2,138.65,75.6,124.45,97.27c-14.19,21.78-21.77,45.79-29.11,70.36C71.48,190.7,60.93,224.27,60.18,259c-.63,29.25,11.22,56.86,32.67,80.55,20.93,23.09,49.8,40.29,81.14,49.13,60.21,17.23,126.63,15.2,187.16,5.22,61.84-10.18,121.36-25.75,181.79-41.25,54-13.72,107.45-28.65,158.74-50.31,38.36-16.34,71.12-38.88,104.41-60.7,13.19-8.57,26.14-17.59,39.4-26C1058.69,14.78,1126.12,7.13,1200,7.13V0Z" fill="%237cfaff"/></svg>');
+      background-size: cover;
+      opacity: 0.1;
+    }
+
+    /* ===== Mobile Responsive for Footer ===== */
+    @media (max-width: 1024px) {
+      .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
+      }
+
+      .footer-column:first-child {
+        padding-right: 0;
+        border-right: none;
+      }
+
+      .footer-column:nth-child(2),
+      .footer-column:nth-child(3) {
+        padding-left: 0;
+        padding-right: 0;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .unique-footer {
+        padding: 40px 0 20px 0;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .footer-column {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+      }
+
+      .footer-column h4 {
+        margin-bottom: 12px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .unique-footer {
+        padding: 30px 0 15px 0;
+      }
+
+      .footer-column ul {
+        gap: 6px;
+      }
+    }
+
+    /* ===== Responsive Breakpoints & Layout Adjustments ===== */
+
+    /* General responsive adjustments */
+    @media (max-width: 1536px) {
+      .max-w-7xl {
+        max-width: 1280px;
+      }
+    }
+
+    @media (max-width: 1280px) {
+      .max-w-7xl {
+        max-width: 1024px;
+      }
+    }
+
+    /* Large Tablets and Small Laptops */
+    @media (max-width: 1024px) {
+      .max-w-7xl {
+        max-width: 768px;
+      }
+
+      /* Navbar adjustments */
+      .navbar-logo {
+        height: 70px;
+      }
+
+      .brand-title {
+        font-size: 1.4rem;
+      }
+
+      /* Hero section */
+      .service-hero {
+        min-height: 60vh;
+        background-attachment: scroll;
+        /* Disable parallax for performance */
+      }
+
+      h1.text-8xl {
+        font-size: 4.5rem !important;
+      }
+
+      h1.text-7xl {
+        font-size: 3.5rem !important;
+      }
+
+      h1.text-5xl {
+        font-size: 2.8rem !important;
+      }
+
+      h2.text-5xl,
+      h2.text-4xl {
+        font-size: 2.5rem !important;
+      }
+
+      /* Grid adjustments */
+      .grid-cols-4 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .grid-cols-6 {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      /* Mobile device size */
+      .mobile-device {
+        width: 280px;
+        height: 560px;
+      }
+
+      /* Section padding */
+      .section-padding {
+        padding-top: 80px;
+        padding-bottom: 80px;
+      }
+
+      /* Footer grid */
+      .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
+      }
+
+      .footer-column:first-child {
+        padding-right: 0;
+        border-right: none;
+      }
+
+      .footer-column:nth-child(2),
+      .footer-column:nth-child(3) {
+        padding-left: 0;
+        padding-right: 0;
+      }
+    }
+
+    /* Tablets */
+    @media (max-width: 768px) {
+      .max-w-7xl {
+        max-width: 640px;
+      }
+
+      /* Navbar */
+      .navbar-logo {
+        height: 60px;
+      }
+
+      .brand-title {
+        font-size: 1.2rem;
+      }
+
+      /* Hero section */
+      .service-hero {
+        min-height: 50vh;
+      }
+
+      h1.text-8xl,
+      h1.text-7xl,
+      h1.text-5xl {
+        font-size: 2.5rem !important;
+        line-height: 1.2 !important;
+      }
+
+      h2.text-5xl,
+      h2.text-4xl {
+        font-size: 2rem !important;
+        line-height: 1.3 !important;
+      }
+
+      p.text-xl,
+      p.text-2xl {
+        font-size: 1.1rem !important;
+      }
+
+      /* Layout grids */
+      .grid-cols-2,
+      .grid-cols-3,
+      .grid-cols-4,
+      .grid-cols-6 {
+        grid-template-columns: 1fr !important;
+      }
+
+      /* Mobile device */
+      .mobile-device {
+        width: 260px;
+        height: 520px;
+        margin: 0 auto 40px;
+      }
+
+      .mobile-frame {
+        border-radius: 35px;
+        border-width: 10px;
+      }
+
+      .mobile-notch {
+        width: 120px;
+        height: 20px;
+      }
+
+      /* Grid adjustments for content */
+      .grid-cols-1.lg\:grid-cols-2 {
+        grid-template-columns: 1fr !important;
+      }
+
+      /* Glass cards */
+      .glass-card {
+        margin-bottom: 20px;
+      }
+
+      .glass-card:last-child {
+        margin-bottom: 0;
+      }
+
+      /* App content */
+      .home-screen {
+        padding: 50px 15px 0;
+      }
+
+      .app-grid {
+        gap: 12px;
+      }
+
+      .app-icon {
+        width: 65px;
+        height: 65px;
+        border-radius: 16px;
+      }
+
+      .app-icon i {
+        font-size: 24px;
+        margin-bottom: 5px;
+      }
+
+      .app-icon span {
+        font-size: 10px;
+      }
+
+      /* Section padding */
+      .section-padding {
+        padding-top: 60px;
+        padding-bottom: 60px;
+      }
+
+      /* Footer adjustments */
+      .unique-footer {
+        padding: 40px 0 20px 0;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .footer-column {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+      }
+
+      .footer-column h4 {
+        margin-bottom: 12px;
+      }
+
+      /* WhatsApp button */
+      .whatsapp-float-left {
+        width: 60px;
+        height: 60px;
+        font-size: 30px;
+        bottom: 20px;
+        left: 20px;
+      }
+
+      /* CTA Section */
+      .glass-card.p-12 {
+        padding: 2rem !important;
+      }
+
+      /* Padding adjustments */
+      .px-6 {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+      }
+    }
+
+    /* Mobile Phones */
+    @media (max-width: 640px) {
+      .max-w-7xl {
+        max-width: 100%;
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+
+      /* Navbar */
+      .navbar-logo {
+        height: 50px;
+      }
+
+      .brand-title {
+        font-size: 1.1rem;
+      }
+
+      /* Hero section */
+      .service-hero {
+        min-height: 40vh;
+      }
+
+      h1.text-8xl,
+      h1.text-7xl,
+      h1.text-5xl {
+        font-size: 2rem !important;
+      }
+
+      h2.text-5xl,
+      h2.text-4xl {
+        font-size: 1.8rem !important;
+      }
+
+      /* Text sizes */
+      .text-lg {
+        font-size: 1rem !important;
+      }
+
+      /* Spacing adjustments */
+      .mb-16 {
+        margin-bottom: 3rem !important;
+      }
+
+      .mb-8 {
+        margin-bottom: 2rem !important;
+      }
+
+      .gap-16 {
+        gap: 3rem !important;
+      }
+
+      .gap-8 {
+        gap: 1.5rem !important;
+      }
+
+      /* Mobile device */
+      .mobile-device {
+        width: 240px;
+        height: 480px;
+      }
+
+      .mobile-frame {
+        border-radius: 30px;
+        border-width: 8px;
+      }
+
+      .mobile-notch {
+        width: 100px;
+        height: 18px;
+      }
+
+      .notch-camera {
+        width: 6px;
+        height: 6px;
+      }
+
+      .notch-speaker {
+        width: 40px;
+        height: 4px;
+      }
+
+      .status-bar {
+        padding: 0 20px;
+        font-size: 10px;
+      }
+
+      /* App content */
+      .home-screen {
+        padding: 45px 12px 0;
+      }
+
+      .app-grid {
+        gap: 10px;
+      }
+
+      .app-icon {
+        width: 60px;
+        height: 60px;
+        border-radius: 14px;
+      }
+
+      .app-icon i {
+        font-size: 22px;
+        margin-bottom: 4px;
+      }
+
+      .app-icon span {
+        font-size: 9px;
+      }
+
+      /* App content screens */
+      .app-content {
+        padding: 50px 10px 10px;
+      }
+
+      .app-header {
+        gap: 10px;
+        margin-bottom: 20px;
+      }
+
+      .app-header h3 {
+        font-size: 18px;
+      }
+
+      .back-button {
+        width: 32px;
+        height: 32px;
+      }
+
+      .feature-item {
+        padding: 8px;
+        gap: 8px;
+      }
+
+      .feature-icon {
+        width: 32px;
+        height: 32px;
+        font-size: 14px;
+      }
+
+      /* Padding in cards */
+      .p-8 {
+        padding: 1.5rem !important;
+      }
+
+      .p-12 {
+        padding: 2rem !important;
+      }
+
+      /* Tech icons */
+      .tech-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 30px;
+      }
+
+      /* CTA buttons */
+      .flex-col.sm\:flex-row {
+        flex-direction: column !important;
+        gap: 1rem !important;
+      }
+
+      .px-8 {
+        padding-left: 1.5rem !important;
+        padding-right: 1.5rem !important;
+      }
+
+      .py-4 {
+        padding-top: 0.75rem !important;
+        padding-bottom: 0.75rem !important;
+      }
+
+      /* WhatsApp button */
+      .whatsapp-float-left {
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+        bottom: 15px;
+        left: 15px;
+      }
+
+      /* Hide some elements on very small screens */
+      .hidden-xs {
+        display: none !important;
+      }
+    }
+
+    /* Small Mobile Phones */
+    @media (max-width: 480px) {
+
+      /* Navbar */
+      .navbar-logo {
+        height: 40px;
+      }
+
+      .brand-title {
+        font-size: 1rem;
+        padding: 0 3px;
+      }
+
+      /* Hero section */
+      .service-hero {
+        min-height: 35vh;
+      }
+
+      h1.text-8xl,
+      h1.text-7xl,
+      h1.text-5xl {
+        font-size: 1.8rem !important;
+      }
+
+      h2.text-5xl,
+      h2.text-4xl {
+        font-size: 1.6rem !important;
+      }
+
+      /* Smaller text for mobile */
+      body {
+        font-size: 14px;
+      }
+
+      /* Mobile device */
+      .mobile-device {
+        width: 220px;
+        height: 440px;
+      }
+
+      /* Reduce icon sizes */
+      .w-12.h-12,
+      .w-16.h-16,
+      .w-20.h-20 {
+        width: 40px !important;
+        height: 40px !important;
+      }
+
+      .text-2xl {
+        font-size: 1.25rem !important;
+      }
+
+      /* Adjust spacing */
+      .space-y-6>*+* {
+        margin-top: 1rem !important;
+      }
+
+      /* App content */
+      .app-grid {
+        gap: 8px;
+      }
+
+      .app-icon {
+        width: 55px;
+        height: 55px;
+      }
+
+      .app-icon i {
+        font-size: 20px;
+      }
+
+      .app-icon span {
+        font-size: 8px;
+      }
+
+      /* Footer */
+      .unique-footer {
+        padding: 30px 0 15px 0;
+      }
+
+      .footer-column ul {
+        gap: 6px;
+      }
+
+      .social-link {
+        width: 36px;
+        height: 36px;
+        font-size: 16px;
+      }
+
+      /* Reduce padding further */
+      .p-8 {
+        padding: 1rem !important;
+      }
+
+      /* CTA Section */
+      .glass-card.p-12 {
+        padding: 1.5rem !important;
+      }
+    }
+
+    /* Very Small Mobile Phones */
+    @media (max-width: 360px) {
+      .brand-title {
+        font-size: 0.9rem;
+      }
+
+      .navbar-logo {
+        height: 35px;
+      }
+
+      h1.text-8xl,
+      h1.text-7xl,
+      h1.text-5xl {
+        font-size: 1.6rem !important;
+      }
+
+      h2.text-5xl,
+      h2.text-4xl {
+        font-size: 1.4rem !important;
+      }
+
+      /* Reduce padding further */
+      .px-6 {
+        padding-left: 0.75rem !important;
+        padding-right: 0.75rem !important;
+      }
+
+      /* Mobile device */
+      .mobile-device {
+        width: 200px;
+        height: 400px;
+      }
+
+      .mobile-frame {
+        border-radius: 25px;
+        border-width: 6px;
+      }
+
+      /* App grid */
+      .app-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+      }
+
+      /* Footer contact info - stack vertically */
+      .footer-column:nth-child(4) ul li {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+      }
+    }
+
+    /* ===== Landscape Orientation ===== */
+    @media (max-height: 500px) and (orientation: landscape) {
+      .service-hero {
+        min-height: 80vh;
+      }
+
+      .navbar-logo {
+        height: 40px;
+      }
+
+      /* Reduce vertical padding in landscape */
+      .section-padding {
+        padding-top: 40px;
+        padding-bottom: 40px;
+      }
+
+      .py-20 {
+        padding-top: 3rem !important;
+        padding-bottom: 3rem !important;
+      }
+
+      /* Adjust mobile device for landscape */
+      .mobile-device {
+        width: 200px;
+        height: 400px;
+        margin-bottom: 20px;
+      }
+    }
+
+    /* ===== High Resolution Screens ===== */
+    @media (min-width: 1920px) {
+      .max-w-7xl {
+        max-width: 1400px;
+      }
+
+      .mobile-device {
+        width: 350px;
+        height: 700px;
+      }
+
+      .tech-icon {
+        width: 100px;
+        height: 100px;
+        font-size: 48px;
+      }
+    }
+
+    /* ===== Print Styles ===== */
+    @media print {
+
+      .whatsapp-float-left,
+      .social-link,
+      .particles,
+      .service-hero-overlay,
+      .footer-wave,
+      .mobile-device {
+        display: none !important;
+      }
+
+      body {
+        background: white !important;
+        color: black !important;
+      }
+
+      .glass-card {
+        border: 1px solid #ccc !important;
+        background: white !important;
+        box-shadow: none !important;
+      }
+    }
+
+    /* ===== Performance Optimizations for Mobile ===== */
+    @media (max-width: 768px) {
+
+      /* Reduce animations on mobile for better performance */
+      .floating-element,
+      .particle,
+      .service-hero-overlay,
+      .app-open-animation {
+        animation-duration: 0s !important;
+        animation: none !important;
+      }
+
+      /* Disable auto-demo on mobile */
+      .demo-interval {
+        display: none;
+      }
+
+      /* Reduce blur effects on low-end devices */
+      .glass-card,
+      .nav-glass {
+        backdrop-filter: blur(10px) !important;
+        -webkit-backdrop-filter: blur(10px) !important;
+      }
+    }
+
+    /* ===== Touch Device Optimizations ===== */
+    @media (hover: none) and (pointer: coarse) {
+
+      /* Increase tap target sizes for mobile */
+      a,
+      button,
+      .glass-card,
+      .social-link,
+      .app-icon {
+        min-height: 44px;
+        min-width: 44px;
+      }
+
+      /* Disable hover effects on touch devices */
+      .glass-card:hover,
+      .tech-icon:hover,
+      .app-icon:hover {
+        transform: none;
+      }
+
+      /* Mobile menu improvements */
+      #mobileMenu a {
+        padding: 12px 0;
+      }
+
+      /* Larger form inputs */
+      input,
+      select,
+      textarea {
+        font-size: 16px !important;
+        /* Prevents iOS zoom on focus */
+      }
+    }
+
+    /* ===== Accessibility Improvements ===== */
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+
+      .floating-element,
+      .particle,
+      .service-hero-overlay {
+        animation: none !important;
+      }
+    }
+
+    /* ===== Dark Mode Support ===== */
+    @media (prefers-color-scheme: dark) {
+
+      /* Ensure proper contrast in dark mode */
+      .text-gray-300 {
+        color: #d1d5db !important;
+      }
+
+      .text-gray-400 {
+        color: #9ca3af !important;
+      }
+
+      .glass-card {
+        background: rgba(20, 25, 50, 0.85) !important;
+      }
+    }
+
+    /* ===== Fix for iOS Safari 100vh issue ===== */
+    @supports (-webkit-touch-callout: none) {
+      .service-hero {
+        min-height: -webkit-fill-available;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ===== Particles ===== -->
+  <div class="particles" id="particles"></div>
+
+  <!-- ===== WhatsApp Floating Button ===== -->
+  <a href="https://wa.me/919676464756" class="whatsapp-float-left" target="_blank"
+    style="position: fixed; bottom: 30px; left: 30px; width: 70px; height: 70px; background: linear-gradient(135deg, #25D366, #128C7E); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 36px; box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4); z-index: 1000; transition: all 0.3s ease; animation: pulse 2s infinite; text-decoration: none;">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <!-- ===== Enhanced Glass Navbar ===== -->
+  <nav class="fixed top-0 w-full z-50 nav-glass">
+    <div class="max-w-7xl mx-auto px-4 py-2 flex justify-between items-center">
+      <div class="flex items-center gap-1">
+        <img src="Atirath Technologies Transparent Logo.png" alt="Atirath Traders Logo" class="navbar-logo">
+        <h1 class="brand-title"></h1>
+      </div>
+      <div class="hidden md:flex space-x-8 font-medium">
+        <a href="index.html" class="hover:text-violet-400 transition hover:scale-105">Home</a>
+        <a href="about.html" class="hover:text-violet-400 transition hover:scale-105">About Us</a>
+        <div class="dropdown">
+          <a href="#services" class="hover:text-violet-400 transition hover:scale-105 flex items-center gap-1">
+            Services <i class="fas fa-chevron-down text-xs ml-1"></i>
+          </a>
+          <div class="dropdown-content">
+            <a href="web-design.html"><i class="fas fa-paint-brush text-violet-400"></i> Web Design</a>
+            <a href="web-development.html"><i class="fas fa-code text-cyan-400"></i> Web Development</a>
+            <a href="mobile-app.html"><i class="fas fa-mobile-alt text-blue-400"></i> Mobile Application</a>
+            <a href="digital-marketing.html"><i class="fas fa-chart-line text-pink-400"></i> Digital Marketing</a>
+            <a href="seo-optimization.html"><i class="fas fa-search text-green-400"></i> SEO Optimization</a>
+            <a href="branding.html"><i class="fas fa-palette text-yellow-400"></i> Branding</a>
+          </div>
+        </div>
+        <a href="#contact" class="hover:text-violet-400 transition hover:scale-105">Contact Us</a>
+      </div>
+      <button class="md:hidden text-2xl" id="mobileMenuBtn">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+    <div class="md:hidden absolute top-full left-0 w-full bg-[#0a1329]/95 backdrop-filter backdrop-blur-lg hidden"
+      id="mobileMenu">
+      <div class="flex flex-col p-6 space-y-4">
+        <a href="index.html" class="py-3 hover:text-violet-400 transition border-b border-gray-800">Home</a>
+        <a href="about.html" class="py-3 hover:text-violet-400 transition border-b border-gray-800">About Us</a>
+        <div class="py-3 border-b border-gray-800">
+          <div class="font-semibold mb-2">Services</div>
+          <div class="flex flex-col pl-4 space-y-3">
+            <a href="web-design.html" class="py-2 hover:text-violet-400 transition"><i
+                class="fas fa-paint-brush text-violet-400 mr-3"></i> Web Design</a>
+            <a href="web-development.html" class="py-2 hover:text-cyan-400 transition"><i
+                class="fas fa-code text-cyan-400 mr-3"></i> Web Development</a>
+            <a href="mobile-app.html" class="py-2 hover:text-blue-400 transition"><i
+                class="fas fa-mobile-alt text-blue-400 mr-3"></i> Mobile Application</a>
+            <a href="digital-marketing.html" class="py-2 hover:text-pink-400 transition"><i
+                class="fas fa-chart-line text-pink-400 mr-3"></i> Digital Marketing</a>
+            <a href="seo-optimization.html" class="py-2 hover:text-green-400 transition"><i
+                class="fas fa-search text-green-400 mr-3"></i> SEO Optimization</a>
+            <a href="branding.html" class="py-2 hover:text-yellow-400 transition"><i
+                class="fas fa-palette text-yellow-400 mr-3"></i> Branding</a>
+          </div>
+        </div>
+        <a href="index.html#contact" class="hover:text-violet-400 transition hover:scale-105">Contact Us</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== Service Hero ===== -->
+  <section class="service-hero">
+    <div class="service-hero-overlay"></div>
+    <div class="max-w-7xl mx-auto px-6 w-full relative z-10">
+      <div class="text-center">
+        <h1 class="text-5xl md:text-7xl lg:text-8xl font-extrabold mb-6">
+          <span class="bg-gradient-to-r from-blue-400 via-cyan-500 to-violet-500 bg-clip-text text-transparent">
+            Mobile Application
+          </span>
+        </h1>
+        <p class="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto">
+          Transforming ideas into powerful mobile experiences. Native and cross-platform solutions for iOS and Android.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Service Overview ===== -->
+  <section class="section-padding px-6 section-bg">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div>
+          <h2 class="text-4xl md:text-5xl font-bold mb-8">
+            Mobile Solutions That <span class="text-blue-400">Connect</span>
+          </h2>
+          <p class="text-gray-300 text-lg mb-8">
+            In today's mobile-first world, having a powerful mobile application is essential for business success. We
+            create intuitive, high-performance mobile apps that engage users and drive growth.
+          </p>
+
+          <div class="space-y-6">
+            <div class="flex items-start gap-4">
+              <div
+                class="w-12 h-12 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 flex items-center justify-center flex-shrink-0">
+                <i class="fas fa-rocket text-white"></i>
+              </div>
+              <div>
+                <h4 class="text-xl font-bold mb-2">High Performance</h4>
+                <p class="text-gray-400">Optimized apps that load quickly and run smoothly on all devices.</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4">
+              <div
+                class="w-12 h-12 rounded-full bg-gradient-to-r from-cyan-500 to-violet-600 flex items-center justify-center flex-shrink-0">
+                <i class="fas fa-sync-alt text-white"></i>
+              </div>
+              <div>
+                <h4 class="text-xl font-bold mb-2">Cross-Platform</h4>
+                <p class="text-gray-400">Single codebase solutions for both iOS and Android platforms.</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4">
+              <div
+                class="w-12 h-12 rounded-full bg-gradient-to-r from-violet-600 to-pink-500 flex items-center justify-center flex-shrink-0">
+                <i class="fas fa-shield-alt text-white"></i>
+              </div>
+              <div>
+                <h4 class="text-xl font-bold mb-2">Secure & Reliable</h4>
+                <p class="text-gray-400">Enterprise-grade security with regular updates and maintenance.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="relative">
+          <!-- Animated Mobile Device with 6 AT Apps -->
+          <div class="mobile-device floating-element">
+            <div class="mobile-frame">
+              <!-- Mobile Notch -->
+              <div class="mobile-notch">
+                <div class="notch-camera"></div>
+                <div class="notch-speaker"></div>
+              </div>
+
+              <!-- Status Bar -->
+              <div class="status-bar">
+                <span>9:41</span>
+                <span class="flex items-center gap-2">
+                  <i class="fas fa-signal"></i>
+                  <i class="fas fa-wifi"></i>
+                  <i class="fas fa-battery-three-quarters"></i>
+                </span>
+              </div>
+
+              <!-- Mobile Screen -->
+              <div class="mobile-screen">
+                <!-- Home Screen with 6 AT Apps -->
+                <div class="app-screen home-screen">
+                  <h3 class="text-center text-lg font-semibold mb-2"
+                    style="background: linear-gradient(135deg, #7cfaff, #8b5cf6); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                    AT Mobile Apps
+                  </h3>
+                  <p class="text-center text-xs text-gray-400 mb-6">Click any app to explore features</p>
+
+                  <div class="app-grid">
+                    <!-- AT Design Pro -->
+                    <div class="app-icon at-icon-1" onclick="openApp('at-design')">
+                      <i class="fas fa-paint-brush"></i>
+                      <span>AT Design</span>
+                    </div>
+
+                    <!-- AT Code Master -->
+                    <div class="app-icon at-icon-2" onclick="openApp('at-code')">
+                      <i class="fas fa-code"></i>
+                      <span>AT Code</span>
+                    </div>
+
+                    <!-- AT Analytics -->
+                    <div class="app-icon at-icon-3" onclick="openApp('at-analytics')">
+                      <i class="fas fa-chart-line"></i>
+                      <span>AT Analytics</span>
+                    </div>
+
+                    <!-- AT Secure -->
+                    <div class="app-icon at-icon-4" onclick="openApp('at-secure')">
+                      <i class="fas fa-shield-alt"></i>
+                      <span>AT Secure</span>
+                    </div>
+
+                    <!-- AT Commerce -->
+                    <div class="app-icon at-icon-5" onclick="openApp('at-commerce')">
+                      <i class="fas fa-shopping-cart"></i>
+                      <span>AT Commerce</span>
+                    </div>
+
+                    <!-- AT Connect -->
+                    <div class="app-icon at-icon-6" onclick="openApp('at-connect')">
+                      <i class="fas fa-comments"></i>
+                      <span>AT Connect</span>
+                    </div>
+                  </div>
+
+                  <div class="mt-auto pt-6 text-center">
+                    <div
+                      class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-blue-500/20 to-cyan-500/20">
+                      <i class="fas fa-hand-pointer text-cyan-400"></i>
+                      <span class="text-xs text-gray-300">Tap any app to open</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- AT Design Pro App Content -->
+                <div class="app-screen app-content" id="at-design-app">
+                  <div class="app-header">
+                    <div class="back-button" onclick="closeApp()">
+                      <i class="fas fa-arrow-left text-cyan-400"></i>
+                    </div>
+                    <h3>AT Design Pro</h3>
+                  </div>
+                  <div class="app-body">
+                    <div class="app-details">
+                      <div class="mb-6 p-4 rounded-xl bg-gradient-to-r from-cyan-500/20 to-blue-500/20">
+                        <h4 class="font-semibold mb-2 text-lg">Professional UI/UX Design</h4>
+                        <p class="text-sm text-gray-300">Create stunning mobile interfaces with our advanced design
+                          platform.</p>
+                      </div>
+
+                      <div class="space-y-3">
+                        <div class="feature-item" style="border-left-color: #7cfaff;">
+                          <div class="feature-icon" style="background: linear-gradient(135deg, #7cfaff, #3498db);">
+                            <i class="fas fa-palette"></i>
+                          </div>
+                          <div>
+                            <p class="text-sm font-medium">Smart Color System</p>
+                            <p class="text-xs text-gray-400">Automated palette generation</p>
+                          </div>
+                        </div>
+
+                        <div class="feature-item" style="border-left-color: #8b5cf6;">
+                          <div class="feature-icon" style="background: linear-gradient(135deg, #8b5cf6, #9b59b6);">
+                            <i class="fas fa-magic"></i>
+                          </div>
+                          <div>
+                            <p class="text-sm font-medium">AI Design Assistant</p>
+                            <p class="text-xs text-gray-400">Intelligent layout suggestions</p>
+                          </div>
+                        </div>
+
+                        <div class="feature-item" style="border-left-color: #2ecc71;">
+                          <div class="feature-icon" style="background: linear-gradient(135deg, #2ecc71, #27ae60);">
+                            <i class="fas fa-sync-alt"></i>
+                          </div>
+                          <div>
+                            <p class="text-sm font-medium">Real-time Sync</p>
+                            <p class="text-xs text-gray-400">Team collaboration features</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- AT Code Master App Content -->
+                <div class="app-screen app-content" id="at-code-app">
+                  <div class="app-header">
+                    <div class="back-button" onclick="closeApp()">
+                      <i class="fas fa-arrow-left text-cyan-400"></i>
+                    </div>
+                    <h3>AT Code Master</h3>
+                  </div>
+                  <div class="app-body">
+                    <div class="app-details">
+                      <div class="mb-6 p-4 rounded-xl bg-gradient-to-r from-purple-500/20 to-pink-500/20">
+                        <h4 class="font-semibold mb-2 text-lg">Advanced Development IDE</h4>
+                        <p class="text-sm text-gray-300">Powerful code editor for mobile app development across
+                          platforms.</p>
+                      </div>
+
+                      <div class="space-y-3">
+                        <div class="feature-item" style="border-left-color: #8b5cf6;">
+                          <div class="feature-icon" style="background: linear-gradient(135deg, #8b5cf6, #9b59b6);">
+                            <i class="fas fa-bolt"></i>
+                          </div>
+                          <div>
+                            <p class="text-sm font-medium">Live Preview</p>
+                            <p class="text-xs text-gray-400">Real-time code changes</p>
+                          </div>
+                        </div>
+
+                        <div class="feature-item" style="border-left-color: #ff6b9d;">
+                          <div class="feature-icon" style="background: linear-gradient(135deg, #ff6b9d, #c13584);">
+                            <i class="fas fa-robot"></i>
+                          </div>
+                          <div>
+                            <p class="text-sm font-medium">AI Code Completion</p>
+                            <p class="text-xs text-gray-400">Smart code suggestions</p>
+                          </div>
+                        </div>
+
+                        <div class="feature-item" style="border-left-color: #3498db;">
+                          <div class="feature-icon" style="background: linear-gradient(135deg, #3498db, #2980b9);">
+                            <i class="fas fa-mobile-alt"></i>
+                          </div>
+                          <div>
+                            <p class="text-sm font-medium">Cross-platform</p>
+                            <p class="text-xs text-gray-400">iOS, Android, Web support</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- AT Analytics App Content -->
+                <div class="app-screen app-content" id="at-analytics-app">
+                  <div class="app-header">
+                    <div class="back-button" onclick="closeApp()">
+                      <i class="fas fa-arrow-left text-cyan-400"></i>
+                    </div>
+                    <h3>AT Analytics Pro</h3>
+                  </div>
+                  <div class="app-body">
+                    <div class="app-details">
+                      <div class="mb-6 p-4 rounded-xl bg-gradient-to-r from-pink-500/20 to-purple-500/20">
+                        <h4 class="font-semibold mb-2 text-lg">Real-time Analytics</h4>
+                        <p class="text-sm text-gray-300">Comprehensive analytics platform for user behavior tracking.
+                        </p>
+                      </div>
+
+                      <div class="space-y-3">
+                        <div class="feature-item" style="border-left-color: #ff6b9d;">
+                          <div class="feature-icon" style="background: linear-gradient(135deg, #ff6b9d, #c13584);">
+                            <i class="fas fa-chart-bar"></i>
+                          </div>
+                          <div>
+                            <p class="text-sm font-medium">Real-time Dashboards</p>
+                            <p class="text-xs text-gray-400">Live user activity monitoring</p>
+                          </div>
+                        </div>
+
+                        <div class="feature-item" style="border-left-color: #9b59b6;">
+                          <div class="feature-icon" style="background: linear-gradient(135deg, #9b59b6, #8e44ad);">
+                            <i class="fas fa-brain"></i>
+                          </div>
+                          <div>
+                            <p class="text-sm font-medium">Predictive Analytics</p>
+                            <p class="text-xs text-gray-400">AI-powered insights</p>
+                          </div>
+                        </div>
+
+                        <div class="feature-item" style="border-left-color: #e74c3c;">
+                          <div class="feature-icon" style="background: linear-gradient(135deg, #e74c3c, #c0392b);">
+                            <i class="fas fa-bell"></i>
+                          </div>
+                          <div>
+                            <p class="text-sm font-medium">Smart Alerts</p>
+                            <p class="text-xs text-gray-400">Automated anomaly detection</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Our Process ===== -->
+  <section class="py-20 px-6 bg-gradient-to-b from-[#050b1e] to-[#0a1a3c]">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-4xl md:text-5xl font-bold text-center mb-16">
+        Our <span class="text-cyan-400">Development Process</span>
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <!-- Step 1 -->
+        <div class="process-step glass-card p-8 text-center">
+          <div
+            class="w-20 h-20 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 flex items-center justify-center mx-auto mb-6">
+            <i class="fas fa-lightbulb text-2xl text-white"></i>
+          </div>
+          <h4 class="text-xl font-bold mb-4">Discovery & Planning</h4>
+          <p class="text-gray-300">
+            We analyze your requirements and create a detailed project roadmap with wireframes and prototypes.
+          </p>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="process-step glass-card p-8 text-center" style="transition-delay: 0.2s">
+          <div
+            class="w-20 h-20 rounded-full bg-gradient-to-r from-cyan-500 to-violet-600 flex items-center justify-center mx-auto mb-6">
+            <i class="fas fa-paint-brush text-2xl text-white"></i>
+          </div>
+          <h4 class="text-xl font-bold mb-4">UI/UX Design</h4>
+          <p class="text-gray-300">
+            Creating intuitive user interfaces and seamless user experiences tailored to your target audience.
+          </p>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="process-step glass-card p-8 text-center" style="transition-delay: 0.4s">
+          <div
+            class="w-20 h-20 rounded-full bg-gradient-to-r from-violet-600 to-pink-500 flex items-center justify-center mx-auto mb-6">
+            <i class="fas fa-code text-2xl text-white"></i>
+          </div>
+          <h4 class="text-xl font-bold mb-4">Development</h4>
+          <p class="text-gray-300">
+            Agile development with regular updates and testing to ensure quality and timely delivery.
+          </p>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="process-step glass-card p-8 text-center" style="transition-delay: 0.6s">
+          <div
+            class="w-20 h-20 rounded-full bg-gradient-to-r from-pink-500 to-blue-500 flex items-center justify-center mx-auto mb-6">
+            <i class="fas fa-rocket text-2xl text-white"></i>
+          </div>
+          <h4 class="text-xl font-bold mb-4">Launch & Support</h4>
+          <p class="text-gray-300">
+            App store deployment, marketing support, and ongoing maintenance for continuous improvement.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Tech Stack ===== -->
+  <section class="section-padding px-6 section-bg">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-4xl md:text-5xl font-bold text-center mb-4">
+        Our <span class="text-violet-400">Technology Stack</span>
+      </h2>
+      <p class="text-gray-400 text-center max-w-2xl mx-auto mb-16">
+        We use cutting-edge technologies to build robust and scalable mobile applications
+      </p>
+
+      <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8">
+        <!-- React Native -->
+        <div class="text-center">
+          <div class="tech-icon mb-4">
+            <i class="fab fa-react text-cyan-400"></i>
+          </div>
+          <h4 class="font-bold">React Native</h4>
+          <p class="text-gray-400 text-sm">Cross-Platform</p>
+        </div>
+
+        <!-- Flutter -->
+        <div class="text-center">
+          <div class="tech-icon mb-4">
+            <i class="fas fa-feather-alt text-blue-400"></i>
+          </div>
+          <h4 class="font-bold">Flutter</h4>
+          <p class="text-gray-400 text-sm">Google's UI Toolkit</p>
+        </div>
+
+        <!-- iOS -->
+        <div class="text-center">
+          <div class="tech-icon mb-4">
+            <i class="fab fa-apple text-gray-300"></i>
+          </div>
+          <h4 class="font-bold">iOS</h4>
+          <p class="text-gray-400 text-sm">Swift & Objective-C</p>
+        </div>
+
+        <!-- Android -->
+        <div class="text-center">
+          <div class="tech-icon mb-4">
+            <i class="fab fa-android text-green-400"></i>
+          </div>
+          <h4 class="font-bold">Android</h4>
+          <p class="text-gray-400 text-sm">Kotlin & Java</p>
+        </div>
+
+        <!-- Firebase -->
+        <div class="text-center">
+          <div class="tech-icon mb-4">
+            <i class="fas fa-fire text-yellow-400"></i>
+          </div>
+          <h4 class="font-bold">Firebase</h4>
+          <p class="text-gray-400 text-sm">Backend Services</p>
+        </div>
+
+        <!-- AWS -->
+        <div class="text-center">
+          <div class="tech-icon mb-4">
+            <i class="fab fa-aws text-orange-400"></i>
+          </div>
+          <h4 class="font-bold">AWS</h4>
+          <p class="text-gray-400 text-sm">Cloud Services</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== App Types ===== -->
+  <section class="py-20 px-6 bg-gradient-to-r from-[#0a1a3c] to-[#050b1e]">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-4xl md:text-5xl font-bold text-center mb-16">
+        Types of <span class="text-pink-400">Mobile Apps</span> We Build
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- E-commerce Apps -->
+        <div class="glass-card p-8">
+          <div
+            class="w-16 h-16 rounded-full bg-gradient-to-r from-pink-500 to-cyan-500 flex items-center justify-center mb-6">
+            <i class="fas fa-shopping-cart text-2xl text-white"></i>
+          </div>
+          <h4 class="text-xl font-bold mb-4">E-commerce Apps</h4>
+          <p class="text-gray-300 mb-6">
+            Complete shopping solutions with secure payments, inventory management, and customer analytics.
+          </p>
+          <ul class="space-y-2">
+            <li class="flex items-center gap-2">
+              <i class="fas fa-check-circle text-green-400"></i>
+              <span class="text-gray-300">Product Catalogs</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <i class="fas fa-check-circle text-green-400"></i>
+              <span class="text-gray-300">Payment Integration</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <i class="fas fa-check-circle text-green-400"></i>
+              <span class="text-gray-300">Order Tracking</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Business Apps -->
+        <div class="glass-card p-8">
+          <div
+            class="w-16 h-16 rounded-full bg-gradient-to-r from-cyan-500 to-violet-600 flex items-center justify-center mb-6">
+            <i class="fas fa-briefcase text-2xl text-white"></i>
+          </div>
+          <h4 class="text-xl font-bold mb-4">Business Apps</h4>
+          <p class="text-gray-300 mb-6">
+            Custom solutions for enterprise needs including CRM, ERP, and internal communication tools.
+          </p>
+          <ul class="space-y-2">
+            <li class="flex items-center gap-2">
+              <i class="fas fa-check-circle text-green-400"></i>
+              <span class="text-gray-300">CRM Integration</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <i class="fas fa-check-circle text-green-400"></i>
+              <span class="text-gray-300">Analytics Dashboard</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <i class="fas fa-check-circle text-green-400"></i>
+              <span class="text-gray-300">Team Collaboration</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Social Media Apps -->
+        <div class="glass-card p-8">
+          <div
+            class="w-16 h-16 rounded-full bg-gradient-to-r from-violet-600 to-pink-500 flex items-center justify-center mb-6">
+            <i class="fas fa-users text-2xl text-white"></i>
+          </div>
+          <h4 class="text-xl font-bold mb-4">Social Media Apps</h4>
+          <p class="text-gray-300 mb-6">
+            Engaging social platforms with real-time messaging, content sharing, and community features.
+          </p>
+          <ul class="space-y-2">
+            <li class="flex items-center gap-2">
+              <i class="fas fa-check-circle text-green-400"></i>
+              <span class="text-gray-300">Real-time Chat</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <i class="fas fa-check-circle text-green-400"></i>
+              <span class="text-gray-300">Media Sharing</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <i class="fas fa-check-circle text-green-400"></i>
+              <span class="text-gray-300">User Profiles</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA Section ===== -->
+  <section id="contact" class="section-padding px-6 section-bg">
+    <div class="max-w-5xl mx-auto text-center">
+      <div class="glass-card p-12 relative overflow-hidden">
+        <div class="absolute -top-20 -right-20 w-40 h-40 rounded-full bg-gradient-to-r from-blue-500/20 to-cyan-500/20">
+        </div>
+        <div
+          class="absolute -bottom-20 -left-20 w-40 h-40 rounded-full bg-gradient-to-r from-cyan-500/20 to-violet-600/20">
+        </div>
+
+        <h2 class="text-4xl md:text-5xl font-bold mb-6 relative z-10">
+          Ready to Build Your <span
+            class="text-transparent bg-gradient-to-r from-blue-400 to-cyan-500 bg-clip-text">Mobile App</span>?
+        </h2>
+        <p class="text-gray-300 text-lg mb-10 max-w-2xl mx-auto relative z-10">
+          Let's discuss your mobile app idea and create a solution that transforms your business.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-6 justify-center relative z-10">
+          <a href="index.html#contact" class="px-8 py-4 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 
+                      font-semibold hover:scale-105 transition-all duration-300 
+                      shadow-xl hover:shadow-cyan-500/30">
+            Start Your Project
+          </a>
+          <a href="index.html#services" class="px-8 py-4 rounded-full bg-transparent border-2 border-cyan-500 
+                      font-semibold hover:scale-105 transition-all duration-300 
+                      hover:bg-cyan-500/10">
+            View All Services
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+
+  <!-- ===== Footer ===== -->
+  <footer class="py-16 unique-footer">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="footer-grid">
+        <!-- Column 1 -->
+        <div class="footer-column">
+          <div class="flex items-center gap-4 mb-6">
+            <img src="Atirath Technologies Transparent Logo.png" alt="Logo" class="navbar-logo">
+            <h2 class="brand-title"></h2>
+          </div>
+          <p class="text-gray-400 mb-6">
+            Transforming businesses through innovative digital solutions. Your trusted partner for digital growth.
+          </p>
+          <div class="flex space-x-4">
+            <a href="https://www.facebook.com/profile.php?id=61585464714844" class="social-link facebook">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="social-link twitter">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="https://www.instagram.com/atirath_technologies?igsh=OTVraThwaXNlZXU4"
+              class="social-link instagram">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.linkedin.com/company/110555899" class="social-link linkedin">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Column 2 -->
+        <div class="footer-column">
+          <h4>Quick Links</h4>
+          <ul class="space-y-3">
+            <li><a href="index.html" class="text-gray-400 hover:text-cyan-400 transition">Home</a></li>
+            <li><a href="about.html" class="text-gray-400 hover:text-cyan-400 transition">About Us</a></li>
+            <li><a href="#services" class="text-gray-400 hover:text-cyan-400 transition">Services</a></li>
+            <li><a href="#contact" class="text-gray-400 hover:text-cyan-400 transition">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3 -->
+        <div class="footer-column">
+          <h4>Our Services</h4>
+          <ul class="space-y-3">
+            <li><a href="web-design.html" class="text-gray-400 hover:text-violet-400 transition">Web Design</a></li>
+            <li><a href="web-development.html" class="text-gray-400 hover:text-violet-400 transition">Web
+                Development</a></li>
+            <li><a href="mobile-app.html" class="text-gray-400 hover:text-blue-400 transition">Mobile Application</a>
+            </li>
+            <li><a href="digital-marketing.html" class="text-gray-400 hover:text-pink-400 transition">Digital
+                Marketing</a></li>
+            <li><a href="seo-optimization.html" class="text-gray-400 hover:text-green-400 transition">SEO
+                Optimization</a></li>
+            <li><a href="branding.html" class="text-gray-400 hover:text-yellow-400 transition">Branding</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 4 -->
+        <div class="footer-column">
+          <h4>Contact Us</h4>
+          <ul class="space-y-4">
+            <li class="flex items-start gap-3">
+              <i class="fas fa-map-marker-alt text-cyan-400 mt-1"></i>
+              <a href="https://maps.google.com/?q=Plot+No.45%2C+Sy.No.74%2C+1st+Floor%2C+Jaihind+Enclave%2C+Madhapur%2C+Hyderabad+-+500081%2C+Telangana"
+                target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-cyan-400 transition">
+                Plot No.45, Sy.No.74, 1st Floor, Jaihind Enclave, Madhapur, Hyderabad - 500081, Telangana
+              </a>
+            </li>
+            <li class="flex items-center gap-3">
+              <i class="fas fa-phone-alt text-violet-400"></i>
+              <span class="text-gray-400">+91 96764 64756</span>
+            </li>
+            <li class="flex items-center gap-3">
+              <i class="fas fa-envelope text-pink-400"></i>
+              <span class="text-gray-400">info@atirathtradersltd.com</span>
+            </li>
+            <li class="flex items-center gap-3">
+              <i class="fas fa-clock text-green-400"></i>
+              <span class="text-gray-400">Mon-Fri: 9AM-6PM</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="border-t border-gray-800 pt-8 mt-8 text-center">
+        <p class="text-gray-400">© 2025 Atirath Traders. All Rights Reserved. | Digital Growth Partner</p>
+        <p class="text-gray-500 text-sm mt-2">Transforming businesses through innovative digital solutions</p>
+      </div>
+    </div>
+
+    <!-- Wave Effect -->
+    <div class="footer-wave"></div>
+  </footer>
+
+  <script>
+    // Create floating particles
+    function createParticles() {
+      const particlesContainer = document.getElementById('particles');
+      const particleCount = 30;
+
+      for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+
+        particle.style.left = `${Math.random() * 100}vw`;
+        particle.style.top = `${Math.random() * 100}vh`;
+
+        const size = Math.random() * 4 + 1;
+        particle.style.width = `${size}px`;
+        particle.style.height = `${size}px`;
+
+        particle.style.animationDelay = `${Math.random() * 20}s`;
+
+        const colors = ['#7cfaff', '#8b5cf6', '#ff6b9d'];
+        particle.style.background = colors[Math.floor(Math.random() * colors.length)];
+
+        particlesContainer.appendChild(particle);
+      }
+    }
+
+    // Mobile menu toggle
+    document.getElementById('mobileMenuBtn').addEventListener('click', function () {
+      const mobileMenu = document.getElementById('mobileMenu');
+      mobileMenu.classList.toggle('hidden');
+
+      const icon = this.querySelector('i');
+      if (icon.classList.contains('fa-bars')) {
+        icon.classList.remove('fa-bars');
+        icon.classList.add('fa-times');
+      } else {
+        icon.classList.remove('fa-times');
+        icon.classList.add('fa-bars');
+      }
+    });
+
+    // Process steps animation on scroll
+    function animateProcessSteps() {
+      const processSteps = document.querySelectorAll('.process-step');
+      processSteps.forEach((step, index) => {
+        const stepPosition = step.getBoundingClientRect().top;
+        const screenPosition = window.innerHeight / 1.3;
+
+        if (stepPosition < screenPosition) {
+          setTimeout(() => {
+            step.classList.add('visible');
+          }, index * 200);
+        }
+      });
+    }
+
+    // Mobile App Animation Functions
+    let currentApp = null;
+    let animationInProgress = false;
+
+    function openApp(appType) {
+      if (animationInProgress) return;
+
+      animationInProgress = true;
+      currentApp = appType;
+
+      // Create app opening animation overlay
+      const mobileScreen = document.querySelector('.mobile-screen');
+      const appOverlay = document.createElement('div');
+      appOverlay.className = 'app-open-animation';
+      appOverlay.style.background = getAppColor(appType);
+
+      mobileScreen.appendChild(appOverlay);
+
+      // Show app content after animation
+      setTimeout(() => {
+        // Hide home screen
+        document.querySelector('.home-screen').style.display = 'none';
+
+        // Show selected app
+        const appContent = document.getElementById(`${appType}-app`);
+        if (appContent) {
+          appContent.classList.add('active');
+          appContent.style.display = 'flex';
+        }
+
+        // Remove animation overlay
+        appOverlay.remove();
+        animationInProgress = false;
+      }, 600);
+    }
+
+    function closeApp() {
+      if (animationInProgress) return;
+
+      animationInProgress = true;
+
+      // Create app closing animation
+      const mobileScreen = document.querySelector('.mobile-screen');
+      const appOverlay = document.createElement('div');
+      appOverlay.className = 'app-open-animation';
+      appOverlay.style.background = getAppColor(currentApp);
+      appOverlay.style.animation = 'appOpen 0.6s cubic-bezier(0.4, 0, 0.2, 1) reverse forwards';
+
+      mobileScreen.appendChild(appOverlay);
+
+      // Hide current app
+      const currentAppContent = document.getElementById(`${currentApp}-app`);
+      if (currentAppContent) {
+        currentAppContent.classList.remove('active');
+      }
+
+      // Show home screen after animation
+      setTimeout(() => {
+        document.querySelector('.home-screen').style.display = 'flex';
+
+        // Hide all app content screens
+        document.querySelectorAll('.app-content').forEach(app => {
+          app.classList.remove('active');
+          app.style.display = 'none';
+        });
+
+        // Remove animation overlay
+        appOverlay.remove();
+        currentApp = null;
+        animationInProgress = false;
+      }, 600);
+    }
+
+    function getAppColor(appType) {
+      const colors = {
+        'at-design': 'linear-gradient(135deg, #7cfaff, #3498db)',
+        'at-code': 'linear-gradient(135deg, #8b5cf6, #9b59b6)',
+        'at-analytics': 'linear-gradient(135deg, #ff6b9d, #c13584)',
+        'at-secure': 'linear-gradient(135deg, #2ecc71, #27ae60)',
+        'at-commerce': 'linear-gradient(135deg, #ff9f43, #e67e22)',
+        'at-connect': 'linear-gradient(135deg, #3498db, #2980b9)'
+      };
+
+      return colors[appType] || 'linear-gradient(135deg, #7cfaff, #8b5cf6)';
+    }
+
+    // Auto-demo animation for AT apps
+    let demoInterval;
+    let demoIndex = 0;
+    const demoApps = ['at-design', 'at-code', 'at-analytics'];
+
+    function startDemo() {
+      demoInterval = setInterval(() => {
+        if (!animationInProgress && !currentApp) {
+          openApp(demoApps[demoIndex]);
+          demoIndex = (demoIndex + 1) % demoApps.length;
+
+          // Auto close after 3 seconds
+          setTimeout(() => {
+            if (currentApp === demoApps[(demoIndex - 1 + demoApps.length) % demoApps.length]) {
+              closeApp();
+            }
+          }, 3000);
+        }
+      }, 4000);
+    }
+
+    // Stop demo on user interaction
+    document.querySelectorAll('.app-icon').forEach(icon => {
+      icon.addEventListener('click', () => {
+        clearInterval(demoInterval);
+      });
+    });
+
+    document.querySelectorAll('.back-button').forEach(button => {
+      button.addEventListener('click', () => {
+        clearInterval(demoInterval);
+      });
+    });
+
+    // Smooth scrolling for anchor links
+    document.addEventListener('DOMContentLoaded', function () {
+      createParticles();
+
+      // Start auto demo after page loads
+      setTimeout(startDemo, 2000);
+
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+
+          const targetId = this.getAttribute('href');
+          if (targetId === '#') return;
+
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop - 80,
+              behavior: 'smooth'
+            });
+
+            // Close mobile menu if open
+            const mobileMenu = document.getElementById('mobileMenu');
+            if (!mobileMenu.classList.contains('hidden')) {
+              mobileMenu.classList.add('hidden');
+              const icon = document.getElementById('mobileMenuBtn').querySelector('i');
+              icon.classList.remove('fa-times');
+              icon.classList.add('fa-bars');
+            }
+          }
+        });
+      });
+
+      // Initial animation check
+      animateProcessSteps();
+
+      // Listen for scroll events
+      window.addEventListener('scroll', animateProcessSteps);
+    });
+
+    // WhatsApp float animation
+    const style = document.createElement('style');
+    style.textContent = `
+    @keyframes pulse {
+      0% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+      }
+      70% {
+        box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+      }
+      100% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+      }
+    }
+  `;
+    document.head.appendChild(style);
+  </script>
+
+</body>
+
+</html>

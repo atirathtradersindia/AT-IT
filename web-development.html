@@ -1,0 +1,1661 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/png" href="./chat.png">
+  <title>Web Development Services | Atirath Technologies</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Bootstrap 5 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #050b1e;
+      color: white;
+      overflow-x: hidden;
+    }
+
+    /* ===== Enhanced Glass Navbar ===== */
+    .nav-glass {
+      background: rgba(5, 11, 30, 0.95);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(139, 92, 246, 0.3);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+      z-index: 1000;
+    }
+
+    /* ===== Brand Title ===== */
+    .brand-title {
+      font-size: 1.6rem;
+      /* Reduced from 1.8rem */
+      font-weight: 900;
+      background: linear-gradient(135deg, #7cfaff 0%, #8b5cf6 50%, #ff6b9d 100%);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-shadow: 0 0 30px rgba(139, 92, 246, 0.4);
+      letter-spacing: 0.5px;
+      /* Reduced from 1px */
+      position: relative;
+      display: inline-block;
+      padding: 0 5px;
+      /* Reduced from 10px */
+      animation: titleGlow 3s ease-in-out infinite alternate;
+      line-height: 1;
+      /* Added to reduce vertical space */
+    }
+
+    @keyframes titleGlow {
+      0% {
+        text-shadow: 0 0 20px rgba(139, 92, 246, 0.4);
+      }
+
+      100% {
+        text-shadow: 0 0 40px rgba(124, 250, 255, 0.6);
+      }
+    }
+
+    /* ===== Service Hero Section ===== */
+    .service-hero {
+      min-height: 70vh;
+      background: linear-gradient(135deg, rgba(5, 11, 30, 0.9), rgba(10, 26, 60, 0.9)),
+        url('https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .service-hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 20% 30%, rgba(124, 250, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
+    }
+
+    /* ===== Floating Animation ===== */
+    .floating-element {
+      animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0px);
+      }
+
+      50% {
+        transform: translateY(-20px);
+      }
+    }
+
+    /* ===== Code Element ===== */
+    .code-element {
+      width: 300px;
+      height: 300px;
+      background: rgba(20, 25, 50, 0.8);
+      backdrop-filter: blur(15px);
+      border: 1px solid #7cfaff;
+      border-radius: 20px;
+      position: relative;
+      overflow: hidden;
+      box-shadow:
+        0 0 50px rgba(124, 250, 255, 0.3),
+        0 0 100px rgba(139, 92, 246, 0.2);
+      margin: 0 auto;
+    }
+
+    .code-content {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, #0a1a3c, #050b1e);
+      position: relative;
+      overflow: hidden;
+      font-family: 'Courier New', monospace;
+      padding: 20px;
+    }
+
+    .code-line {
+      color: #7cfaff;
+      font-size: 14px;
+      margin-bottom: 10px;
+      animation: codeTyping 2s steps(40) infinite;
+    }
+
+    @keyframes codeTyping {
+      from {
+        width: 0;
+      }
+
+      to {
+        width: 100%;
+      }
+    }
+
+    /* ===== Footer Social Links with Gradient ===== */
+    .social-link {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 18px;
+      transition: all 0.3s ease;
+      position: relative;
+      z-index: 1;
+      overflow: hidden;
+    }
+
+    .social-link::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: -1;
+      transition: opacity 0.3s ease;
+    }
+
+    .social-link.facebook::before {
+      background: linear-gradient(135deg, #1877F2, #0A5BC4);
+    }
+
+    .social-link.twitter::before {
+      background: linear-gradient(135deg, #1DA1F2, #0C85D0);
+    }
+
+    .social-link.instagram::before {
+      background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
+    }
+
+    .social-link.linkedin::before {
+      background: linear-gradient(135deg, #0077B5, #005582);
+    }
+
+    .social-link:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .social-link:hover::before {
+      opacity: 0.9;
+    }
+
+    /* ===== Process Steps Animation ===== */
+    .process-step {
+      opacity: 0;
+      transform: translateX(50px);
+      transition: all 0.8s ease;
+    }
+
+    .process-step.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    /* ===== Tech Stack Animation ===== */
+    .tech-icon {
+      width: 80px;
+      height: 80px;
+      background: rgba(20, 25, 50, 0.8);
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 40px;
+      margin: 0 auto;
+      transition: all 0.4s ease;
+      border: 2px solid transparent;
+    }
+
+    .tech-icon:hover {
+      transform: translateY(-10px) scale(1.1);
+      border-color: #7cfaff;
+      box-shadow: 0 10px 30px rgba(124, 250, 255, 0.3);
+    }
+
+    /* ===== Particles ===== */
+    .particles {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .particle {
+      position: absolute;
+      width: 3px;
+      height: 3px;
+      background: #7cfaff;
+      border-radius: 50%;
+      animation: particleFloat 20s infinite linear;
+    }
+
+    @keyframes particleFloat {
+      0% {
+        transform: translateY(100vh) translateX(0);
+        opacity: 0;
+      }
+
+      10% {
+        opacity: 1;
+      }
+
+      90% {
+        opacity: 1;
+      }
+
+      100% {
+        transform: translateY(-100px) translateX(100px);
+        opacity: 0;
+      }
+    }
+
+    /* ===== Logo in Navbar ===== */
+    .navbar-logo {
+      height: 60px;
+      /* Reduced from 100px to 50px */
+      width: 200px;
+      margin-right: 5px;
+      /* Reduced from 12px to 5px */
+      filter: drop-shadow(0 0 10px rgba(55, 56, 56, 0.5));
+      transition: transform 0.3s ease;
+      
+    }
+
+    .navbar-logo:hover {
+      transform: scale(1.1);
+    }
+
+    /* ===== Section Spacing ===== */
+    .section-padding {
+      padding-top: 100px;
+      padding-bottom: 100px;
+    }
+
+    /* ===== Glass Card ===== */
+    .glass-card {
+      background: rgba(20, 25, 50, 0.7);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(124, 250, 255, 0.2);
+      border-radius: 20px;
+      transition: all 0.4s ease;
+    }
+
+    .glass-card:hover {
+      transform: translateY(-10px);
+      border-color: rgba(139, 92, 246, 0.5);
+      box-shadow: 0 20px 40px rgba(139, 92, 246, 0.3);
+    }
+
+    /* ===== Section Background ===== */
+    .section-bg {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .section-bg::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background:
+        radial-gradient(circle at 20% 30%, rgba(124, 250, 255, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(139, 92, 246, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 40% 80%, rgba(255, 107, 157, 0.03) 0%, transparent 50%);
+      z-index: -1;
+      animation: bgFloat 20s infinite alternate ease-in-out;
+    }
+
+    @keyframes bgFloat {
+      0% {
+        transform: scale(1) rotate(0deg);
+      }
+
+      100% {
+        transform: scale(1.1) rotate(2deg);
+      }
+    }
+
+    /* ===== Dropdown Menu ===== */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      min-width: 240px;
+      background: rgba(10, 15, 35, 0.98);
+      backdrop-filter: blur(25px);
+      border: 1px solid rgba(139, 92, 246, 0.3);
+      border-radius: 12px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+      padding: 15px 0;
+      z-index: 1100;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .dropdown-content a {
+      display: block;
+      padding: 12px 25px;
+      color: #e2e8f0;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      border-left: 3px solid transparent;
+    }
+
+    .dropdown-content a:hover {
+      background: rgba(124, 250, 255, 0.1);
+      color: #7cfaff;
+      padding-left: 30px;
+      border-left: 3px solid #8b5cf6;
+    }
+
+    /* ===== Form Validation Styles ===== */
+    .input-error {
+      border-color: #ff6b9d !important;
+      box-shadow: 0 0 10px rgba(255, 107, 157, 0.3) !important;
+    }
+
+    .input-success {
+      border-color: #25D366 !important;
+      box-shadow: 0 0 10px rgba(37, 211, 102, 0.3) !important;
+    }
+
+    .error-message {
+      color: #ff6b9d;
+      font-size: 0.875rem;
+      margin-top: 5px;
+      display: none;
+    }
+
+    .country-code-select {
+      width: 120px;
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+      border-right: none;
+    }
+
+    .phone-input {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+      flex: 1;
+    }
+
+    /* ===== Footer Styles ===== */
+    .unique-footer {
+      position: relative;
+      background: linear-gradient(180deg, #050b1e 0%, #0a0f25 100%);
+      overflow: hidden;
+      padding: 60px 0 30px 0;
+    }
+
+    .unique-footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #7cfaff, #8b5cf6, #ff6b9d, transparent);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      /* Increased first column width */
+      gap: 50px;
+      /* Increased gap between columns */
+      margin-bottom: 30px;
+      align-items: start;
+    }
+
+    /* First column - Company info with more space */
+    .footer-column:first-child {
+      padding-right: 40px;
+      /* Add padding to create more space */
+      border-right: 1px solid rgba(124, 250, 255, 0.1);
+      /* Optional: Add subtle separator */
+    }
+
+    /* Second column - Quick Links moved further right */
+    .footer-column:nth-child(2) {
+      padding-left: 40px;
+      /* Increased padding to move it right */
+      padding-right: 15px;
+    }
+
+    /* Third column - Services */
+    .footer-column:nth-child(3) {
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+
+    /* Fourth column - Contact */
+    .footer-column:nth-child(4) {
+      padding-left: 15px;
+      padding-right: 0;
+    }
+
+    .footer-column h4 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 15px;
+      background: linear-gradient(135deg, #7cfaff, #8b5cf6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      padding-bottom: 8px;
+      border-bottom: 1px solid rgba(124, 250, 255, 0.1);
+    }
+
+    .footer-column ul {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .footer-column ul li {
+      margin-bottom: 0;
+    }
+
+    .footer-column p {
+      line-height: 1.6;
+      margin-bottom: 15px;
+    }
+
+    /* Contact info specific styling */
+    .footer-column:nth-child(4) ul {
+      gap: 10px;
+    }
+
+    .footer-wave {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 80px;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" fill="%238b5cf6"/><path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" fill="%238b5cf6"/><path d="M0,0V5.63C149.93,59,314.09,71.78,475.83,42.57,430,21.69,388.14,6.21,345,6c-48.97-.22-96.94,11.71-135.26,35C170.67,59.2,138.65,75.6,124.45,97.27c-14.19,21.78-21.77,45.79-29.11,70.36C71.48,190.7,60.93,224.27,60.18,259c-.63,29.25,11.22,56.86,32.67,80.55,20.93,23.09,49.8,40.29,81.14,49.13,60.21,17.23,126.63,15.2,187.16,5.22,61.84-10.18,121.36-25.75,181.79-41.25,54-13.72,107.45-28.65,158.74-50.31,38.36-16.34,71.12-38.88,104.41-60.7,13.19-8.57,26.14-17.59,39.4-26C1058.69,14.78,1126.12,7.13,1200,7.13V0Z" fill="%237cfaff"/></svg>');
+      background-size: cover;
+      opacity: 0.1;
+    }
+
+    /* ===== Mobile Responsive for Footer ===== */
+    @media (max-width: 1024px) {
+      .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
+      }
+
+      .footer-column:first-child {
+        padding-right: 0;
+        border-right: none;
+      }
+
+      .footer-column:nth-child(2),
+      .footer-column:nth-child(3) {
+        padding-left: 0;
+        padding-right: 0;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .unique-footer {
+        padding: 40px 0 20px 0;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .footer-column {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+      }
+
+      .footer-column h4 {
+        margin-bottom: 12px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .unique-footer {
+        padding: 30px 0 15px 0;
+      }
+
+      .footer-column ul {
+        gap: 6px;
+      }
+    }
+
+    /* ===== Responsive Breakpoints & Layout Adjustments ===== */
+
+    /* General responsive adjustments */
+    @media (max-width: 1536px) {
+      .max-w-7xl {
+        max-width: 1280px;
+      }
+    }
+
+    @media (max-width: 1280px) {
+      .max-w-7xl {
+        max-width: 1024px;
+      }
+    }
+
+    /* Large Tablets and Small Laptops */
+    @media (max-width: 1024px) {
+      .max-w-7xl {
+        max-width: 768px;
+      }
+
+      /* Navbar adjustments */
+      .navbar-logo {
+        height: 70px;
+      }
+
+      .brand-title {
+        font-size: 1.4rem;
+      }
+
+      /* Hero section */
+      .service-hero {
+        min-height: 60vh;
+      }
+
+      h1.text-8xl {
+        font-size: 4.5rem !important;
+      }
+
+      h1.text-7xl {
+        font-size: 3.5rem !important;
+      }
+
+      h1.text-5xl {
+        font-size: 2.8rem !important;
+      }
+
+      /* Grid adjustments */
+      .grid-cols-4 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .grid-cols-6 {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      /* Code element */
+      .code-element {
+        width: 280px;
+        height: 280px;
+      }
+
+      /* Section padding */
+      .section-padding {
+        padding-top: 80px;
+        padding-bottom: 80px;
+      }
+    }
+
+    /* Tablets */
+    @media (max-width: 768px) {
+      .max-w-7xl {
+        max-width: 640px;
+      }
+
+      /* Navbar */
+      .navbar-logo {
+        height: 60px;
+      }
+
+      .brand-title {
+        font-size: 1.2rem;
+      }
+
+      /* Hero section */
+      .service-hero {
+        min-height: 50vh;
+        background-attachment: scroll;
+        /* Remove parallax on mobile */
+      }
+
+      h1.text-8xl,
+      h1.text-7xl,
+      h1.text-5xl {
+        font-size: 2.5rem !important;
+      }
+
+      h2.text-5xl,
+      h2.text-4xl {
+        font-size: 2rem !important;
+      }
+
+      p.text-xl,
+      p.text-2xl {
+        font-size: 1.1rem !important;
+      }
+
+      /* Layout grids */
+      .grid-cols-2,
+      .grid-cols-3,
+      .grid-cols-4,
+      .grid-cols-6 {
+        grid-template-columns: 1fr !important;
+      }
+
+      /* Code element */
+      .code-element {
+        width: 100%;
+        max-width: 320px;
+        height: 280px;
+        margin: 0 auto;
+      }
+
+      /* Glass cards */
+      .glass-card {
+        margin-bottom: 20px;
+      }
+
+      .glass-card:last-child {
+        margin-bottom: 0;
+      }
+
+      /* Section padding */
+      .section-padding {
+        padding-top: 60px;
+        padding-bottom: 60px;
+      }
+
+      /* Footer adjustments */
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      /* WhatsApp button */
+      .whatsapp-float-left {
+        width: 60px;
+        height: 60px;
+        font-size: 30px;
+        bottom: 20px;
+        left: 20px;
+      }
+
+      /* Padding adjustments */
+      .px-6 {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+      }
+    }
+
+    /* Mobile Phones */
+    @media (max-width: 640px) {
+      .max-w-7xl {
+        max-width: 100%;
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+
+      /* Navbar */
+      .navbar-logo {
+        height: 50px;
+      }
+
+      .brand-title {
+        font-size: 1.1rem;
+      }
+
+      /* Hero section */
+      .service-hero {
+        min-height: 40vh;
+      }
+
+      h1.text-8xl,
+      h1.text-7xl,
+      h1.text-5xl {
+        font-size: 2rem !important;
+        line-height: 1.2 !important;
+      }
+
+      h2.text-5xl,
+      h2.text-4xl {
+        font-size: 1.8rem !important;
+        line-height: 1.3 !important;
+      }
+
+      /* Text sizes */
+      .text-lg {
+        font-size: 1rem !important;
+      }
+
+      /* Spacing adjustments */
+      .mb-16 {
+        margin-bottom: 3rem !important;
+      }
+
+      .mb-8 {
+        margin-bottom: 2rem !important;
+      }
+
+      .gap-16 {
+        gap: 3rem !important;
+      }
+
+      .gap-8 {
+        gap: 1.5rem !important;
+      }
+
+      /* Padding in cards */
+      .p-8 {
+        padding: 1.5rem !important;
+      }
+
+      /* Code element */
+      .code-element {
+        height: 240px;
+      }
+
+      .code-line {
+        font-size: 12px !important;
+      }
+
+      /* Tech icons */
+      .tech-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 30px;
+      }
+
+      /* WhatsApp button */
+      .whatsapp-float-left {
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+        bottom: 15px;
+        left: 15px;
+      }
+
+      /* Hide some elements on very small screens */
+      .hidden-xs {
+        display: none !important;
+      }
+    }
+
+    /* Small Mobile Phones */
+    @media (max-width: 480px) {
+
+      /* Navbar */
+      .navbar-logo {
+        height: 40px;
+      }
+
+      .brand-title {
+        font-size: 1rem;
+        padding: 0 3px;
+      }
+
+      /* Hero section */
+      .service-hero {
+        min-height: 35vh;
+      }
+
+      h1.text-8xl,
+      h1.text-7xl,
+      h1.text-5xl {
+        font-size: 1.8rem !important;
+      }
+
+      h2.text-5xl,
+      h2.text-4xl {
+        font-size: 1.6rem !important;
+      }
+
+      /* Smaller text for mobile */
+      body {
+        font-size: 14px;
+      }
+
+      /* Reduce icon sizes */
+      .w-12.h-12,
+      .w-16.h-16,
+      .w-20.h-20 {
+        width: 40px !important;
+        height: 40px !important;
+      }
+
+      .text-2xl {
+        font-size: 1.25rem !important;
+      }
+
+      /* Adjust spacing */
+      .space-y-6>*+* {
+        margin-top: 1rem !important;
+      }
+
+      /* Footer */
+      .footer-column h4 {
+        font-size: 1.1rem;
+      }
+
+      .social-link {
+        width: 36px;
+        height: 36px;
+        font-size: 16px;
+      }
+
+      /* Code element */
+      .code-element {
+        height: 200px;
+        padding: 15px;
+      }
+
+      .code-line {
+        font-size: 11px !important;
+        margin-bottom: 8px;
+      }
+    }
+
+    /* Very Small Mobile Phones */
+    @media (max-width: 360px) {
+      .brand-title {
+        font-size: 0.9rem;
+      }
+
+      .navbar-logo {
+        height: 30px;
+      }
+
+      h1.text-8xl,
+      h1.text-7xl,
+      h1.text-5xl {
+        font-size: 1.6rem !important;
+      }
+
+      h2.text-5xl,
+      h2.text-4xl {
+        font-size: 1.4rem !important;
+      }
+
+      /* Reduce padding further */
+      .px-6 {
+        padding-left: 0.75rem !important;
+        padding-right: 0.75rem !important;
+      }
+
+      .p-8 {
+        padding: 1rem !important;
+      }
+
+      /* Footer contact info - stack vertically */
+      .footer-column:nth-child(4) ul li {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+      }
+    }
+
+    /* ===== Touch Device Optimizations ===== */
+    @media (hover: none) and (pointer: coarse) {
+
+      /* Increase tap target sizes for mobile */
+      a,
+      button,
+      .glass-card,
+      .social-link {
+        min-height: 44px;
+        min-width: 44px;
+      }
+
+      /* Disable hover effects on touch devices */
+      .glass-card:hover {
+        transform: none;
+      }
+
+      .tech-icon:hover {
+        transform: none;
+      }
+
+      /* Mobile menu improvements */
+      #mobileMenu a {
+        padding: 12px 0;
+      }
+
+      /* Larger form inputs */
+      input,
+      select,
+      textarea {
+        font-size: 16px !important;
+        /* Prevents iOS zoom on focus */
+      }
+    }
+
+    /* ===== Landscape Orientation ===== */
+    @media (max-height: 500px) and (orientation: landscape) {
+      .service-hero {
+        min-height: 80vh;
+      }
+
+      .navbar-logo {
+        height: 40px;
+      }
+
+      /* Reduce vertical padding in landscape */
+      .section-padding {
+        padding-top: 40px;
+        padding-bottom: 40px;
+      }
+
+      .py-20 {
+        padding-top: 3rem !important;
+        padding-bottom: 3rem !important;
+      }
+    }
+
+    /* ===== High Resolution Screens ===== */
+    @media (min-width: 1920px) {
+      .max-w-7xl {
+        max-width: 1400px;
+      }
+
+      .code-element {
+        width: 350px;
+        height: 350px;
+      }
+
+      .code-line {
+        font-size: 16px;
+      }
+
+      .tech-icon {
+        width: 100px;
+        height: 100px;
+        font-size: 48px;
+      }
+    }
+
+    /* ===== Print Styles ===== */
+    @media print {
+
+      .whatsapp-float-left,
+      .social-link,
+      .particles,
+      .service-hero-overlay,
+      .footer-wave {
+        display: none !important;
+      }
+
+      body {
+        background: white !important;
+        color: black !important;
+      }
+
+      .glass-card {
+        border: 1px solid #ccc !important;
+        background: white !important;
+        box-shadow: none !important;
+      }
+    }
+
+    /* ===== Performance Optimizations for Mobile ===== */
+    @media (max-width: 768px) {
+
+      /* Reduce animations on mobile for better performance */
+      .floating-element,
+      .particle,
+      .service-hero-overlay {
+        animation-duration: 0s !important;
+        animation: none !important;
+      }
+
+      /* Reduce blur effects on low-end devices */
+      .glass-card,
+      .nav-glass {
+        backdrop-filter: blur(10px) !important;
+        -webkit-backdrop-filter: blur(10px) !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ===== Particles ===== -->
+  <div class="particles" id="particles"></div>
+
+  <!-- ===== WhatsApp Floating Button ===== -->
+  <a href="https://wa.me/919676464756" class="whatsapp-float-left" target="_blank"
+    style="position: fixed; bottom: 30px; left: 30px; width: 70px; height: 70px; background: linear-gradient(135deg, #25D366, #128C7E); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 36px; box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4); z-index: 1000; transition: all 0.3s ease; animation: pulse 2s infinite; text-decoration: none;">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <!-- ===== Enhanced Glass Navbar ===== -->
+  <nav class="fixed top-0 w-full z-50 nav-glass">
+    <div class="max-w-7xl mx-auto px-4 py-2 flex justify-between items-center">
+      <div class="flex items-center gap-1">
+        <img src="Atirath Technologies Transparent Logo.png" alt="Atirath Traders Logo" class="navbar-logo">
+        <h1 class="brand-title"></h1>
+      </div>
+      <div class="hidden md:flex space-x-8 font-medium">
+        <a href="index.html" class="hover:text-violet-400 transition hover:scale-105">Home</a>
+        <a href="about.html" class="hover:text-violet-400 transition hover:scale-105">About Us</a>
+        <div class="dropdown">
+          <a href="#services" class="hover:text-violet-400 transition hover:scale-105 flex items-center gap-1">
+            Services <i class="fas fa-chevron-down text-xs ml-1"></i>
+          </a>
+          <div class="dropdown-content">
+            <a href="web-design.html"><i class="fas fa-paint-brush text-violet-400"></i> Web Design</a>
+            <a href="web-development.html"><i class="fas fa-code text-cyan-400"></i> Web Development</a>
+            <a href="mobile-app.html"><i class="fas fa-mobile-alt text-blue-400"></i> Mobile Application</a>
+            <a href="digital-marketing.html"><i class="fas fa-chart-line text-pink-400"></i> Digital Marketing</a>
+            <a href="seo-optimization.html"><i class="fas fa-search text-green-400"></i> SEO Optimization</a>
+            <a href="branding.html"><i class="fas fa-palette text-yellow-400"></i> Branding</a>
+          </div>
+        </div>
+        <a href="index.html#contact" class="hover:text-violet-400 transition hover:scale-105">Contact Us</a>
+      </div>
+      <button class="md:hidden text-2xl" id="mobileMenuBtn">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+    <div class="md:hidden absolute top-full left-0 w-full bg-[#0a1329]/95 backdrop-filter backdrop-blur-lg hidden"
+      id="mobileMenu">
+      <div class="flex flex-col p-6 space-y-4">
+        <a href="index.html" class="py-3 hover:text-violet-400 transition border-b border-gray-800">Home</a>
+        <a href="about.html" class="py-3 hover:text-violet-400 transition border-b border-gray-800">About Us</a>
+        <div class="py-3 border-b border-gray-800">
+          <div class="font-semibold mb-2">Services</div>
+          <div class="flex flex-col pl-4 space-y-3">
+            <a href="web-design.html" class="py-2 hover:text-violet-400 transition"><i
+                class="fas fa-paint-brush text-violet-400 mr-3"></i> Web Design</a>
+            <a href="web-development.html" class="py-2 hover:text-cyan-400 transition"><i
+                class="fas fa-code text-cyan-400 mr-3"></i> Web Development</a>
+            <a href="mobile-app.html" class="py-2 hover:text-blue-400 transition"><i
+                class="fas fa-mobile-alt text-blue-400 mr-3"></i> Mobile Application</a>
+            <a href="digital-marketing.html" class="py-2 hover:text-pink-400 transition"><i
+                class="fas fa-chart-line text-pink-400 mr-3"></i> Digital Marketing</a>
+            <a href="seo-optimization.html" class="py-2 hover:text-green-400 transition"><i
+                class="fas fa-search text-green-400 mr-3"></i> SEO Optimization</a>
+            <a href="branding.html" class="py-2 hover:text-yellow-400 transition"><i
+                class="fas fa-palette text-yellow-400 mr-3"></i> Branding</a>
+          </div>
+        </div>
+        <a href="#contact" class="py-3 hover:text-violet-400 transition">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== Service Hero ===== -->
+  <section class="service-hero">
+    <div class="service-hero-overlay"></div>
+    <div class="max-w-7xl mx-auto px-6 w-full relative z-10">
+      <div class="text-center">
+        <h1 class="text-5xl md:text-7xl lg:text-8xl font-extrabold mb-6">
+          <span class="bg-gradient-to-r from-cyan-400 via-blue-500 to-violet-500 bg-clip-text text-transparent">
+            Web Development
+          </span>
+        </h1>
+        <p class="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto">
+          Building robust, scalable, and high-performance websites with cutting-edge technologies.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Service Overview ===== -->
+  <section class="section-padding px-6 section-bg">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div>
+          <h2 class="text-4xl md:text-5xl font-bold mb-8">
+            Code That <span class="text-cyan-400">Performs</span>
+          </h2>
+          <p class="text-gray-300 text-lg mb-8">
+            We develop custom web solutions that are not only visually appealing but also technically robust. Our
+            development approach ensures scalability, security, and optimal performance for your digital presence.
+          </p>
+
+          <div class="space-y-6">
+            <div class="flex items-start gap-4">
+              <div
+                class="w-12 h-12 rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 flex items-center justify-center flex-shrink-0">
+                <i class="fas fa-bolt text-white"></i>
+              </div>
+              <div>
+                <h4 class="text-xl font-bold mb-2">High Performance</h4>
+                <p class="text-gray-400">Optimized code for fast loading and seamless user experience.</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4">
+              <div
+                class="w-12 h-12 rounded-full bg-gradient-to-r from-blue-500 to-violet-600 flex items-center justify-center flex-shrink-0">
+                <i class="fas fa-shield-alt text-white"></i>
+              </div>
+              <div>
+                <h4 class="text-xl font-bold mb-2">Secure & Reliable</h4>
+                <p class="text-gray-400">Enterprise-grade security with regular updates and maintenance.</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4">
+              <div
+                class="w-12 h-12 rounded-full bg-gradient-to-r from-violet-600 to-cyan-500 flex items-center justify-center flex-shrink-0">
+                <i class="fas fa-expand-alt text-white"></i>
+              </div>
+              <div>
+                <h4 class="text-xl font-bold mb-2">Scalable Solutions</h4>
+                <p class="text-gray-400">Architecture designed to grow with your business needs.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="relative">
+          <!-- Animated Code Element -->
+          <div class="code-element floating-element">
+            <div class="code-content">
+              <!-- Code Lines -->
+              <div class="code-line">const express = require('express');</div>
+              <div class="code-line">const app = express();</div>
+              <div class="code-line"><br></div>
+              <div class="code-line">// API Routes</div>
+              <div class="code-line">app.get('/api/data', (req, res) => {</div>
+              <div class="code-line"> res.json({ success: true });</div>
+              <div class="code-line">});</div>
+              <div class="code-line"><br></div>
+              <div class="code-line">// Server Start</div>
+              <div class="code-line">app.listen(3000, () => {</div>
+              <div class="code-line"> console.log('Server running...');</div>
+              <div class="code-line">});</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Our Process ===== -->
+  <section class="py-20 px-6 bg-gradient-to-b from-[#050b1e] to-[#0a1a3c]">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-4xl md:text-5xl font-bold text-center mb-16">
+        Our <span class="text-cyan-400">Development Process</span>
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <!-- Step 1 -->
+        <div class="process-step glass-card p-8 text-center">
+          <div
+            class="w-20 h-20 rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 flex items-center justify-center mx-auto mb-6">
+            <i class="fas fa-clipboard-list text-2xl text-white"></i>
+          </div>
+          <h4 class="text-xl font-bold mb-4">Requirement Analysis</h4>
+          <p class="text-gray-300">
+            Understanding your business goals and technical requirements to create a development plan.
+          </p>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="process-step glass-card p-8 text-center" style="transition-delay: 0.2s">
+          <div
+            class="w-20 h-20 rounded-full bg-gradient-to-r from-blue-500 to-violet-600 flex items-center justify-center mx-auto mb-6">
+            <i class="fas fa-code text-2xl text-white"></i>
+          </div>
+          <h4 class="text-xl font-bold mb-4">Development</h4>
+          <p class="text-gray-300">
+            Agile development with clean, maintainable code and regular progress updates.
+          </p>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="process-step glass-card p-8 text-center" style="transition-delay: 0.4s">
+          <div
+            class="w-20 h-20 rounded-full bg-gradient-to-r from-violet-600 to-cyan-500 flex items-center justify-center mx-auto mb-6">
+            <i class="fas fa-vial text-2xl text-white"></i>
+          </div>
+          <h4 class="text-xl font-bold mb-4">Testing & QA</h4>
+          <p class="text-gray-300">
+            Rigorous testing across devices and browsers to ensure quality and performance.
+          </p>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="process-step glass-card p-8 text-center" style="transition-delay: 0.6s">
+          <div
+            class="w-20 h-20 rounded-full bg-gradient-to-r from-cyan-500 to-violet-600 flex items-center justify-center mx-auto mb-6">
+            <i class="fas fa-rocket text-2xl text-white"></i>
+          </div>
+          <h4 class="text-xl font-bold mb-4">Deployment & Support</h4>
+          <p class="text-gray-300">
+            Smooth deployment and ongoing support for maintenance and updates.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Development Services ===== -->
+  <section class="section-padding px-6 section-bg">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-4xl md:text-5xl font-bold text-center mb-4">
+        Our <span class="text-blue-400">Development Services</span>
+      </h2>
+      <p class="text-gray-400 text-center max-w-2xl mx-auto mb-16">
+        Full-stack web development solutions for all your business needs
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Frontend Development -->
+        <div class="glass-card p-8">
+          <div
+            class="w-16 h-16 rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 flex items-center justify-center mb-6">
+            <i class="fas fa-desktop text-2xl text-white"></i>
+          </div>
+          <h4 class="text-xl font-bold mb-4">Frontend Development</h4>
+          <p class="text-gray-300 mb-6">
+            Creating responsive, interactive user interfaces with modern JavaScript frameworks.
+          </p>
+          <ul class="space-y-2">
+            <li class="flex items-center gap-2">
+              <i class="fas fa-check-circle text-green-400"></i>
+              <span class="text-gray-300">React.js & Vue.js</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <i class="fas fa-check-circle text-green-400"></i>
+              <span class="text-gray-300">Responsive Design</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <i class="fas fa-check-circle text-green-400"></i>
+              <span class="text-gray-300"> Web Performance Optimization</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Backend Development -->
+        <div class="glass-card p-8">
+          <div
+            class="w-16 h-16 rounded-full bg-gradient-to-r from-blue-500 to-violet-600 flex items-center justify-center mb-6">
+            <i class="fas fa-server text-2xl text-white"></i>
+          </div>
+          <h4 class="text-xl font-bold mb-4">Backend Development</h4>
+          <p class="text-gray-300 mb-6">
+            Building robust server-side applications and APIs for seamless data management.
+          </p>
+          <ul class="space-y-2">
+            <li class="flex items-center gap-2">
+              <i class="fas fa-check-circle text-green-400"></i>
+              <span class="text-gray-300">Node.js & Python</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <i class="fas fa-check-circle text-green-400"></i>
+              <span class="text-gray-300">RESTful APIs</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <i class="fas fa-check-circle text-green-400"></i>
+              <span class="text-gray-300">Database Design</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- E-commerce Development -->
+        <div class="glass-card p-8">
+          <div
+            class="w-16 h-16 rounded-full bg-gradient-to-r from-violet-600 to-cyan-500 flex items-center justify-center mb-6">
+            <i class="fas fa-shopping-cart text-2xl text-white"></i>
+          </div>
+          <h4 class="text-xl font-bold mb-4">E-commerce Development</h4>
+          <p class="text-gray-300 mb-6">
+            Custom e-commerce solutions with secure payment integration and inventory management.
+          </p>
+          <ul class="space-y-2">
+            <li class="flex items-center gap-2">
+              <i class="fas fa-check-circle text-green-400"></i>
+              <span class="text-gray-300">Inventory Management</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <i class="fas fa-check-circle text-green-400"></i>
+              <span class="text-gray-300">Payment Gateways</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <i class="fas fa-check-circle text-green-400"></i>
+              <span class="text-gray-300">Order Management</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Technology Stack ===== -->
+  <section class="py-20 px-6 bg-gradient-to-r from-[#0a1a3c] to-[#050b1e]">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-4xl md:text-5xl font-bold text-center mb-16">
+        Technology <span class="text-violet-400">Stack</span>
+      </h2>
+
+      <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8">
+        <!-- React -->
+        <div class="text-center">
+          <div class="tech-icon mb-4">
+            <i class="fab fa-react text-cyan-400"></i>
+          </div>
+          <h4 class="font-bold">React</h4>
+          <p class="text-gray-400 text-sm">Frontend Library</p>
+        </div>
+
+        <!-- Vue -->
+        <div class="text-center">
+          <div class="tech-icon mb-4">
+            <i class="fab fa-vuejs text-green-400"></i>
+          </div>
+          <h4 class="font-bold">Vue.js</h4>
+          <p class="text-gray-400 text-sm">JavaScript Framework</p>
+        </div>
+
+        <!-- Node.js -->
+        <div class="text-center">
+          <div class="tech-icon mb-4">
+            <i class="fab fa-node-js text-green-500"></i>
+          </div>
+          <h4 class="font-bold">Node.js</h4>
+          <p class="text-gray-400 text-sm">Runtime Environment</p>
+        </div>
+
+        <!-- Python -->
+        <div class="text-center">
+          <div class="tech-icon mb-4">
+            <i class="fab fa-python text-yellow-400"></i>
+          </div>
+          <h4 class="font-bold">Python</h4>
+          <p class="text-gray-400 text-sm">Backend Language</p>
+        </div>
+
+        <!-- MongoDB -->
+        <div class="text-center">
+          <div class="tech-icon mb-4">
+            <i class="fas fa-database text-green-400"></i>
+          </div>
+          <h4 class="font-bold">MongoDB</h4>
+          <p class="text-gray-400 text-sm">NoSQL Database</p>
+        </div>
+
+        <!-- AWS -->
+        <div class="text-center">
+          <div class="tech-icon mb-4">
+            <i class="fab fa-aws text-orange-400"></i>
+          </div>
+          <h4 class="font-bold">AWS</h4>
+          <p class="text-gray-400 text-sm">Cloud Services</p>
+        </div>
+      </div>
+    </div>
+  </section>
+   <!-- ===== CTA Section ===== -->
+  <section class="section-padding px-6 section-bg">
+    <div class="max-w-6xl mx-auto text-center">
+      <h3 class="text-4xl md:text-5xl font-bold mb-6">Ready to Start Your Project?</h3>
+      <p class="text-gray-300 text-xl mb-10 max-w-3xl mx-auto">
+        Let's collaborate to create something amazing. Our team is ready to bring your ideas to life.
+      </p>
+      <div class="flex flex-wrap justify-center gap-6">
+        <a href="index.html#contact" class="px-10 py-4 rounded-full bg-gradient-to-r from-cyan-500 to-violet-600 
+                     font-semibold hover:scale-105 transition-all duration-300 
+                     shadow-xl hover:shadow-cyan-500/30">
+          <span class="flex items-center gap-3">
+            Start a Project
+            <i class="fas fa-rocket"></i>
+          </span>
+        </a>
+        <a href="index.html" class="px-10 py-4 rounded-full bg-gray-800 border border-gray-700
+                     font-semibold hover:scale-105 transition-all duration-300 
+                     hover:bg-gray-900">
+          <span class="flex items-center gap-3">
+            Back to Home
+            <i class="fas fa-home"></i>
+          </span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== Footer ===== -->
+  <footer class="py-16 unique-footer">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="footer-grid">
+        <!-- Column 1 -->
+        <div class="footer-column">
+          <div class="flex items-center gap-4 mb-6">
+            <img src="Atirath Technologies Transparent Logo.png" alt="Logo" class="navbar-logo">
+            <h2 class="brand-title"></h2>
+          </div>
+          <p class="text-gray-400 mb-6">
+            Transforming businesses through innovative digital solutions. Your trusted partner for digital growth.
+          </p>
+          <div class="flex space-x-4">
+            <a href="https://www.facebook.com/profile.php?id=61585464714844" class="social-link facebook">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="social-link twitter">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="https://www.instagram.com/atirath_technologies?igsh=OTVraThwaXNlZXU4"
+              class="social-link instagram">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.linkedin.com/company/110555899" class="social-link linkedin">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Column 2 -->
+        <div class="footer-column">
+          <h4>Quick Links</h4>
+          <ul class="space-y-3">
+            <li><a href="index.html" class="text-gray-400 hover:text-cyan-400 transition">Home</a></li>
+            <li><a href="about.html" class="text-gray-400 hover:text-cyan-400 transition">About Us</a></li>
+            <li><a href="#services" class="text-gray-400 hover:text-cyan-400 transition">Services</a></li>
+            <li><a href="#contact" class="text-gray-400 hover:text-cyan-400 transition">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3 -->
+        <div class="footer-column">
+          <h4>Our Services</h4>
+          <ul class="space-y-3">
+            <li><a href="web-design.html" class="text-gray-400 hover:text-violet-400 transition">Web Design</a></li>
+            <li><a href="web-development.html" class="text-gray-400 hover:text-violet-400 transition">Web
+                Development</a></li>
+            <li><a href="mobile-app.html" class="text-gray-400 hover:text-blue-400 transition">Mobile Application</a>
+            </li>
+            <li><a href="digital-marketing.html" class="text-gray-400 hover:text-pink-400 transition">Digital
+                Marketing</a></li>
+            <li><a href="seo-optimization.html" class="text-gray-400 hover:text-green-400 transition">SEO
+                Optimization</a></li>
+            <li><a href="branding.html" class="text-gray-400 hover:text-yellow-400 transition">Branding</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 4 -->
+        <div class="footer-column">
+          <h4>Contact Us</h4>
+          <ul class="space-y-4">
+            <li class="flex items-start gap-3">
+              <i class="fas fa-map-marker-alt text-cyan-400 mt-1"></i>
+              <a href="https://maps.google.com/?q=Plot+No.45%2C+Sy.No.74%2C+1st+Floor%2C+Jaihind+Enclave%2C+Madhapur%2C+Hyderabad+-+500081%2C+Telangana"
+                target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-cyan-400 transition">
+                Plot No.45, Sy.No.74, 1st Floor, Jaihind Enclave, Madhapur, Hyderabad - 500081, Telangana
+              </a>
+            </li>
+            <li class="flex items-center gap-3">
+              <i class="fas fa-phone-alt text-violet-400"></i>
+              <span class="text-gray-400">+91 96764 64756</span>
+            </li>
+            <li class="flex items-center gap-3">
+              <i class="fas fa-envelope text-pink-400"></i>
+              <span class="text-gray-400">info@atirathtradersltd.com</span>
+            </li>
+            <li class="flex items-center gap-3">
+              <i class="fas fa-clock text-green-400"></i>
+              <span class="text-gray-400">Mon-Fri: 9AM-6PM</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="border-t border-gray-800 pt-8 mt-8 text-center">
+        <p class="text-gray-400">© 2025 Atirath Technologies. All Rights Reserved. | Digital Growth Partner</p>
+        <p class="text-gray-500 text-sm mt-2">Transforming businesses through innovative digital solutions</p>
+      </div>
+    </div>
+
+    <!-- Wave Effect -->
+    <div class="footer-wave"></div>
+  </footer>
+
+  <script>
+    // Create floating particles
+    function createParticles() {
+      const particlesContainer = document.getElementById('particles');
+      const particleCount = 30;
+
+      for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+
+        particle.style.left = `${Math.random() * 100}vw`;
+        particle.style.top = `${Math.random() * 100}vh`;
+
+        const size = Math.random() * 4 + 1;
+        particle.style.width = `${size}px`;
+        particle.style.height = `${size}px`;
+
+        particle.style.animationDelay = `${Math.random() * 20}s`;
+
+        const colors = ['#7cfaff', '#8b5cf6', '#ff6b9d'];
+        particle.style.background = colors[Math.floor(Math.random() * colors.length)];
+
+        particlesContainer.appendChild(particle);
+      }
+    }
+
+    // Mobile menu toggle
+    document.getElementById('mobileMenuBtn').addEventListener('click', function () {
+      const mobileMenu = document.getElementById('mobileMenu');
+      mobileMenu.classList.toggle('hidden');
+
+      const icon = this.querySelector('i');
+      if (icon.classList.contains('fa-bars')) {
+        icon.classList.remove('fa-bars');
+        icon.classList.add('fa-times');
+      } else {
+        icon.classList.remove('fa-times');
+        icon.classList.add('fa-bars');
+      }
+    });
+
+    // Process steps animation on scroll
+    function animateProcessSteps() {
+      const processSteps = document.querySelectorAll('.process-step');
+      processSteps.forEach((step, index) => {
+        const stepPosition = step.getBoundingClientRect().top;
+        const screenPosition = window.innerHeight / 1.3;
+
+        if (stepPosition < screenPosition) {
+          setTimeout(() => {
+            step.classList.add('visible');
+          }, index * 200);
+        }
+      });
+    }
+
+    // Smooth scrolling for anchor links
+    document.addEventListener('DOMContentLoaded', function () {
+      createParticles();
+
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+
+          const targetId = this.getAttribute('href');
+          if (targetId === '#') return;
+
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop - 80,
+              behavior: 'smooth'
+            });
+
+            // Close mobile menu if open
+            const mobileMenu = document.getElementById('mobileMenu');
+            if (!mobileMenu.classList.contains('hidden')) {
+              mobileMenu.classList.add('hidden');
+              const icon = document.getElementById('mobileMenuBtn').querySelector('i');
+              icon.classList.remove('fa-times');
+              icon.classList.add('fa-bars');
+            }
+          }
+        });
+      });
+
+      // Initial animation check
+      animateProcessSteps();
+
+      // Listen for scroll events
+      window.addEventListener('scroll', animateProcessSteps);
+    });
+
+    // WhatsApp float animation
+    const style = document.createElement('style');
+    style.textContent = `
+    @keyframes pulse {
+      0% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+      }
+      70% {
+        box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+      }
+      100% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+      }
+    }
+  `;
+    document.head.appendChild(style);
+  </script>
+
+</body>
+
+</html>
