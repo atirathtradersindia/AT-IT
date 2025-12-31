@@ -4,9 +4,75 @@
 <head>
   <meta charset="UTF-8">
   <link rel="icon" type="image/png" href="icon.png">
-  <title>Web Design Services | Atirath Technologies</title>
+   <!-- ===== TITLE & BASIC META ===== -->
+  <title>Atirath Technology | Digital Growth Partner - Web Design, Development & Marketing</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  <meta name="description" content="Atirath Technologies - Your trusted digital growth partner offering web design, web development, mobile apps, digital marketing, SEO, and branding services in Hyderabad, India.">
+  <meta name="keywords" content="web design, web development, digital marketing, SEO, mobile app development, branding, Hyderabad, India, Atirath Technologies">
+  <meta name="author" content="Atirath Technologies">
+  <meta name="robots" content="index, follow">
+  
+  <!-- ===== OPEN GRAPH META TAGS ===== -->
+  <meta property="og:title" content="Atirath Technology | Digital Growth Partner">
+  <meta property="og:description" content="Transform your digital presence with our innovative web design, development, and marketing solutions.">
+  <meta property="og:image" content="https://atirathtechnologies.com/Atirath%20Technologies%20Transparent%20Logo.png">
+  <meta property="og:url" content="https://atirathtechnologies.com">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Atirath Technologies">
+  <meta property="og:locale" content="en_US">
+  
+  <!-- ===== TWITTER CARD META TAGS ===== -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Atirath Technology | Digital Growth Partner">
+  <meta name="twitter:description" content="Transform your digital presence with our innovative web design, development, and marketing solutions.">
+  <meta name="twitter:image" content="https://atirathtechnologies.com/Atirath%20Technologies%20Transparent%20Logo.png">
+  <meta name="twitter:site" content="@atirathtech">
+  
+  <!-- ===== CONTACT & BUSINESS META TAGS ===== -->
+  <meta name="contact:country_name" content="India">
+  <meta name="contact:region" content="Telangana">
+  <meta name="contact:city" content="Hyderabad">
+  <meta name="contact:postal_code" content="500081">
+  <meta name="contact:street_address" content="Jaihind Enclave, Madhapur">
+  <meta name="contact:email" content="info@atirathtechnologies.com">
+  <meta name="contact:phone_number" content="+919676464756">
+  <meta name="contact:website" content="https://atirathtechnologies.com">
+  <meta name="business:hours" content="Mo-Fr 09:00-18:00">
+  
+  <!-- ===== STRUCTURED DATA / JSON-LD ===== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Atirath Technologies",
+    "description": "Digital Growth Partner offering web design, development, and marketing services",
+    "url": "https://atirathtechnologies.com",
+    "logo": "https://atirathtechnologies.com/Atirath%20Technologies%20Transparent%20Logo.png",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Jaihind Enclave, Madhapur",
+      "addressLocality": "Hyderabad",
+      "postalCode": "500081",
+      "addressRegion": "Telangana",
+      "addressCountry": "IN"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+919676464756",
+      "contactType": "customer service",
+      "email": "info@atirathtechnologies.com",
+      "availableLanguage": ["English", "Hindi", "Telugu"]
+    },
+    "sameAs": [
+      "https://www.facebook.com/profile.php?id=61585464714844",
+      "https://www.linkedin.com/company/atirath-technologies-india/",
+      "https://www.instagram.com/atirath_technologies"
+    ],
+    "openingHours": "Mo-Fr 09:00-18:00",
+    "priceRange": "$$"
+  }
+  </script>
+  
   <!-- Bootstrap 5 CDN -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -33,42 +99,30 @@
       overflow-x: hidden;
     }
 
-    /* ===== Enhanced Glass Navbar ===== */
-    .nav-glass {
-      background: rgba(5, 11, 30, 0.95);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border-bottom: 1px solid rgba(139, 92, 246, 0.3);
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-      z-index: 1000;
-    }
-
-    /* ===== Brand Title ===== */
-    .brand-title {
-      font-size: 1.6rem;
-      font-weight: 900;
-      background: linear-gradient(135deg, var(--gradient-cyan) 0%, var(--gradient-violet) 50%, var(--gradient-pink) 100%);
-      background-size: 200% auto;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      text-shadow: 0 0 30px rgba(139, 92, 246, 0.4);
-      letter-spacing: 0.5px;
+    /* ===== Background Animation for All Sections ===== */
+    .section-bg {
       position: relative;
-      display: inline-block;
-      padding: 0 5px;
-      animation: titleGlow 3s ease-in-out infinite alternate;
-      line-height: 1;
+      overflow: hidden;
     }
 
-    @keyframes titleGlow {
-      0% {
-        text-shadow: 0 0 20px rgba(139, 92, 246, 0.4);
-      }
+    .section-bg::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: 
+        radial-gradient(circle at 20% 30%, rgba(124, 250, 255, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(139, 92, 246, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 40% 80%, rgba(255, 107, 157, 0.03) 0%, transparent 50%);
+      z-index: -1;
+      animation: bgFloat 20s infinite alternate ease-in-out;
+    }
 
-      100% {
-        text-shadow: 0 0 40px rgba(124, 250, 255, 0.6);
-      }
+    @keyframes bgFloat {
+      0% { transform: scale(1) rotate(0deg); }
+      100% { transform: scale(1.1) rotate(2deg); }
     }
 
     /* ===== Service Hero Section ===== */
@@ -89,6 +143,155 @@
       inset: 0;
       background: radial-gradient(circle at 20% 30%, rgba(124, 250, 255, 0.1) 0%, transparent 50%),
         radial-gradient(circle at 80% 70%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
+    }
+
+    /* ===== Enhanced Glass Navbar (EXACT SAME AS INDEX.HTML) ===== */
+    .nav-glass {
+      background: rgba(5, 11, 30, 0.95);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(139, 92, 246, 0.3);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+      z-index: 1000;
+    }
+
+    /* ===== Brand Title ===== */
+    .brand-title {
+      font-size: 1.6rem; /* Reduced from 1.8rem */
+      font-weight: 900;
+      background: linear-gradient(135deg, #7cfaff 0%, #8b5cf6 50%, #ff6b9d 100%);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-shadow: 0 0 30px rgba(139, 92, 246, 0.4);
+      letter-spacing: 0.5px; /* Reduced from 1px */
+      position: relative;
+      display: inline-block;
+      padding: 0 5px; /* Reduced from 10px */
+      animation: titleGlow 3s ease-in-out infinite alternate;
+      line-height: 1; /* Added to reduce vertical space */
+    }
+
+    @keyframes titleGlow {
+      0% { text-shadow: 0 0 20px rgba(139, 92, 246, 0.4); }
+      100% { text-shadow: 0 0 40px rgba(124, 250, 255, 0.6); }
+    }
+
+    /* ===== Dropdown Menu ===== */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      min-width: 240px;
+      background: rgba(10, 15, 35, 0.98);
+      backdrop-filter: blur(25px);
+      border: 1px solid rgba(139, 92, 246, 0.3);
+      border-radius: 12px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+      padding: 15px 0;
+      z-index: 1100;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .dropdown-content a {
+      display: block;
+      padding: 12px 25px;
+      color: #e2e8f0;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      border-left: 3px solid transparent;
+    }
+
+    .dropdown-content a:hover {
+      background: rgba(124, 250, 255, 0.1);
+      color: #7cfaff;
+      padding-left: 30px;
+      border-left: 3px solid #8b5cf6;
+    }
+
+    /* ===== Logo in Navbar - EXACT SAME SIZE AS INDEX.HTML ===== */
+    .navbar-logo {
+      height:60px;
+      width: 265px;
+      margin-right: 5px;
+      filter: drop-shadow(0 0 10px rgba(55, 56, 56, 0.5));
+      transition: transform 0.3s ease;
+      object-fit: cover;
+    }
+
+    .navbar-logo:hover {
+      transform: scale(1.1);
+    }
+
+    /* ===== WhatsApp Button ===== */
+    .whatsapp-float-left {
+      position: fixed;
+      bottom: 30px;
+      left: 30px;
+      width: 70px;
+      height: 70px;
+      background: linear-gradient(135deg, #25D366, #128C7E);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 36px;
+      box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+      z-index: 1000;
+      transition: all 0.3s ease;
+      animation: pulse 2s infinite;
+      text-decoration: none;
+    }
+
+    @keyframes pulse {
+      0% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+      }
+
+      70% {
+        box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+      }
+
+      100% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+      }
+    }
+
+    .whatsapp-float-left:hover {
+      transform: scale(1.1) rotate(10deg);
+      box-shadow: 0 15px 30px rgba(37, 211, 102, 0.6);
+    }
+
+    .whatsapp-tooltip-left {
+      position: absolute;
+      left: 85px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(10, 15, 35, 0.95);
+      color: white;
+      padding: 10px 15px;
+      border-radius: 10px;
+      font-size: 14px;
+      white-space: nowrap;
+      opacity: 0;
+      transition: opacity 0.3s;
+      pointer-events: none;
+      border: 1px solid rgba(124, 250, 255, 0.3);
+    }
+
+    .whatsapp-float-left:hover .whatsapp-tooltip-left {
+      opacity: 1;
     }
 
     /* ===== Enhanced Design Elements ===== */
@@ -480,66 +683,6 @@
       opacity: 0.9;
     }
 
-    /* ===== Particles ===== */
-    .particles {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      top: 0;
-      left: 0;
-      pointer-events: none;
-      z-index: -1;
-    }
-
-    .particle {
-      position: absolute;
-      width: 3px;
-      height: 3px;
-      background: var(--gradient-cyan);
-      border-radius: 50%;
-      animation: particleFloat 20s infinite linear;
-    }
-
-    @keyframes particleFloat {
-      0% {
-        transform: translateY(100vh) translateX(0);
-        opacity: 0;
-      }
-
-      10% {
-        opacity: 1;
-      }
-
-      90% {
-        opacity: 1;
-      }
-
-      100% {
-        transform: translateY(-100px) translateX(100px);
-        opacity: 0;
-      }
-    }
-
-    /* ===== Logo in Navbar ===== */
-    .navbar-logo {
-      height: 90px;
-      width: 200px;
-      margin-right: 5px;
-      filter: drop-shadow(0 0 10px rgba(55, 56, 56, 0.5));
-      transition: transform 0.3s ease;
-      
-    }
-
-    .navbar-logo:hover {
-      transform: scale(1.1);
-    }
-
-    /* ===== Section Spacing ===== */
-    .section-padding {
-      padding-top: 100px;
-      padding-bottom: 100px;
-    }
-
     /* ===== Glass Card ===== */
     .glass-card {
       background: rgba(20, 25, 50, 0.7);
@@ -556,79 +699,7 @@
       box-shadow: 0 20px 40px rgba(139, 92, 246, 0.3);
     }
 
-    /* ===== Section Background ===== */
-    .section-bg {
-      position: relative;
-      overflow: hidden;
-    }
-
-    .section-bg::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background:
-        radial-gradient(circle at 20% 30%, rgba(124, 250, 255, 0.05) 0%, transparent 50%),
-        radial-gradient(circle at 80% 70%, rgba(139, 92, 246, 0.05) 0%, transparent 50%),
-        radial-gradient(circle at 40% 80%, rgba(255, 107, 157, 0.03) 0%, transparent 50%);
-      z-index: -1;
-      animation: bgFloat 20s infinite alternate ease-in-out;
-    }
-
-    @keyframes bgFloat {
-      0% {
-        transform: scale(1) rotate(0deg);
-      }
-
-      100% {
-        transform: scale(1.1) rotate(2deg);
-      }
-    }
-
-    /* ===== Dropdown Menu ===== */
-    .dropdown {
-      position: relative;
-      display: inline-block;
-    }
-
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      min-width: 240px;
-      background: rgba(10, 15, 35, 0.98);
-      backdrop-filter: blur(25px);
-      border: 1px solid rgba(139, 92, 246, 0.3);
-      border-radius: 12px;
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
-      padding: 15px 0;
-      z-index: 1100;
-    }
-
-    .dropdown:hover .dropdown-content {
-      display: block;
-    }
-
-    .dropdown-content a {
-      display: block;
-      padding: 12px 25px;
-      color: #e2e8f0;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      border-left: 3px solid transparent;
-    }
-
-    .dropdown-content a:hover {
-      background: rgba(124, 250, 255, 0.1);
-      color: #7cfaff;
-      padding-left: 30px;
-      border-left: 3px solid #8b5cf6;
-    }
-
-    /* ===== Footer Styles ===== */
+    /* ===== Footer Unique Design ===== */
     .unique-footer {
       position: relative;
       background: linear-gradient(180deg, #050b1e 0%, #0a0f25 100%);
@@ -643,7 +714,7 @@
       left: 0;
       right: 0;
       height: 1px;
-      background: linear-gradient(90deg, transparent, var(--gradient-cyan), var(--gradient-violet), var(--gradient-pink), transparent);
+      background: linear-gradient(90deg, transparent, #7cfaff, #8b5cf6, #ff6b9d, transparent);
     }
 
     .footer-grid {
@@ -715,133 +786,75 @@
       opacity: 0.1;
     }
 
-    /* ===== WhatsApp Button ===== */
-    .whatsapp-float-left {
-      position: fixed;
-      bottom: 30px;
-      left: 30px;
-      width: 70px;
-      height: 70px;
-      background: linear-gradient(135deg, #25D366, #128C7E);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-size: 36px;
-      box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
-      z-index: 1000;
-      transition: all 0.3s ease;
-      animation: pulse 2s infinite;
-      text-decoration: none;
+    /* ===== Section Spacing ===== */
+    .section-padding {
+      padding-top: 80px;
+      padding-bottom: 80px;
     }
 
-    @keyframes pulse {
-      0% {
-        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
-      }
-
-      70% {
-        box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
-      }
-
-      100% {
-        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
-      }
-    }
-
-    .whatsapp-float-left:hover {
-      transform: scale(1.1) rotate(10deg);
-      box-shadow: 0 15px 30px rgba(37, 211, 102, 0.6);
-    }
-
-    /* ============================ */
-    /* COMPREHENSIVE RESPONSIVE DESIGN */
-    /* ============================ */
-
+    /* ===== Responsive Design Styles (EXACT SAME AS INDEX.HTML) ===== */
+    
     /* Extra Small Devices (iPhone SE, very small phones) */
     @media (max-width: 320px) {
       .brand-title {
         font-size: 0.9rem;
+        letter-spacing: 0.3px;
       }
-
+      
       .navbar-logo {
         height: 35px;
       }
-
-      .service-hero {
-        min-height: 60vh;
-      }
-
+      
       .service-hero h1 {
         font-size: 2.2rem !important;
         line-height: 1.2;
       }
-
+      
       .service-hero p {
         font-size: 1rem !important;
       }
-
-      .section-padding {
-        padding-top: 40px;
-        padding-bottom: 40px;
-      }
-
+      
       .design-element {
         max-width: 280px;
         height: 220px;
       }
-
+      
       .design-image-container {
         top: 10px;
         left: 10px;
         right: 10px;
         bottom: 10px;
       }
-
+      
       .hologram-element {
         width: 50px !important;
         height: 40px !important;
         padding: 5px !important;
       }
-
+      
       .neon-text {
         font-size: 8px !important;
       }
-
+      
       .code-particle {
         font-size: 8px;
       }
-
+      
       .floating-orb {
         width: 8px;
         height: 8px;
       }
-
+      
       .glass-card {
         padding: 1.5rem 1rem !important;
       }
-
+      
       .tech-icon {
         width: 60px;
         height: 60px;
         font-size: 30px;
       }
-
-      .footer-grid {
-        grid-template-columns: 1fr;
-        gap: 25px;
-      }
-
-      .footer-column {
-        padding: 0 !important;
-        border: none !important;
-      }
-
-      .unique-footer {
-        padding: 30px 0 15px 0;
-      }
-
+      
       .whatsapp-float-left {
         width: 50px;
         height: 50px;
@@ -849,20 +862,24 @@
         bottom: 15px;
         left: 15px;
       }
-
-      .grid-cols-6,
-      .grid-cols-4,
-      .grid-cols-3,
-      .grid-cols-2 {
-        grid-template-columns: 1fr !important;
+      
+      .section-padding {
+        padding-top: 40px;
+        padding-bottom: 40px;
       }
-
-      .gap-8 {
-        gap: 15px !important;
+      
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
       }
-
-      .gap-16 {
-        gap: 20px !important;
+      
+      .footer-column {
+        padding: 0 !important;
+        border: none !important;
+      }
+      
+      .unique-footer {
+        padding: 30px 0 15px 0;
       }
     }
 
@@ -871,93 +888,64 @@
       .brand-title {
         font-size: 1rem;
       }
-
+      
       .navbar-logo {
         height: 40px;
       }
-
-      .service-hero {
-        min-height: 65vh;
-      }
-
+      
       .service-hero h1 {
         font-size: 2.8rem !important;
       }
-
+      
       .service-hero p {
         font-size: 1.1rem !important;
       }
-
-      .section-padding {
-        padding-top: 50px;
-        padding-bottom: 50px;
-      }
-
+      
       .design-element {
         max-width: 350px;
         height: 280px;
       }
-
+      
       .design-image-container {
         top: 15px;
         left: 15px;
         right: 15px;
         bottom: 15px;
       }
-
+      
       .hologram-element {
         width: 60px !important;
         height: 50px !important;
         padding: 8px !important;
       }
-
+      
       .neon-text {
         font-size: 9px !important;
       }
-
+      
       .code-particle {
         font-size: 9px;
       }
-
+      
       .glass-card {
         padding: 2rem 1.5rem !important;
       }
-
+      
       .tech-icon {
         width: 70px;
         height: 70px;
         font-size: 35px;
       }
-
-      .footer-grid {
-        grid-template-columns: 1fr;
-        gap: 30px;
-      }
-
-      .footer-column:first-child {
-        padding-right: 0;
-        border-right: none;
-      }
-
-      .footer-column:nth-child(2),
-      .footer-column:nth-child(3) {
-        padding-left: 0;
-        padding-right: 0;
-      }
-
+      
       .whatsapp-float-left {
         width: 60px;
         height: 60px;
         font-size: 28px;
       }
-
-      .grid-cols-6,
-      .grid-cols-4 {
-        grid-template-columns: repeat(2, 1fr) !important;
-      }
-
-      .grid-cols-3 {
-        grid-template-columns: 1fr !important;
+      
+      .section-padding {
+        padding-top: 50px;
+        padding-bottom: 50px;
       }
     }
 
@@ -966,79 +954,62 @@
       .brand-title {
         font-size: 1.2rem;
       }
-
+      
       .navbar-logo {
         height: 45px;
       }
-
+      
       .service-hero h1 {
         font-size: 3.5rem !important;
       }
-
+      
       .service-hero p {
         font-size: 1.3rem !important;
       }
-
-      .section-padding {
-        padding-top: 60px;
-        padding-bottom: 60px;
-      }
-
+      
       .design-element {
         max-width: 420px;
         height: 320px;
       }
-
+      
       .design-image-container {
         top: 18px;
         left: 18px;
         right: 18px;
         bottom: 18px;
       }
-
+      
       .hologram-element {
         width: 70px !important;
         height: 60px !important;
       }
-
+      
       .neon-text {
         font-size: 10px !important;
       }
-
+      
       .code-particle {
         font-size: 11px;
       }
-
+      
       .footer-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 40px;
       }
-
+      
       .footer-column:first-child {
         padding-right: 0;
         border-right: none;
       }
-
+      
       .footer-column:nth-child(2),
       .footer-column:nth-child(3) {
         padding-left: 0;
         padding-right: 0;
       }
-
+      
       .unique-footer {
         padding: 40px 0 20px 0;
-      }
-
-      .grid-cols-6 {
-        grid-template-columns: repeat(3, 1fr) !important;
-      }
-
-      .grid-cols-4 {
-        grid-template-columns: repeat(2, 1fr) !important;
-      }
-
-      .grid-cols-3 {
-        grid-template-columns: repeat(2, 1fr) !important;
       }
     }
 
@@ -1047,51 +1018,34 @@
       .brand-title {
         font-size: 1.4rem;
       }
-
+      
       .navbar-logo {
         height: 50px;
       }
-
+      
       .service-hero h1 {
         font-size: 4.5rem !important;
       }
-
+      
       .service-hero p {
         font-size: 1.5rem !important;
       }
-
-      .section-padding {
-        padding-top: 80px;
-        padding-bottom: 80px;
-      }
-
+      
       .design-element {
         max-width: 460px;
         height: 350px;
       }
-
+      
       .footer-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 50px;
       }
-
+      
       .footer-column:first-child {
         padding-right: 0;
         border-right: none;
       }
-
-      .grid-cols-6 {
-        grid-template-columns: repeat(3, 1fr) !important;
-      }
-
-      .grid-cols-4 {
-        grid-template-columns: repeat(2, 1fr) !important;
-      }
-
-      .grid-cols-3 {
-        grid-template-columns: repeat(3, 1fr) !important;
-      }
-
+      
       .glass-card {
         padding: 2.5rem 2rem !important;
       }
@@ -1102,45 +1056,28 @@
       .brand-title {
         font-size: 1.6rem;
       }
-
+      
       .navbar-logo {
         height: 60px;
       }
-
+      
       .service-hero h1 {
         font-size: 5.5rem !important;
       }
-
+      
       .service-hero p {
         font-size: 1.7rem !important;
       }
-
-      .section-padding {
-        padding-top: 100px;
-        padding-bottom: 100px;
-      }
-
+      
       .design-element {
         max-width: 480px;
         height: 380px;
       }
-
+      
       .footer-grid {
         grid-template-columns: 1.5fr 1fr 1fr 1fr;
       }
-
-      .grid-cols-6 {
-        grid-template-columns: repeat(6, 1fr) !important;
-      }
-
-      .grid-cols-4 {
-        grid-template-columns: repeat(4, 1fr) !important;
-      }
-
-      .grid-cols-3 {
-        grid-template-columns: repeat(3, 1fr) !important;
-      }
-
+      
       .glass-card {
         padding: 3rem 2rem !important;
       }
@@ -1151,39 +1088,34 @@
       .brand-title {
         font-size: 1.8rem;
       }
-
+      
       .navbar-logo {
         height: 70px;
       }
-
+      
       .service-hero h1 {
         font-size: 6.5rem !important;
       }
-
+      
       .service-hero p {
         font-size: 2rem !important;
       }
-
-      .section-padding {
-        padding-top: 120px;
-        padding-bottom: 120px;
-      }
-
+      
       .design-element {
         max-width: 500px;
         height: 400px;
       }
-
+      
       .glass-card {
         padding: 3.5rem 2.5rem !important;
       }
-
+      
       .container,
       .max-w-7xl,
       .max-w-6xl {
         max-width: 90% !important;
       }
-
+      
       .tech-icon {
         width: 90px;
         height: 90px;
@@ -1196,43 +1128,38 @@
       .brand-title {
         font-size: 2rem;
       }
-
+      
       .navbar-logo {
         height: 80px;
       }
-
+      
       .service-hero h1 {
         font-size: 8rem !important;
       }
-
+      
       .service-hero p {
         font-size: 2.5rem !important;
       }
-
-      .section-padding {
-        padding-top: 140px;
-        padding-bottom: 140px;
-      }
-
+      
       .design-element {
         max-width: 550px;
         height: 450px;
       }
-
+      
       .glass-card {
         padding: 4rem 3rem !important;
       }
-
+      
       .container,
       .max-w-7xl,
       .max-w-6xl {
         max-width: 85% !important;
       }
-
+      
       .footer-grid {
         gap: 60px;
       }
-
+      
       .tech-icon {
         width: 100px;
         height: 100px;
@@ -1246,28 +1173,28 @@
         min-height: 100vh !important;
         padding-top: 80px;
       }
-
+      
       .navbar-logo {
         height: 40px !important;
       }
-
+      
       .brand-title {
         font-size: 1rem !important;
       }
-
+      
       .section-padding {
         padding-top: 40px !important;
         padding-bottom: 40px !important;
       }
-
+      
       .design-element {
         height: 250px;
       }
-
+      
       .glass-card {
         padding: 1.5rem !important;
       }
-
+      
       .tech-icon {
         width: 60px;
         height: 60px;
@@ -1280,39 +1207,38 @@
       .brand-title {
         font-size: 0.8rem;
       }
-
+      
       .navbar-logo {
         height: 30px;
       }
-
+      
       .service-hero h1 {
         font-size: 1.8rem !important;
       }
-
+      
       .service-hero p {
         font-size: 0.9rem !important;
       }
-
+      
       .design-element {
         max-width: 250px;
         height: 200px;
       }
-
+      
       .glass-card {
         padding: 1rem 0.8rem !important;
       }
-
+      
       .tech-icon {
         width: 50px;
         height: 50px;
         font-size: 25px;
       }
-
+      
       .hologram-element {
         display: none !important;
-        /* Hide on very small screens */
       }
-
+      
       .neon-text {
         font-size: 6px !important;
       }
@@ -1320,20 +1246,19 @@
 
     /* Responsive Typography */
     @media (max-width: 768px) {
-
       h2,
       h3 {
         font-size: 2rem !important;
       }
-
+      
       h4 {
         font-size: 1.5rem !important;
       }
-
+      
       .text-xl {
         font-size: 1.1rem !important;
       }
-
+      
       .text-lg {
         font-size: 1rem !important;
       }
@@ -1361,12 +1286,21 @@
       .grid {
         grid-template-columns: 1fr !important;
       }
-
+      
       .grid-cols-2 {
         grid-template-columns: 1fr !important;
       }
-
+      
       .grid-cols-1 {
+        grid-template-columns: 1fr !important;
+      }
+      
+      .grid-cols-6,
+      .grid-cols-4 {
+        grid-template-columns: repeat(2, 1fr) !important;
+      }
+      
+      .grid-cols-3 {
         grid-template-columns: 1fr !important;
       }
     }
@@ -1376,7 +1310,7 @@
       .flex-row {
         flex-direction: column !important;
       }
-
+      
       .flex-col {
         flex-direction: column !important;
       }
@@ -1384,24 +1318,23 @@
 
     /* Touch-friendly elements for mobile */
     @media (max-width: 768px) {
-
       button,
       .glass-card,
       .social-link,
       .dropdown-content a {
         min-height: 44px;
       }
-
+      
       a,
       .dropdown-content a {
         padding: 12px 15px;
       }
-
+      
       .whatsapp-float-left {
         min-height: 44px;
         min-width: 44px;
       }
-
+      
       .tech-icon {
         min-height: 60px;
         min-width: 60px;
@@ -1420,6 +1353,72 @@
       transition: all 0.3s ease;
     }
 
+    /* FIXED: Mobile Menu Toggle Button Alignment - COMPLETE FIX */
+    @media (max-width: 768px) {
+      .nav-glass > .max-w-7xl {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        padding-right: 15px !important;
+        padding-left: 15px !important;
+      }
+      
+      .nav-glass .flex.items-center {
+        flex-shrink: 1;
+        min-width: 0;
+        overflow: hidden;
+      }
+      
+      /* ===== FIXED: Mobile Logo CSS (EXACT SAME AS WORKING PAGES) ===== */
+      @media (max-width: 768px) {
+        .navbar-logo {
+          width: 265px !important;
+          height: 60px !important;
+          max-width: none !important;
+          object-fit: cover;
+        }
+      }
+      
+      #mobileMenuBtn {
+        flex-shrink: 0;
+        margin-left: auto;
+        background: transparent;
+        border: none;
+        color: white;
+        font-size: 1.8rem;
+        cursor: pointer;
+        padding: 8px 12px;
+        z-index: 1001;
+        min-width: 44px;
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      
+      .brand-title {
+        display: none;
+      }
+      
+      .nav-glass .hidden.md\\:flex {
+        display: none !important;
+      }
+      
+      .nav-glass a {
+        display: flex;
+        align-items: center;
+      }
+      
+      .nav-glass img {
+        max-height: 50px;
+        width: auto;
+      }
+    }
+    
+    /* ===== REMOVED: Old mobile logo CSS blocks (480px and 360px) ===== */
+    /* These blocks have been deleted per your instructions */
+    
     /* Ensure proper spacing on all devices */
     .px-6 {
       padding-left: 1.5rem;
@@ -1433,29 +1432,69 @@
       }
     }
 
-    /* Animation for hologram elements on very small screens */
-    @media (max-width: 360px) {
-      .hologram-element {
-        animation: hologramFloat 4s ease-in-out infinite !important;
-      }
+    /* ==================================================
+       FORCE FOOTER ALIGNMENT – MATCH OTHER PAGES
+       Page: web-design.html ONLY
+    ================================================== */
 
-      .code-particle {
-        animation-duration: 6s !important;
-      }
-    }
-
-    /* Optimize animations for mobile performance */
     @media (max-width: 768px) {
-      .grid-background {
-        animation: gridMove 60s linear infinite;
+
+      /* Footer container */
+      .unique-footer {
+        padding: 40px 0 20px 0 !important;
       }
 
-      .code-particle {
-        animation: codeFloat 10s linear infinite;
+      /* Grid → single column */
+      .footer-grid {
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        gap: 32px !important;
       }
 
-      .floating-orb {
-        animation: orbFloat 6s ease-in-out infinite;
+      /* Reset all column spacing */
+      .footer-column {
+        padding: 0 !important;
+        border: none !important;
+      }
+
+      /* First column (logo + text) */
+      .footer-column:first-child {
+        text-align: left !important;
+      }
+
+      /* Footer logo FIX (same visual size as other pages) */
+      .unique-footer img {
+        width: 220px !important;
+        height: auto !important;
+        max-width: none !important;
+      }
+
+      /* Footer headings */
+      .footer-column h4 {
+        font-size: 1.1rem !important;
+        margin-bottom: 12px !important;
+      }
+
+      /* Footer lists spacing */
+      .footer-column ul {
+        gap: 8px !important;
+      }
+
+      /* Contact items alignment */
+      .footer-column:nth-child(4) ul li {
+        align-items: flex-start !important;
+      }
+
+      /* Social icons size */
+      .social-link {
+        width: 36px !important;
+        height: 36px !important;
+        font-size: 16px !important;
+      }
+
+      /* Footer bottom text */
+      .unique-footer .border-t {
+        text-align: center !important;
       }
     }
   </style>
@@ -1463,20 +1502,20 @@
 
 <body>
 
-  <!-- ===== Particles ===== -->
-  <div class="particles" id="particles"></div>
-
-  <!-- ===== WhatsApp Floating Button ===== -->
-  <a href="https://wa.me/919676464756" class="whatsapp-float-left" target="_blank"
-    style="position: fixed; bottom: 30px; left: 30px; width: 70px; height: 70px; background: linear-gradient(135deg, #25D366, #128C7E); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 36px; box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4); z-index: 1000; transition: all 0.3s ease; animation: pulse 2s infinite; text-decoration: none;">
+  <!-- ===== WhatsApp Floating Button (EXACT SAME AS INDEX.HTML) ===== -->
+  <a href="https://wa.me/919676464756" class="whatsapp-float-left" target="_blank">
     <i class="fab fa-whatsapp"></i>
+    <div class="whatsapp-tooltip-left">Chat with us!</div>
   </a>
 
-  <!-- ===== Enhanced Glass Navbar - LOGO SIZE INCREASED ===== -->
+  <!-- ===== Enhanced Glass Navbar - EXACT SAME CODE AS INDEX.HTML ===== -->
   <nav class="fixed top-0 w-full z-50 nav-glass">
     <div class="max-w-7xl mx-auto px-4 py-2 flex justify-between items-center">
-      <div class="flex items-center gap-2"> <!-- Increased gap for larger logo -->
-        <img src="Atirath Technologies Transparent Logo.png" alt="Atirath Traders Logo" class="navbar-logo">
+      <div class="flex items-center gap-1">
+        <a href="index.html">
+          <img src="AT 12.png" alt="Atirath Technology Logo" class="navbar-logo"
+            style="width:265px; height:60px; max-width:none;">
+        </a>
         <h1 class="brand-title whitespace-nowrap"></h1>
       </div>
       <div class="hidden md:flex space-x-6 font-medium">
@@ -1495,35 +1534,32 @@
             <a href="branding.html"><i class="fas fa-palette text-yellow-400"></i> Branding</a>
           </div>
         </div>
+        <a href="portfolio.html" class="hover:text-violet-400 transition hover:scale-105">Portfolio</a>
         <a href="index.html#contact" class="hover:text-violet-400 transition hover:scale-105">Contact Us</a>
+        <a href="terms-and-conditions.html" class="hover:text-violet-400 transition hover:scale-105">Terms & Conditions</a>
       </div>
       <button class="md:hidden text-2xl" id="mobileMenuBtn">
         <i class="fas fa-bars"></i>
       </button>
     </div>
-    <div class="md:hidden absolute top-full left-0 w-full bg-[#0a1329]/95 backdrop-filter backdrop-blur-lg hidden"
-      id="mobileMenu">
+    <div class="md:hidden absolute top-full left-0 w-full bg-[#0a1329] bg-opacity-95 backdrop-filter backdrop-blur-lg hidden" id="mobileMenu">
       <div class="flex flex-col p-6 space-y-4">
         <a href="index.html" class="py-3 hover:text-violet-400 transition border-b border-gray-800">Home</a>
         <a href="about.html" class="py-3 hover:text-violet-400 transition border-b border-gray-800">About Us</a>
         <div class="py-3 border-b border-gray-800">
           <div class="font-semibold mb-2">Services</div>
           <div class="flex flex-col pl-4 space-y-3">
-            <a href="web-design.html" class="py-2 hover:text-violet-400 transition"><i
-                class="fas fa-paint-brush text-violet-400 mr-3"></i> Web Design</a>
-            <a href="web-development.html" class="py-2 hover:text-cyan-400 transition"><i
-                class="fas fa-code text-cyan-400 mr-3"></i> Web Development</a>
-            <a href="mobile-app.html" class="py-2 hover:text-blue-400 transition"><i
-                class="fas fa-mobile-alt text-blue-400 mr-3"></i> Mobile Application</a>
-            <a href="digital-marketing.html" class="py-2 hover:text-pink-400 transition"><i
-                class="fas fa-chart-line text-pink-400 mr-3"></i> Digital Marketing</a>
-            <a href="seo-optimization.html" class="py-2 hover:text-green-400 transition"><i
-                class="fas fa-search text-green-400 mr-3"></i> SEO Optimization</a>
-            <a href="branding.html" class="py-2 hover:text-yellow-400 transition"><i
-                class="fas fa-palette text-yellow-400 mr-3"></i> Branding</a>
+            <a href="web-design.html" class="py-2 hover:text-violet-400 transition"><i class="fas fa-paint-brush text-violet-400 mr-3"></i> Web Design</a>
+            <a href="web-development.html" class="py-2 hover:text-cyan-400 transition"><i class="fas fa-code text-cyan-400 mr-3"></i> Web Development</a>
+            <a href="mobile-app.html" class="py-2 hover:text-blue-400 transition"><i class="fas fa-mobile-alt text-blue-400 mr-3"></i> Mobile Application</a>
+            <a href="digital-marketing.html" class="py-2 hover:text-pink-400 transition"><i class="fas fa-chart-line text-pink-400 mr-3"></i> Digital Marketing</a>
+            <a href="seo-optimization.html" class="py-2 hover:text-green-400 transition"><i class="fas fa-search text-green-400 mr-3"></i> SEO Optimization</a>
+            <a href="branding.html" class="py-2 hover:text-yellow-400 transition"><i class="fas fa-palette text-yellow-400 mr-3"></i> Branding</a>
           </div>
         </div>
-        <a href="#contact" class="py-3 hover:text-violet-400 transition">Contact Us</a>
+        <a href="portfolio.html" class="py-3 hover:text-violet-400 transition border-b border-gray-800">Portfolio</a>
+        <a href="index.html#contact" class="py-3 hover:text-violet-400 transition">Contact Us</a>
+        <a href="terms-and-conditions.html" class="py-3 hover:text-violet-400 transition border-b border-gray-800">Terms & Conditions</a>
       </div>
     </div>
   </nav>
@@ -1879,12 +1915,17 @@
 
         <!-- Sketch -->
         <div class="text-center">
-          <div class="tech-icon mb-4">
-            <i class="fas fa-pen-fancy text-orange-400"></i>
-          </div>
-          <h4 class="font-bold">Sketch</h4>
-          <p class="text-gray-400 text-sm">Vector Design</p>
-        </div>
+  <div class="tech-icon mb-4">
+    <!-- Wix Logo (Font Awesome) -->
+    <i class="fab fa-wix text-purple-500"></i>
+    <!-- Alternative if you have a custom SVG -->
+    <!-- <svg class="w-12 h-12 text-purple-500" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M4.92 4.18v15.64h5.62V4.18H4.92zm5.72 0v15.64h5.82V4.18h-5.82zm5.72 0v15.64h5.62V4.18h-5.62z"/>
+    </svg> -->
+  </div>
+  <h4 class="font-bold">Wix Studio</h4>
+  <p class="text-gray-400 text-sm">Web Design</p>
+</div>
 
         <!-- Photoshop -->
         <div class="text-center">
@@ -1915,7 +1956,8 @@
       </div>
     </div>
   </section>
-   <!-- ===== CTA Section ===== -->
+  
+  <!-- ===== CTA Section ===== -->
   <section class="section-padding px-6 section-bg">
     <div class="max-w-6xl mx-auto text-center">
       <h3 class="text-4xl md:text-5xl font-bold mb-6">Ready to Start Your Project?</h3>
@@ -1943,37 +1985,35 @@
     </div>
   </section>
 
-
-  <!-- ===== Footer ===== -->
+  <!-- ===== Footer (EXACT SAME AS INDEX.HTML) ===== -->
   <footer class="py-16 unique-footer">
     <div class="max-w-7xl mx-auto px-6">
       <div class="footer-grid">
         <!-- Column 1 -->
         <div class="footer-column">
-          <div class="flex items-center gap-3 mb-6"> <!-- Increased gap for larger logo -->
-            <img src="Atirath Technologies Transparent Logo.png" alt="Logo" class="navbar-logo">
-            <h2 class="brand-title whitespace-nowrap"></h2>
+          <div class="flex items-center gap-2 mb-6">
+            <img src="AT 12.png" alt="Atirath Technology Logo" class="navbar-logo"
+              style="width:265px; height:60px; max-width:none;">
           </div>
           <p class="text-gray-400 mb-6">
             Transforming businesses through innovative digital solutions. Your trusted partner for digital growth.
           </p>
           <div class="flex space-x-4">
-            <a href="https://www.facebook.com/profile.php?id=61585464714844" class="social-link facebook">
+            <a href="https://www.facebook.com/profile.php?id=61585464714844" class="social-link facebook" target="_blank">
               <i class="fab fa-facebook-f"></i>
             </a>
-            <a href="#" class="social-link twitter">
+            <a href="#" class="social-link twitter" target="_blank">
               <i class="fab fa-twitter"></i>
             </a>
-            <a href="https://www.instagram.com/atirath_technologies?igsh=OTVraThwaXNlZXU4"
-              class="social-link instagram">
+            <a href="https://www.instagram.com/atirath_technologies?igsh=OTVraThwaXNlZXU4" class="social-link instagram" target="_blank">
               <i class="fab fa-instagram"></i>
             </a>
-            <a href="https://www.linkedin.com/company/110555899" class="social-link linkedin">
+            <a href="https://www.linkedin.com/company/atirath-technologies-india/" class="social-link linkedin" target="_blank">
               <i class="fab fa-linkedin-in"></i>
             </a>
           </div>
         </div>
-
+        
         <!-- Column 2 -->
         <div class="footer-column">
           <h4>Quick Links</h4>
@@ -1981,36 +2021,36 @@
             <li><a href="index.html" class="text-gray-400 hover:text-cyan-400 transition">Home</a></li>
             <li><a href="about.html" class="text-gray-400 hover:text-cyan-400 transition">About Us</a></li>
             <li><a href="#services" class="text-gray-400 hover:text-cyan-400 transition">Services</a></li>
-            <li><a href="#contact" class="text-gray-400 hover:text-cyan-400 transition">Contact</a></li>
+            <li><a href="portfolio.html" class="text-gray-400 hover:text-cyan-400 transition">Portfolio</a></li>
+            <li><a href="index.html#contact" class="text-gray-400 hover:text-cyan-400 transition">Contact</a></li>
+            <li><a href="terms-and-conditions.html" class="text-gray-400 hover:text-cyan-400 transition">Terms & Conditions</a></li>
           </ul>
         </div>
-
+        
         <!-- Column 3 -->
         <div class="footer-column">
           <h4>Our Services</h4>
           <ul class="space-y-3">
             <li><a href="web-design.html" class="text-gray-400 hover:text-violet-400 transition">Web Design</a></li>
-            <li><a href="web-development.html" class="text-gray-400 hover:text-violet-400 transition">Web
-                Development</a></li>
-            <li><a href="mobile-app.html" class="text-gray-400 hover:text-blue-400 transition">Mobile Application</a>
-            </li>
-            <li><a href="digital-marketing.html" class="text-gray-400 hover:text-pink-400 transition">Digital
-                Marketing</a></li>
-            <li><a href="seo-optimization.html" class="text-gray-400 hover:text-green-400 transition">SEO
-                Optimization</a></li>
+            <li><a href="web-development.html" class="text-gray-400 hover:text-violet-400 transition">Web Development</a></li>
+            <li><a href="mobile-app.html" class="text-gray-400 hover:text-blue-400 transition">Mobile Application</a></li>
+            <li><a href="digital-marketing.html" class="text-gray-400 hover:text-pink-400 transition">Digital Marketing</a></li>
+            <li><a href="seo-optimization.html" class="text-gray-400 hover:text-green-400 transition">SEO Optimization</a></li>
             <li><a href="branding.html" class="text-gray-400 hover:text-yellow-400 transition">Branding</a></li>
           </ul>
         </div>
-
+        
         <!-- Column 4 -->
         <div class="footer-column">
           <h4>Contact Us</h4>
           <ul class="space-y-4">
             <li class="flex items-start gap-3">
               <i class="fas fa-map-marker-alt text-cyan-400 mt-1"></i>
-              <a href="https://maps.google.com/?q=Plot+No.45%2C+Sy.No.74%2C+1st+Floor%2C+Jaihind+Enclave%2C+Madhapur%2C+Hyderabad+-+500081%2C+Telangana"
-                target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-cyan-400 transition">
-                Plot No.45, Sy.No.74, 1st Floor, Jaihind Enclave, Madhapur, Hyderabad - 500081, Telangana
+              <a href="https://maps.google.com/?q=Plot+No.45%2C+Sy.No.74%2C+1st+Floor%2C+Jaihind+Enclave%2C+Madhapur%2C+Hyderabad+-+500081%2C+Telangana" 
+                 target="_blank" 
+                 rel="noopener noreferrer" 
+                 class="text-gray-400 hover:text-cyan-400 transition">
+                 Jaihind Enclave, Madhapur, Hyderabad - 500081, Telangana
               </a>
             </li>
             <li class="flex items-center gap-3">
@@ -2019,7 +2059,7 @@
             </li>
             <li class="flex items-center gap-3">
               <i class="fas fa-envelope text-pink-400"></i>
-              <span class="text-gray-400">info@atirathtradersltd.com</span>
+              <span class="text-gray-400">info@atirathtechnologies.com</span>
             </li>
             <li class="flex items-center gap-3">
               <i class="fas fa-clock text-green-400"></i>
@@ -2028,42 +2068,35 @@
           </ul>
         </div>
       </div>
-
+      
       <div class="border-t border-gray-800 pt-8 mt-8 text-center">
         <p class="text-gray-400">© 2025 Atirath Technologies. All Rights Reserved. | Digital Growth Partner</p>
         <p class="text-gray-500 text-sm mt-2">Transforming businesses through innovative digital solutions</p>
+        <p class="text-gray-500 text-sm mt-1">
+          <a href="terms-and-conditions.html" class="text-cyan-400 hover:underline">Terms & Conditions</a> | 
+          <a href="#" class="text-cyan-400 hover:underline">Privacy Policy</a>
+        </p>
       </div>
     </div>
-
-    <!-- Wave Effect -->
-    <div class="footer-wave"></div>
   </footer>
 
   <script>
-    // Create floating particles
-    function createParticles() {
-      const particlesContainer = document.getElementById('particles');
-      const particleCount = 30;
-
-      for (let i = 0; i < particleCount; i++) {
-        const particle = document.createElement('div');
-        particle.className = 'particle';
-
-        particle.style.left = `${Math.random() * 100}vw`;
-        particle.style.top = `${Math.random() * 100}vh`;
-
-        const size = Math.random() * 4 + 1;
-        particle.style.width = `${size}px`;
-        particle.style.height = `${size}px`;
-
-        particle.style.animationDelay = `${Math.random() * 20}s`;
-
-        const colors = ['#7cfaff', '#8b5cf6', '#ff6b9d'];
-        particle.style.background = colors[Math.floor(Math.random() * colors.length)];
-
-        particlesContainer.appendChild(particle);
+    // ===== JavaScript (EXACT SAME AS INDEX.HTML) =====
+    
+    // Mobile menu toggle
+    document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+      const mobileMenu = document.getElementById('mobileMenu');
+      mobileMenu.classList.toggle('hidden');
+      
+      const icon = this.querySelector('i');
+      if (icon.classList.contains('fa-bars')) {
+        icon.classList.remove('fa-bars');
+        icon.classList.add('fa-times');
+      } else {
+        icon.classList.remove('fa-times');
+        icon.classList.add('fa-bars');
       }
-    }
+    });
 
     // Create floating code particles
     function createCodeParticles() {
@@ -2109,21 +2142,6 @@
         particleOverlay.appendChild(particle);
       }
     }
-
-    // Mobile menu toggle
-    document.getElementById('mobileMenuBtn').addEventListener('click', function () {
-      const mobileMenu = document.getElementById('mobileMenu');
-      mobileMenu.classList.toggle('hidden');
-
-      const icon = this.querySelector('i');
-      if (icon.classList.contains('fa-bars')) {
-        icon.classList.remove('fa-bars');
-        icon.classList.add('fa-times');
-      } else {
-        icon.classList.remove('fa-times');
-        icon.classList.add('fa-bars');
-      }
-    });
 
     // Process steps animation on scroll
     function animateProcessSteps() {
@@ -2228,9 +2246,8 @@
   `;
     document.head.appendChild(rippleStyle);
 
-    // Smooth scrolling for anchor links
+    // Smooth scrolling for anchor links (EXACT SAME AS INDEX.HTML)
     document.addEventListener('DOMContentLoaded', function () {
-      createParticles();
       createCodeParticles();
       createInteractiveGlow();
       animateHologramElements();
@@ -2276,23 +2293,6 @@
       // Listen for scroll events
       window.addEventListener('scroll', animateProcessSteps);
     });
-
-    // WhatsApp float animation
-    const style = document.createElement('style');
-    style.textContent = `
-    @keyframes pulse {
-      0% {
-        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
-      }
-      70% {
-        box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
-      }
-      100% {
-        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
-      }
-    }
-  `;
-    document.head.appendChild(style);
   </script>
 
 </body>
