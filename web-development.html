@@ -4,8 +4,78 @@
 <head>
   <meta charset="UTF-8">
   <link rel="icon" type="image/png" href="icon.png">
-  <title>Web Development Services | Atirath Technologies</title>
+  <!-- ===== TITLE & BASIC META ===== -->
+  <title>Web Development Services | Atirath Technologies - Custom Web Solutions</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Professional web development services by Atirath Technologies. Custom websites, e-commerce solutions, and web applications built with cutting-edge technologies.">
+  <meta name="keywords" content="web development, custom websites, e-commerce development, responsive web design, web applications, frontend development, backend development, Hyderabad">
+  <meta name="author" content="Atirath Technologies">
+  <meta name="robots" content="index, follow">
+  
+  <!-- ===== OPEN GRAPH META TAGS ===== -->
+  <meta property="og:title" content="Web Development Services | Atirath Technologies">
+  <meta property="og:description" content="Professional custom web development solutions for businesses. Build scalable, secure, and high-performance websites.">
+  <meta property="og:image" content="https://atirathtechnologies.com/Atirath%20Technologies%20Transparent%20Logo.png">
+  <meta property="og:url" content="https://atirathtechnologies.com/web-development.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Atirath Technologies">
+  <meta property="og:locale" content="en_US">
+  
+  <!-- ===== TWITTER CARD META TAGS ===== -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Web Development Services | Atirath Technologies">
+  <meta name="twitter:description" content="Professional custom web development solutions for businesses. Build scalable, secure, and high-performance websites.">
+  <meta name="twitter:image" content="https://atirathtechnologies.com/Atirath%20Technologies%20Transparent%20Logo.png">
+  <meta name="twitter:site" content="@atirathtech">
+  
+  <!-- ===== STRUCTURED DATA / JSON-LD ===== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Web Development",
+    "provider": {
+      "@type": "Organization",
+      "name": "Atirath Technologies",
+      "url": "https://atirathtechnologies.com"
+    },
+    "description": "Custom web development services including frontend development, backend development, e-commerce solutions, and web applications.",
+    "areaServed": {
+      "@type": "Country",
+      "name": "India"
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Web Development Services",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Frontend Development",
+            "description": "Responsive user interfaces with modern frameworks"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Backend Development",
+            "description": "Robust server-side applications and APIs"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "E-commerce Development",
+            "description": "Custom online stores with payment integration"
+          }
+        }
+      ]
+    }
+  }
+  </script>
 
   <!-- Bootstrap 5 CDN -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -39,7 +109,6 @@
     /* ===== Brand Title ===== */
     .brand-title {
       font-size: 1.6rem;
-      /* Reduced from 1.8rem */
       font-weight: 900;
       background: linear-gradient(135deg, #7cfaff 0%, #8b5cf6 50%, #ff6b9d 100%);
       background-size: 200% auto;
@@ -48,14 +117,11 @@
       background-clip: text;
       text-shadow: 0 0 30px rgba(139, 92, 246, 0.4);
       letter-spacing: 0.5px;
-      /* Reduced from 1px */
       position: relative;
       display: inline-block;
       padding: 0 5px;
-      /* Reduced from 10px */
       animation: titleGlow 3s ease-in-out infinite alternate;
       line-height: 1;
-      /* Added to reduce vertical space */
     }
 
     @keyframes titleGlow {
@@ -146,6 +212,175 @@
       to {
         width: 100%;
       }
+    }
+
+    /* ===== Mobile Menu Slide Animation ===== */
+    .mobile-menu-slide {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 300px;
+      height: 100vh;
+      background: rgba(10, 15, 35, 0.98);
+      backdrop-filter: blur(25px);
+      -webkit-backdrop-filter: blur(25px);
+      border-left: 1px solid rgba(139, 92, 246, 0.3);
+      box-shadow: -15px 0 35px rgba(0, 0, 0, 0.5);
+      padding: 80px 20px 30px;
+      transition: right 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      z-index: 999;
+      overflow-y: auto;
+    }
+
+    .mobile-menu-slide.show {
+      right: 0;
+    }
+
+    .mobile-menu-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(5px);
+      z-index: 998;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .mobile-menu-overlay.show {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .mobile-menu-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid rgba(124, 250, 255, 0.1);
+    }
+
+    .mobile-menu-header h3 {
+      font-size: 1.5rem;
+      background: linear-gradient(135deg, #7cfaff, #8b5cf6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .mobile-close-btn {
+      background: none;
+      border: none;
+      color: #7cfaff;
+      font-size: 1.5rem;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .mobile-close-btn:hover {
+      transform: rotate(90deg);
+    }
+
+    .mobile-menu-links {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .mobile-menu-links a {
+      display: block;
+      padding: 15px;
+      color: #e2e8f0;
+      text-decoration: none;
+      border-radius: 10px;
+      transition: all 0.3s ease;
+      border-left: 3px solid transparent;
+      font-size: 1.1rem;
+    }
+
+    .mobile-menu-links a:hover {
+      background: rgba(124, 250, 255, 0.1);
+      color: #7cfaff;
+      padding-left: 20px;
+      border-left: 3px solid #8b5cf6;
+    }
+
+    .mobile-submenu {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+      padding-left: 20px;
+    }
+
+    .mobile-submenu.show {
+      max-height: 400px;
+    }
+
+    .mobile-submenu a {
+      padding: 12px 15px;
+      font-size: 1rem;
+      color: #b0b8d0;
+    }
+
+    .mobile-submenu a i {
+      margin-right: 10px;
+    }
+
+    .mobile-menu-toggle {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+      padding: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.3s ease;
+    }
+
+    /* ===== Dropdown Menu ===== */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      min-width: 270px;
+      background: rgba(10, 15, 35, 0.98);
+      backdrop-filter: blur(25px);
+      border: 1px solid rgba(139, 92, 246, 0.3);
+      border-radius: 12px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+      padding: 15px 0;
+      z-index: 1100;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .dropdown-content a {
+      display: block;
+      padding: 12px 25px;
+      color: #e2e8f0;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      border-left: 3px solid transparent;
+    }
+
+    .dropdown-content a:hover {
+      background: rgba(124, 250, 255, 0.1);
+      color: #7cfaff;
+      padding-left: 30px;
+      border-left: 3px solid #8b5cf6;
     }
 
     /* ===== Footer Social Links with Gradient ===== */
@@ -276,13 +511,11 @@
     /* ===== Logo in Navbar ===== */
     .navbar-logo {
       height: 60px;
-      /* Reduced from 100px to 50px */
-      width: 200px;
+      width: 265px;
       margin-right: 5px;
-      /* Reduced from 12px to 5px */
       filter: drop-shadow(0 0 10px rgba(55, 56, 56, 0.5));
       transition: transform 0.3s ease;
-      
+      object-fit: cover;
     }
 
     .navbar-logo:hover {
@@ -342,76 +575,98 @@
       }
     }
 
-    /* ===== Dropdown Menu ===== */
-    .dropdown {
-      position: relative;
-      display: inline-block;
-    }
-
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      min-width: 240px;
-      background: rgba(10, 15, 35, 0.98);
-      backdrop-filter: blur(25px);
-      border: 1px solid rgba(139, 92, 246, 0.3);
-      border-radius: 12px;
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
-      padding: 15px 0;
-      z-index: 1100;
-    }
-
-    .dropdown:hover .dropdown-content {
-      display: block;
-    }
-
-    .dropdown-content a {
-      display: block;
-      padding: 12px 25px;
-      color: #e2e8f0;
-      text-decoration: none;
+    /* ===== WhatsApp Button ===== */
+    .whatsapp-float-left {
+      position: fixed;
+      bottom: 30px;
+      left: 30px;
+      width: 70px;
+      height: 70px;
+      background: linear-gradient(135deg, #25D366, #128C7E);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 36px;
+      box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+      z-index: 1000;
       transition: all 0.3s ease;
-      border-left: 3px solid transparent;
+      animation: pulse 2s infinite;
+      text-decoration: none;
     }
 
-    .dropdown-content a:hover {
-      background: rgba(124, 250, 255, 0.1);
+    @keyframes pulse {
+      0% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+      }
+
+      70% {
+        box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+      }
+
+      100% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+      }
+    }
+
+    .whatsapp-float-left:hover {
+      transform: scale(1.1) rotate(10deg);
+      box-shadow: 0 15px 30px rgba(37, 211, 102, 0.6);
+    }
+
+    .whatsapp-tooltip-left {
+      position: absolute;
+      left: 85px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(10, 15, 35, 0.95);
+      color: white;
+      padding: 10px 15px;
+      border-radius: 10px;
+      font-size: 14px;
+      white-space: nowrap;
+      opacity: 0;
+      transition: opacity 0.3s;
+      pointer-events: none;
+      border: 1px solid rgba(124, 250, 255, 0.3);
+    }
+
+    .whatsapp-float-left:hover .whatsapp-tooltip-left {
+      opacity: 1;
+    }
+
+    /* ===== Scroll Down Arrow ===== */
+    .scroll-down-arrow {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      background: rgba(10, 15, 35, 0.8);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(124, 250, 255, 0.3);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       color: #7cfaff;
-      padding-left: 30px;
-      border-left: 3px solid #8b5cf6;
+      font-size: 20px;
+      cursor: pointer;
+      z-index: 999;
+      transition: all 0.3s ease;
+      opacity: 0;
+      transform: translateY(20px);
     }
 
-    /* ===== Form Validation Styles ===== */
-    .input-error {
-      border-color: #ff6b9d !important;
-      box-shadow: 0 0 10px rgba(255, 107, 157, 0.3) !important;
+    .scroll-down-arrow.show {
+      opacity: 1;
+      transform: translateY(0);
     }
 
-    .input-success {
-      border-color: #25D366 !important;
-      box-shadow: 0 0 10px rgba(37, 211, 102, 0.3) !important;
-    }
-
-    .error-message {
-      color: #ff6b9d;
-      font-size: 0.875rem;
-      margin-top: 5px;
-      display: none;
-    }
-
-    .country-code-select {
-      width: 120px;
-      border-top-right-radius: 0;
-      border-bottom-right-radius: 0;
-      border-right: none;
-    }
-
-    .phone-input {
-      border-top-left-radius: 0;
-      border-bottom-left-radius: 0;
-      flex: 1;
+    .scroll-down-arrow:hover {
+      background: rgba(124, 250, 255, 0.1);
+      transform: translateY(-5px);
     }
 
     /* ===== Footer Styles ===== */
@@ -435,35 +690,26 @@
     .footer-grid {
       display: grid;
       grid-template-columns: 1.5fr 1fr 1fr 1fr;
-      /* Increased first column width */
       gap: 50px;
-      /* Increased gap between columns */
       margin-bottom: 30px;
       align-items: start;
     }
 
-    /* First column - Company info with more space */
     .footer-column:first-child {
       padding-right: 40px;
-      /* Add padding to create more space */
       border-right: 1px solid rgba(124, 250, 255, 0.1);
-      /* Optional: Add subtle separator */
     }
 
-    /* Second column - Quick Links moved further right */
     .footer-column:nth-child(2) {
       padding-left: 40px;
-      /* Increased padding to move it right */
       padding-right: 15px;
     }
 
-    /* Third column - Services */
     .footer-column:nth-child(3) {
       padding-left: 15px;
       padding-right: 15px;
     }
 
-    /* Fourth column - Contact */
     .footer-column:nth-child(4) {
       padding-left: 15px;
       padding-right: 0;
@@ -495,7 +741,6 @@
       margin-bottom: 15px;
     }
 
-    /* Contact info specific styling */
     .footer-column:nth-child(4) ul {
       gap: 10px;
     }
@@ -511,7 +756,7 @@
       opacity: 0.1;
     }
 
-    /* ===== Mobile Responsive for Footer ===== */
+    /* ===== Responsive Design ===== */
     @media (max-width: 1024px) {
       .footer-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -531,6 +776,22 @@
     }
 
     @media (max-width: 768px) {
+      .service-hero {
+        min-height: 60vh;
+      }
+
+      h1.text-8xl {
+        font-size: 4.5rem !important;
+      }
+
+      h1.text-7xl {
+        font-size: 3.5rem !important;
+      }
+
+      h1.text-5xl {
+        font-size: 2.8rem !important;
+      }
+
       .unique-footer {
         padding: 40px 0 20px 0;
       }
@@ -548,107 +809,34 @@
       .footer-column h4 {
         margin-bottom: 12px;
       }
-    }
 
-    @media (max-width: 480px) {
-      .unique-footer {
-        padding: 30px 0 15px 0;
-      }
-
-      .footer-column ul {
-        gap: 6px;
-      }
-    }
-
-    /* ===== Responsive Breakpoints & Layout Adjustments ===== */
-
-    /* General responsive adjustments */
-    @media (max-width: 1536px) {
-      .max-w-7xl {
-        max-width: 1280px;
-      }
-    }
-
-    @media (max-width: 1280px) {
-      .max-w-7xl {
-        max-width: 1024px;
-      }
-    }
-
-    /* Large Tablets and Small Laptops */
-    @media (max-width: 1024px) {
-      .max-w-7xl {
-        max-width: 768px;
-      }
-
-      /* Navbar adjustments */
       .navbar-logo {
-        height: 70px;
+        height: 50px;
       }
 
-      .brand-title {
-        font-size: 1.4rem;
-      }
-
-      /* Hero section */
-      .service-hero {
-        min-height: 60vh;
-      }
-
-      h1.text-8xl {
-        font-size: 4.5rem !important;
-      }
-
-      h1.text-7xl {
-        font-size: 3.5rem !important;
-      }
-
-      h1.text-5xl {
-        font-size: 2.8rem !important;
-      }
-
-      /* Grid adjustments */
-      .grid-cols-4 {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .grid-cols-6 {
-        grid-template-columns: repeat(3, 1fr);
-      }
-
-      /* Code element */
       .code-element {
         width: 280px;
         height: 280px;
       }
 
-      /* Section padding */
       .section-padding {
         padding-top: 80px;
         padding-bottom: 80px;
       }
+
+      .grid-cols-4,
+      .grid-cols-6 {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
 
-    /* Tablets */
-    @media (max-width: 768px) {
-      .max-w-7xl {
-        max-width: 640px;
-      }
-
-      /* Navbar */
+    @media (max-width: 640px) {
       .navbar-logo {
-        height: 60px;
+        height: 40px;
       }
 
-      .brand-title {
-        font-size: 1.2rem;
-      }
-
-      /* Hero section */
       .service-hero {
         min-height: 50vh;
-        background-attachment: scroll;
-        /* Remove parallax on mobile */
       }
 
       h1.text-8xl,
@@ -662,12 +850,12 @@
         font-size: 2rem !important;
       }
 
-      p.text-xl,
-      p.text-2xl {
-        font-size: 1.1rem !important;
+      .code-element {
+        width: 100%;
+        max-width: 320px;
+        height: 280px;
       }
 
-      /* Layout grids */
       .grid-cols-2,
       .grid-cols-3,
       .grid-cols-4,
@@ -675,36 +863,6 @@
         grid-template-columns: 1fr !important;
       }
 
-      /* Code element */
-      .code-element {
-        width: 100%;
-        max-width: 320px;
-        height: 280px;
-        margin: 0 auto;
-      }
-
-      /* Glass cards */
-      .glass-card {
-        margin-bottom: 20px;
-      }
-
-      .glass-card:last-child {
-        margin-bottom: 0;
-      }
-
-      /* Section padding */
-      .section-padding {
-        padding-top: 60px;
-        padding-bottom: 60px;
-      }
-
-      /* Footer adjustments */
-      .footer-grid {
-        grid-template-columns: 1fr;
-        gap: 40px;
-      }
-
-      /* WhatsApp button */
       .whatsapp-float-left {
         width: 60px;
         height: 60px;
@@ -712,32 +870,21 @@
         bottom: 20px;
         left: 20px;
       }
-
-      /* Padding adjustments */
-      .px-6 {
-        padding-left: 1rem !important;
-        padding-right: 1rem !important;
-      }
     }
 
-    /* Mobile Phones */
-    @media (max-width: 640px) {
-      .max-w-7xl {
-        max-width: 100%;
-        padding-left: 1rem;
-        padding-right: 1rem;
+    @media (max-width: 480px) {
+      .unique-footer {
+        padding: 30px 0 15px 0;
       }
 
-      /* Navbar */
+      .footer-column ul {
+        gap: 6px;
+      }
+
       .navbar-logo {
-        height: 50px;
+        height: 35px;
       }
 
-      .brand-title {
-        font-size: 1.1rem;
-      }
-
-      /* Hero section */
       .service-hero {
         min-height: 40vh;
       }
@@ -746,59 +893,12 @@
       h1.text-7xl,
       h1.text-5xl {
         font-size: 2rem !important;
-        line-height: 1.2 !important;
       }
 
-      h2.text-5xl,
-      h2.text-4xl {
-        font-size: 1.8rem !important;
-        line-height: 1.3 !important;
-      }
-
-      /* Text sizes */
-      .text-lg {
-        font-size: 1rem !important;
-      }
-
-      /* Spacing adjustments */
-      .mb-16 {
-        margin-bottom: 3rem !important;
-      }
-
-      .mb-8 {
-        margin-bottom: 2rem !important;
-      }
-
-      .gap-16 {
-        gap: 3rem !important;
-      }
-
-      .gap-8 {
-        gap: 1.5rem !important;
-      }
-
-      /* Padding in cards */
-      .p-8 {
-        padding: 1.5rem !important;
-      }
-
-      /* Code element */
       .code-element {
         height: 240px;
       }
 
-      .code-line {
-        font-size: 12px !important;
-      }
-
-      /* Tech icons */
-      .tech-icon {
-        width: 60px;
-        height: 60px;
-        font-size: 30px;
-      }
-
-      /* WhatsApp button */
       .whatsapp-float-left {
         width: 50px;
         height: 50px;
@@ -806,240 +906,16 @@
         bottom: 15px;
         left: 15px;
       }
-
-      /* Hide some elements on very small screens */
-      .hidden-xs {
-        display: none !important;
-      }
-    }
-
-    /* Small Mobile Phones */
-    @media (max-width: 480px) {
-
-      /* Navbar */
-      .navbar-logo {
-        height: 40px;
-      }
-
-      .brand-title {
-        font-size: 1rem;
-        padding: 0 3px;
-      }
-
-      /* Hero section */
-      .service-hero {
-        min-height: 35vh;
-      }
-
-      h1.text-8xl,
-      h1.text-7xl,
-      h1.text-5xl {
-        font-size: 1.8rem !important;
-      }
-
-      h2.text-5xl,
-      h2.text-4xl {
-        font-size: 1.6rem !important;
-      }
-
-      /* Smaller text for mobile */
-      body {
-        font-size: 14px;
-      }
-
-      /* Reduce icon sizes */
-      .w-12.h-12,
-      .w-16.h-16,
-      .w-20.h-20 {
-        width: 40px !important;
-        height: 40px !important;
-      }
-
-      .text-2xl {
-        font-size: 1.25rem !important;
-      }
-
-      /* Adjust spacing */
-      .space-y-6>*+* {
-        margin-top: 1rem !important;
-      }
-
-      /* Footer */
-      .footer-column h4 {
-        font-size: 1.1rem;
-      }
-
-      .social-link {
-        width: 36px;
-        height: 36px;
-        font-size: 16px;
-      }
-
-      /* Code element */
-      .code-element {
-        height: 200px;
-        padding: 15px;
-      }
-
-      .code-line {
-        font-size: 11px !important;
-        margin-bottom: 8px;
-      }
-    }
-
-    /* Very Small Mobile Phones */
-    @media (max-width: 360px) {
-      .brand-title {
-        font-size: 0.9rem;
-      }
-
-      .navbar-logo {
-        height: 30px;
-      }
-
-      h1.text-8xl,
-      h1.text-7xl,
-      h1.text-5xl {
-        font-size: 1.6rem !important;
-      }
-
-      h2.text-5xl,
-      h2.text-4xl {
-        font-size: 1.4rem !important;
-      }
-
-      /* Reduce padding further */
-      .px-6 {
-        padding-left: 0.75rem !important;
-        padding-right: 0.75rem !important;
-      }
-
-      .p-8 {
-        padding: 1rem !important;
-      }
-
-      /* Footer contact info - stack vertically */
-      .footer-column:nth-child(4) ul li {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 5px;
-      }
-    }
-
-    /* ===== Touch Device Optimizations ===== */
-    @media (hover: none) and (pointer: coarse) {
-
-      /* Increase tap target sizes for mobile */
-      a,
-      button,
-      .glass-card,
-      .social-link {
-        min-height: 44px;
-        min-width: 44px;
-      }
-
-      /* Disable hover effects on touch devices */
-      .glass-card:hover {
-        transform: none;
-      }
-
-      .tech-icon:hover {
-        transform: none;
-      }
-
-      /* Mobile menu improvements */
-      #mobileMenu a {
-        padding: 12px 0;
-      }
-
-      /* Larger form inputs */
-      input,
-      select,
-      textarea {
-        font-size: 16px !important;
-        /* Prevents iOS zoom on focus */
-      }
-    }
-
-    /* ===== Landscape Orientation ===== */
-    @media (max-height: 500px) and (orientation: landscape) {
-      .service-hero {
-        min-height: 80vh;
-      }
-
-      .navbar-logo {
-        height: 40px;
-      }
-
-      /* Reduce vertical padding in landscape */
-      .section-padding {
-        padding-top: 40px;
-        padding-bottom: 40px;
-      }
-
-      .py-20 {
-        padding-top: 3rem !important;
-        padding-bottom: 3rem !important;
-      }
-    }
-
-    /* ===== High Resolution Screens ===== */
-    @media (min-width: 1920px) {
-      .max-w-7xl {
-        max-width: 1400px;
-      }
-
-      .code-element {
-        width: 350px;
-        height: 350px;
-      }
-
-      .code-line {
-        font-size: 16px;
-      }
-
-      .tech-icon {
-        width: 100px;
-        height: 100px;
-        font-size: 48px;
-      }
-    }
-
-    /* ===== Print Styles ===== */
-    @media print {
-
-      .whatsapp-float-left,
-      .social-link,
-      .particles,
-      .service-hero-overlay,
-      .footer-wave {
-        display: none !important;
-      }
-
-      body {
-        background: white !important;
-        color: black !important;
-      }
-
-      .glass-card {
-        border: 1px solid #ccc !important;
-        background: white !important;
-        box-shadow: none !important;
-      }
     }
 
     /* ===== Performance Optimizations for Mobile ===== */
     @media (max-width: 768px) {
-
-      /* Reduce animations on mobile for better performance */
       .floating-element,
-      .particle,
-      .service-hero-overlay {
+      .particle {
         animation-duration: 0s !important;
         animation: none !important;
       }
 
-      /* Reduce blur effects on low-end devices */
       .glass-card,
       .nav-glass {
         backdrop-filter: blur(10px) !important;
@@ -1054,18 +930,56 @@
   <!-- ===== Particles ===== -->
   <div class="particles" id="particles"></div>
 
+  <!-- ===== Mobile Menu Overlay ===== -->
+  <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+
+  <!-- ===== Mobile Menu Slide Panel ===== -->
+  <div class="mobile-menu-slide" id="mobileMenuSlide">
+    <div class="mobile-menu-header">
+      <h3>Menu</h3>
+      <button class="mobile-close-btn" id="mobileCloseBtn">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    
+    <div class="mobile-menu-links">
+      <a href="index.html" class="mobile-menu-link">Home</a>
+      <a href="about.html" class="mobile-menu-link">About Us</a>
+      
+      <!-- Services with submenu -->
+      <div class="mobile-menu-item">
+        <a href="javascript:void(0)" class="mobile-menu-link mobile-services-toggle">
+          Services <i class="fas fa-chevron-down float-right mt-1"></i>
+        </a>
+        <div class="mobile-submenu" id="mobileServicesSubmenu">
+          <a href="web-design.html"><i class="fas fa-paint-brush text-violet-400"></i> Web Design</a>
+          <a href="web-development.html"><i class="fas fa-code text-cyan-400"></i> Web Development</a>
+          <a href="mobile-app.html"><i class="fas fa-mobile-alt text-blue-400"></i> Mobile Application</a>
+          <a href="digital-marketing.html"><i class="fas fa-chart-line text-pink-400"></i> Digital Marketing</a>
+          <a href="seo-optimization.html"><i class="fas fa-search text-green-400"></i>AEO & SEO Strategies</a>
+          <a href="branding.html"><i class="fas fa-palette text-yellow-400"></i> Branding</a>
+        </div>
+      </div>
+      
+      <a href="index.html#contact" class="mobile-menu-link">Contact Us</a>
+      <a href="terms-and-conditions.html" class="mobile-menu-link">Terms & Conditions</a>
+    </div>
+  </div>
+
   <!-- ===== WhatsApp Floating Button ===== -->
-  <a href="https://wa.me/919676464756" class="whatsapp-float-left" target="_blank"
-    style="position: fixed; bottom: 30px; left: 30px; width: 70px; height: 70px; background: linear-gradient(135deg, #25D366, #128C7E); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 36px; box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4); z-index: 1000; transition: all 0.3s ease; animation: pulse 2s infinite; text-decoration: none;">
+  <a href="https://wa.me/919676464756" class="whatsapp-float-left" target="_blank">
     <i class="fab fa-whatsapp"></i>
+    <div class="whatsapp-tooltip-left">Chat with us!</div>
   </a>
 
   <!-- ===== Enhanced Glass Navbar ===== -->
   <nav class="fixed top-0 w-full z-50 nav-glass">
     <div class="max-w-7xl mx-auto px-4 py-2 flex justify-between items-center">
       <div class="flex items-center gap-1">
-        <img src="Atirath Technologies Transparent Logo.png" alt="Atirath Traders Logo" class="navbar-logo">
-        <h1 class="brand-title"></h1>
+        <a href="index.html">
+          <img src="AT 12.png" alt="Atirath Technologies Logo" class="navbar-logo"
+            style="width:265px; height:60px; max-width:none;">
+        </a>
       </div>
       <div class="hidden md:flex space-x-8 font-medium">
         <a href="index.html" class="hover:text-violet-400 transition hover:scale-105">Home</a>
@@ -1079,40 +993,16 @@
             <a href="web-development.html"><i class="fas fa-code text-cyan-400"></i> Web Development</a>
             <a href="mobile-app.html"><i class="fas fa-mobile-alt text-blue-400"></i> Mobile Application</a>
             <a href="digital-marketing.html"><i class="fas fa-chart-line text-pink-400"></i> Digital Marketing</a>
-            <a href="seo-optimization.html"><i class="fas fa-search text-green-400"></i> SEO Optimization</a>
+            <a href="seo-optimization.html"><i class="fas fa-search text-green-400"></i>AEO & SEO Strategies</a>
             <a href="branding.html"><i class="fas fa-palette text-yellow-400"></i> Branding</a>
           </div>
         </div>
         <a href="index.html#contact" class="hover:text-violet-400 transition hover:scale-105">Contact Us</a>
+        <a href="terms-and-conditions.html" class="hover:text-violet-400 transition hover:scale-105">Terms & Conditions</a>
       </div>
-      <button class="md:hidden text-2xl" id="mobileMenuBtn">
+      <button class="md:hidden mobile-menu-toggle" id="mobileMenuBtn">
         <i class="fas fa-bars"></i>
       </button>
-    </div>
-    <div class="md:hidden absolute top-full left-0 w-full bg-[#0a1329]/95 backdrop-filter backdrop-blur-lg hidden"
-      id="mobileMenu">
-      <div class="flex flex-col p-6 space-y-4">
-        <a href="index.html" class="py-3 hover:text-violet-400 transition border-b border-gray-800">Home</a>
-        <a href="about.html" class="py-3 hover:text-violet-400 transition border-b border-gray-800">About Us</a>
-        <div class="py-3 border-b border-gray-800">
-          <div class="font-semibold mb-2">Services</div>
-          <div class="flex flex-col pl-4 space-y-3">
-            <a href="web-design.html" class="py-2 hover:text-violet-400 transition"><i
-                class="fas fa-paint-brush text-violet-400 mr-3"></i> Web Design</a>
-            <a href="web-development.html" class="py-2 hover:text-cyan-400 transition"><i
-                class="fas fa-code text-cyan-400 mr-3"></i> Web Development</a>
-            <a href="mobile-app.html" class="py-2 hover:text-blue-400 transition"><i
-                class="fas fa-mobile-alt text-blue-400 mr-3"></i> Mobile Application</a>
-            <a href="digital-marketing.html" class="py-2 hover:text-pink-400 transition"><i
-                class="fas fa-chart-line text-pink-400 mr-3"></i> Digital Marketing</a>
-            <a href="seo-optimization.html" class="py-2 hover:text-green-400 transition"><i
-                class="fas fa-search text-green-400 mr-3"></i> SEO Optimization</a>
-            <a href="branding.html" class="py-2 hover:text-yellow-400 transition"><i
-                class="fas fa-palette text-yellow-400 mr-3"></i> Branding</a>
-          </div>
-        </div>
-        <a href="#contact" class="py-3 hover:text-violet-400 transition">Contact</a>
-      </div>
     </div>
   </nav>
 
@@ -1370,8 +1260,8 @@
           <div class="tech-icon mb-4">
             <i class="fab fa-react text-cyan-400"></i>
           </div>
-          <h4 class="font-bold">React</h4>
-          <p class="text-gray-400 text-sm">Frontend Library</p>
+          <h4 class="font-bold">Vite + React</h4>
+          <p class="text-gray-400 text-sm">Fast React Development</p>
         </div>
 
         <!-- Vue -->
@@ -1401,13 +1291,13 @@
           <p class="text-gray-400 text-sm">Backend Language</p>
         </div>
 
-        <!-- MongoDB -->
+        <!-- Firebase -->
         <div class="text-center">
           <div class="tech-icon mb-4">
-            <i class="fas fa-database text-green-400"></i>
+            <i class="fas fa-fire text-yellow-400"></i>
           </div>
-          <h4 class="font-bold">MongoDB</h4>
-          <p class="text-gray-400 text-sm">NoSQL Database</p>
+          <h4 class="font-bold">Firebase</h4>
+          <p class="text-gray-400 text-sm">Backend Services</p>
         </div>
 
         <!-- AWS -->
@@ -1421,7 +1311,8 @@
       </div>
     </div>
   </section>
-   <!-- ===== CTA Section ===== -->
+
+  <!-- ===== CTA Section ===== -->
   <section class="section-padding px-6 section-bg">
     <div class="max-w-6xl mx-auto text-center">
       <h3 class="text-4xl md:text-5xl font-bold mb-6">Ready to Start Your Project?</h3>
@@ -1449,7 +1340,6 @@
     </div>
   </section>
 
-
   <!-- ===== Footer ===== -->
   <footer class="py-16 unique-footer">
     <div class="max-w-7xl mx-auto px-6">
@@ -1457,7 +1347,8 @@
         <!-- Column 1 -->
         <div class="footer-column">
           <div class="flex items-center gap-4 mb-6">
-            <img src="Atirath Technologies Transparent Logo.png" alt="Logo" class="navbar-logo">
+            <img src="AT 12.png" alt="Atirath Technologies Logo" class="navbar-logo"
+              style="width:265px; height:60px; max-width:none;">
             <h2 class="brand-title"></h2>
           </div>
           <p class="text-gray-400 mb-6">
@@ -1474,7 +1365,7 @@
               class="social-link instagram">
               <i class="fab fa-instagram"></i>
             </a>
-            <a href="https://www.linkedin.com/company/110555899" class="social-link linkedin">
+            <a href="https://www.linkedin.com/company/atirath-technologies-india/" class="social-link linkedin">
               <i class="fab fa-linkedin-in"></i>
             </a>
           </div>
@@ -1486,8 +1377,10 @@
           <ul class="space-y-3">
             <li><a href="index.html" class="text-gray-400 hover:text-cyan-400 transition">Home</a></li>
             <li><a href="about.html" class="text-gray-400 hover:text-cyan-400 transition">About Us</a></li>
-            <li><a href="#services" class="text-gray-400 hover:text-cyan-400 transition">Services</a></li>
-            <li><a href="#contact" class="text-gray-400 hover:text-cyan-400 transition">Contact</a></li>
+            <li><a href="index.html#services" class="text-gray-400 hover:text-cyan-400 transition">Services</a></li>
+            <li><a href="Portfolio.html" class="text-gray-400 hover:text-cyan-400 transition">Portfolio</a></li>
+            <li><a href="index.html#contact" class="text-gray-400 hover:text-cyan-400 transition">Contact</a></li>
+            
           </ul>
         </div>
 
@@ -1496,14 +1389,10 @@
           <h4>Our Services</h4>
           <ul class="space-y-3">
             <li><a href="web-design.html" class="text-gray-400 hover:text-violet-400 transition">Web Design</a></li>
-            <li><a href="web-development.html" class="text-gray-400 hover:text-violet-400 transition">Web
-                Development</a></li>
-            <li><a href="mobile-app.html" class="text-gray-400 hover:text-blue-400 transition">Mobile Application</a>
-            </li>
-            <li><a href="digital-marketing.html" class="text-gray-400 hover:text-pink-400 transition">Digital
-                Marketing</a></li>
-            <li><a href="seo-optimization.html" class="text-gray-400 hover:text-green-400 transition">SEO
-                Optimization</a></li>
+            <li><a href="web-development.html" class="text-gray-400 hover:text-violet-400 transition">Web Development</a></li>
+            <li><a href="mobile-app.html" class="text-gray-400 hover:text-blue-400 transition">Mobile Application</a></li>
+            <li><a href="digital-marketing.html" class="text-gray-400 hover:text-pink-400 transition">Digital Marketing</a></li>
+            <li><a href="seo-optimization.html" class="text-gray-400 hover:text-green-400 transition">AEO & SEO Strategies</a></li>
             <li><a href="branding.html" class="text-gray-400 hover:text-yellow-400 transition">Branding</a></li>
           </ul>
         </div>
@@ -1516,7 +1405,7 @@
               <i class="fas fa-map-marker-alt text-cyan-400 mt-1"></i>
               <a href="https://maps.google.com/?q=Plot+No.45%2C+Sy.No.74%2C+1st+Floor%2C+Jaihind+Enclave%2C+Madhapur%2C+Hyderabad+-+500081%2C+Telangana"
                 target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-cyan-400 transition">
-                Plot No.45, Sy.No.74, 1st Floor, Jaihind Enclave, Madhapur, Hyderabad - 500081, Telangana
+                Jaihind Enclave, Madhapur, Hyderabad - 500081, Telangana
               </a>
             </li>
             <li class="flex items-center gap-3">
@@ -1525,7 +1414,7 @@
             </li>
             <li class="flex items-center gap-3">
               <i class="fas fa-envelope text-pink-400"></i>
-              <span class="text-gray-400">info@atirathtradersltd.com</span>
+              <span class="text-gray-400">info@atirathtechnologies.com</span>
             </li>
             <li class="flex items-center gap-3">
               <i class="fas fa-clock text-green-400"></i>
@@ -1535,56 +1424,102 @@
         </div>
       </div>
 
-      <div class="border-t border-gray-800 pt-8 mt-8 text-center">
-        <p class="text-gray-400">© 2025 Atirath Technologies. All Rights Reserved. | Digital Growth Partner</p>
-        <p class="text-gray-500 text-sm mt-2">Transforming businesses through innovative digital solutions</p>
-      </div>
+       <div class="border-t border-gray-800 pt-8 mt-8 text-center">
+      <p class="text-gray-400">© 2025 Atirath Technologies. All Rights Reserved. | Digital Growth Partner</p>
+      <p class="text-gray-500 text-sm mt-2">Transforming businesses through innovative digital solutions</p>
+      <p class="text-gray-500 text-sm mt-1">
+        <a href="terms-and-conditions.html" class="text-cyan-400 hover:underline">Terms & Conditions</a> | 
+        <a href="privacypolicy.html" class="text-cyan-400 hover:underline">Privacy Policy</a>
+      </p>
     </div>
-
-    <!-- Wave Effect -->
-    <div class="footer-wave"></div>
+    </div>
   </footer>
 
   <script>
+    // Mobile Menu Functionality
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenuSlide = document.getElementById('mobileMenuSlide');
+    const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+    const mobileCloseBtn = document.getElementById('mobileCloseBtn');
+    const mobileServicesToggle = document.querySelector('.mobile-services-toggle');
+    const mobileServicesSubmenu = document.getElementById('mobileServicesSubmenu');
+    
+    // Toggle mobile menu
+    function toggleMobileMenu() {
+      mobileMenuSlide.classList.toggle('show');
+      mobileMenuOverlay.classList.toggle('show');
+      document.body.style.overflow = mobileMenuSlide.classList.contains('show') ? 'hidden' : 'auto';
+    }
+    
+    // Open mobile menu
+    mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+    
+    // Close mobile menu
+    mobileCloseBtn.addEventListener('click', toggleMobileMenu);
+    mobileMenuOverlay.addEventListener('click', toggleMobileMenu);
+    
+    // Toggle services submenu
+    let isServicesOpen = false;
+    mobileServicesToggle.addEventListener('click', function(e) {
+      e.preventDefault();
+      isServicesOpen = !isServicesOpen;
+      
+      // Toggle submenu
+      mobileServicesSubmenu.classList.toggle('show');
+      
+      // Change icon
+      const icon = this.querySelector('i');
+      if (isServicesOpen) {
+        icon.classList.remove('fa-chevron-down');
+        icon.classList.add('fa-chevron-up');
+      } else {
+        icon.classList.remove('fa-chevron-up');
+        icon.classList.add('fa-chevron-down');
+      }
+    });
+    
+    // Close mobile menu when clicking on links
+    document.querySelectorAll('.mobile-menu-link').forEach(link => {
+      if (!link.classList.contains('mobile-services-toggle')) {
+        link.addEventListener('click', function(e) {
+          toggleMobileMenu();
+        });
+      }
+    });
+    
+    // Close menu on escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && mobileMenuSlide.classList.contains('show')) {
+        toggleMobileMenu();
+      }
+    });
+
     // Create floating particles
     function createParticles() {
       const particlesContainer = document.getElementById('particles');
+      if (!particlesContainer) return;
+      
       const particleCount = 30;
-
+      
       for (let i = 0; i < particleCount; i++) {
         const particle = document.createElement('div');
         particle.className = 'particle';
-
+        
         particle.style.left = `${Math.random() * 100}vw`;
         particle.style.top = `${Math.random() * 100}vh`;
-
+        
         const size = Math.random() * 4 + 1;
         particle.style.width = `${size}px`;
         particle.style.height = `${size}px`;
-
+        
         particle.style.animationDelay = `${Math.random() * 20}s`;
-
+        
         const colors = ['#7cfaff', '#8b5cf6', '#ff6b9d'];
         particle.style.background = colors[Math.floor(Math.random() * colors.length)];
-
+        
         particlesContainer.appendChild(particle);
       }
     }
-
-    // Mobile menu toggle
-    document.getElementById('mobileMenuBtn').addEventListener('click', function () {
-      const mobileMenu = document.getElementById('mobileMenu');
-      mobileMenu.classList.toggle('hidden');
-
-      const icon = this.querySelector('i');
-      if (icon.classList.contains('fa-bars')) {
-        icon.classList.remove('fa-bars');
-        icon.classList.add('fa-times');
-      } else {
-        icon.classList.remove('fa-times');
-        icon.classList.add('fa-bars');
-      }
-    });
 
     // Process steps animation on scroll
     function animateProcessSteps() {
@@ -1602,11 +1537,11 @@
     }
 
     // Smooth scrolling for anchor links
-    document.addEventListener('DOMContentLoaded', function () {
+    document.addEventListener('DOMContentLoaded', function() {
       createParticles();
 
       document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
+        anchor.addEventListener('click', function(e) {
           e.preventDefault();
 
           const targetId = this.getAttribute('href');
@@ -1618,15 +1553,6 @@
               top: targetElement.offsetTop - 80,
               behavior: 'smooth'
             });
-
-            // Close mobile menu if open
-            const mobileMenu = document.getElementById('mobileMenu');
-            if (!mobileMenu.classList.contains('hidden')) {
-              mobileMenu.classList.add('hidden');
-              const icon = document.getElementById('mobileMenuBtn').querySelector('i');
-              icon.classList.remove('fa-times');
-              icon.classList.add('fa-bars');
-            }
           }
         });
       });
@@ -1637,23 +1563,6 @@
       // Listen for scroll events
       window.addEventListener('scroll', animateProcessSteps);
     });
-
-    // WhatsApp float animation
-    const style = document.createElement('style');
-    style.textContent = `
-    @keyframes pulse {
-      0% {
-        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
-      }
-      70% {
-        box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
-      }
-      100% {
-        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
-      }
-    }
-  `;
-    document.head.appendChild(style);
   </script>
 
 </body>

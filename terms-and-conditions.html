@@ -4,8 +4,74 @@
 <head>
   <meta charset="UTF-8">
   <link rel="icon" type="image/png" href="icon.png">
-  <title>Terms & Conditions | Atirath Technology</title>
+   <!-- ===== TITLE & BASIC META ===== -->
+  <title>Atirath Technology | Digital Growth Partner - Web Design, Development & Marketing</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Atirath Technologies - Your trusted digital growth partner offering web design, web development, mobile apps, digital marketing, SEO, and branding services in Hyderabad, India.">
+  <meta name="keywords" content="web design, web development, digital marketing, SEO, mobile app development, branding, Hyderabad, India, Atirath Technologies">
+  <meta name="author" content="Atirath Technologies">
+  <meta name="robots" content="index, follow">
+  
+  <!-- ===== OPEN GRAPH META TAGS ===== -->
+  <meta property="og:title" content="Atirath Technology | Digital Growth Partner">
+  <meta property="og:description" content="Transform your digital presence with our innovative web design, development, and marketing solutions.">
+  <meta property="og:image" content="https://atirathtechnologies.com/Atirath%20Technologies%20Transparent%20Logo.png">
+  <meta property="og:url" content="https://atirathtechnologies.com">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Atirath Technologies">
+  <meta property="og:locale" content="en_US">
+  
+  <!-- ===== TWITTER CARD META TAGS ===== -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Atirath Technology | Digital Growth Partner">
+  <meta name="twitter:description" content="Transform your digital presence with our innovative web design, development, and marketing solutions.">
+  <meta name="twitter:image" content="https://atirathtechnologies.com/Atirath%20Technologies%20Transparent%20Logo.png">
+  <meta name="twitter:site" content="@atirathtech">
+  
+  <!-- ===== CONTACT & BUSINESS META TAGS ===== -->
+  <meta name="contact:country_name" content="India">
+  <meta name="contact:region" content="Telangana">
+  <meta name="contact:city" content="Hyderabad">
+  <meta name="contact:postal_code" content="500081">
+  <meta name="contact:street_address" content="Jaihind Enclave, Madhapur">
+  <meta name="contact:email" content="info@atirathtechnologies.com">
+  <meta name="contact:phone_number" content="+919676464756">
+  <meta name="contact:website" content="https://atirathtechnologies.com">
+  <meta name="business:hours" content="Mo-Fr 09:00-18:00">
+  
+  <!-- ===== STRUCTURED DATA / JSON-LD ===== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Atirath Technologies",
+    "description": "Digital Growth Partner offering web design, development, and marketing services",
+    "url": "https://atirathtechnologies.com",
+    "logo": "https://atirathtechnologies.com/Atirath%20Technologies%20Transparent%20Logo.png",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Jaihind Enclave, Madhapur",
+      "addressLocality": "Hyderabad",
+      "postalCode": "500081",
+      "addressRegion": "Telangana",
+      "addressCountry": "IN"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+919676464756",
+      "contactType": "customer service",
+      "email": "info@atirathtechnologies.com",
+      "availableLanguage": ["English", "Hindi", "Telugu"]
+    },
+    "sameAs": [
+      "https://www.facebook.com/profile.php?id=61585464714844",
+      "https://www.linkedin.com/company/atirath-technologies-india/",
+      "https://www.instagram.com/atirath_technologies"
+    ],
+    "openingHours": "Mo-Fr 09:00-18:00",
+    "priceRange": "$$"
+  }
+  </script>
 
   <!-- Bootstrap 5 CDN -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -131,19 +197,144 @@
       }
     }
 
-    .navbar-logo {
-      height: 90px;
-      /* Reduced from 100px to 50px */
-      width: 200px;
+     .navbar-logo {
+      height: 60px;
+      width: 265px;
       margin-right: 5px;
-      /* Reduced from 12px to 5px */
       filter: drop-shadow(0 0 10px rgba(55, 56, 56, 0.5));
       transition: transform 0.3s ease;
-      
+      object-fit: cover;
     }
-
     .navbar-logo:hover {
       transform: scale(1.1);
+    }
+
+    /* ===== Mobile Menu Slide Animation ===== */
+    .mobile-menu-slide {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 300px;
+      height: 100vh;
+      background: rgba(10, 15, 35, 0.98);
+      backdrop-filter: blur(25px);
+      -webkit-backdrop-filter: blur(25px);
+      border-left: 1px solid rgba(139, 92, 246, 0.3);
+      box-shadow: -15px 0 35px rgba(0, 0, 0, 0.5);
+      padding: 80px 20px 30px;
+      transition: right 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      z-index: 999;
+      overflow-y: auto;
+    }
+
+    .mobile-menu-slide.show {
+      right: 0;
+    }
+
+    .mobile-menu-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(5px);
+      z-index: 998;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .mobile-menu-overlay.show {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .mobile-menu-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid rgba(124, 250, 255, 0.1);
+    }
+
+    .mobile-menu-header h3 {
+      font-size: 1.5rem;
+      background: linear-gradient(135deg, #7cfaff, #8b5cf6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .mobile-close-btn {
+      background: none;
+      border: none;
+      color: #7cfaff;
+      font-size: 1.5rem;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .mobile-close-btn:hover {
+      transform: rotate(90deg);
+    }
+
+    .mobile-menu-links {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .mobile-menu-links a {
+      display: block;
+      padding: 15px;
+      color: #e2e8f0;
+      text-decoration: none;
+      border-radius: 10px;
+      transition: all 0.3s ease;
+      border-left: 3px solid transparent;
+      font-size: 1.1rem;
+    }
+
+    .mobile-menu-links a:hover {
+      background: rgba(124, 250, 255, 0.1);
+      color: #7cfaff;
+      padding-left: 20px;
+      border-left: 3px solid #8b5cf6;
+    }
+
+    .mobile-submenu {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+      padding-left: 20px;
+    }
+
+    .mobile-submenu.show {
+      max-height: 400px;
+    }
+
+    .mobile-submenu a {
+      padding: 12px 15px;
+      font-size: 1rem;
+      color: #b0b8d0;
+    }
+
+    .mobile-submenu a i {
+      margin-right: 10px;
+    }
+
+    .mobile-menu-toggle {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+      padding: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.3s ease;
     }
 
     /* Content Container */
@@ -1239,16 +1430,67 @@
     <div class="gradient-circle circle-3"></div>
   </div>
 
+  <!-- ===== Mobile Menu Overlay ===== -->
+  <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+
+  <!-- ===== Mobile Menu Slide Panel ===== -->
+  <div class="mobile-menu-slide" id="mobileMenuSlide">
+    <div class="mobile-menu-header">
+      <h3>Menu</h3>
+      <button class="mobile-close-btn" id="mobileCloseBtn">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    
+    <div class="mobile-menu-links">
+      <a href="index.html" class="mobile-menu-link">Home</a>
+      <a href="about.html" class="mobile-menu-link">About Us</a>
+      
+      <!-- Services with submenu -->
+      <div class="mobile-menu-item">
+        <a href="javascript:void(0)" class="mobile-menu-link mobile-services-toggle">
+          Services <i class="fas fa-chevron-down float-right mt-1"></i>
+        </a>
+        <div class="mobile-submenu" id="mobileServicesSubmenu">
+          <a href="web-design.html"><i class="fas fa-paint-brush text-violet-400"></i> Web Design</a>
+          <a href="web-development.html"><i class="fas fa-code text-cyan-400"></i> Web Development</a>
+          <a href="mobile-app.html"><i class="fas fa-mobile-alt text-blue-400"></i> Mobile Application</a>
+          <a href="digital-marketing.html"><i class="fas fa-chart-line text-pink-400"></i> Digital Marketing</a>
+          <a href="seo-optimization.html"><i class="fas fa-search text-green-400"></i> AEO & SEO Optimization</a>
+          <a href="branding.html"><i class="fas fa-palette text-yellow-400"></i> Branding</a>
+        </div>
+      </div>
+      
+      <a href="Portfolio.html" class="mobile-menu-link">Portfolio</a>
+      <a href="index.html#contact" class="mobile-menu-link">Contact Us</a>
+      <a href="terms-and-conditions.html" class="mobile-menu-link">Terms & Conditions</a>
+      <a href="privacypolicy.html" class="mobile-menu-link">Privacy policy</a>
+    </div>
+  </div>
+
   <!-- Navbar -->
   <nav class="fixed top-0 w-full z-50 nav-glass">
-    <div class="max-w-7xl mx-auto px-3 py-1 flex justify-between items-center">
-      <div class="flex items-center gap-1">
-        <img src="Atirath Technologies Transparent Logo.png" alt="Atirath Technology Logo" class="navbar-logo">
-        
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <div class="flex items-center gap-2">
+         <img src="AT 12.png" alt="Atirath Technology Logo" class="navbar-logo"
+            style="width:265px; height:60px; max-width:none;">
       </div>
-      <a href="index.html" class="btn-secondary">
-        <i class="fas fa-arrow-left"></i> Back to Home
-      </a>
+      
+      <!-- Desktop Menu -->
+      <div class="hidden md:flex space-x-6 font-medium">
+        <a href="index.html" class="hover:text-violet-400 transition hover:scale-105">Home</a>
+        <a href="about.html" class="hover:text-violet-400 transition hover:scale-105">About Us</a>
+        <a href="Portfolio.html" class="hover:text-violet-400 transition hover:scale-105">Portfolio</a>
+        <a href="index.html#contact" class="hover:text-violet-400 transition hover:scale-105">Contact Us</a>
+        <a href="terms-and-conditions.html" class="hover:text-violet-400 transition hover:scale-105">Terms & Conditions</a>
+        <a href="privacypolicy.html
+        " class="hover:text-violet-400 transition hover:scale-105">Privacy Policy</a>
+      </div>
+      
+      <!-- Mobile Menu Button -->
+      <button class="md:hidden mobile-menu-toggle" id="mobileMenuBtn">
+        <i class="fas fa-bars"></i>
+      </button>
     </div>
   </nav>
 
@@ -1510,7 +1752,7 @@
               <div class="contact-info">
                 <div class="contact-item">
                   <i class="fas fa-envelope"></i>
-                  <span>info@atirathtradersltd.com</span>
+                  <span>info@atirathtechnologies.com</span>
                 </div>
                 <div class="contact-item">
                   <i class="fas fa-phone"></i>
@@ -1534,6 +1776,66 @@
   </div>
 
   <script>
+    // Mobile Menu Functionality
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenuSlide = document.getElementById('mobileMenuSlide');
+    const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+    const mobileCloseBtn = document.getElementById('mobileCloseBtn');
+    const mobileServicesToggle = document.querySelector('.mobile-services-toggle');
+    const mobileServicesSubmenu = document.getElementById('mobileServicesSubmenu');
+    
+    // Toggle mobile menu
+    function toggleMobileMenu() {
+      mobileMenuSlide.classList.toggle('show');
+      mobileMenuOverlay.classList.toggle('show');
+      document.body.style.overflow = mobileMenuSlide.classList.contains('show') ? 'hidden' : 'auto';
+    }
+    
+    // Open mobile menu
+    mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+    
+    // Close mobile menu
+    mobileCloseBtn.addEventListener('click', toggleMobileMenu);
+    mobileMenuOverlay.addEventListener('click', toggleMobileMenu);
+    
+    // Toggle services submenu
+    let isServicesOpen = false;
+    if (mobileServicesToggle) {
+      mobileServicesToggle.addEventListener('click', function(e) {
+        e.preventDefault();
+        isServicesOpen = !isServicesOpen;
+        
+        // Toggle submenu
+        mobileServicesSubmenu.classList.toggle('show');
+        
+        // Change icon
+        const icon = this.querySelector('i');
+        if (isServicesOpen) {
+          icon.classList.remove('fa-chevron-down');
+          icon.classList.add('fa-chevron-up');
+        } else {
+          icon.classList.remove('fa-chevron-up');
+          icon.classList.add('fa-chevron-down');
+        }
+      });
+    }
+    
+    // Close mobile menu when clicking on links
+    document.querySelectorAll('.mobile-menu-link').forEach(link => {
+      if (!link.classList.contains('mobile-services-toggle')) {
+        link.addEventListener('click', function(e) {
+          toggleMobileMenu();
+        });
+      }
+    });
+    
+    // Close menu on escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && mobileMenuSlide.classList.contains('show')) {
+        toggleMobileMenu();
+      }
+    });
+
     // Scroll Animation
     function checkVisibility() {
       const sections = document.querySelectorAll('.section-container');
@@ -1608,7 +1910,7 @@
     const style = document.createElement('style');
     style.textContent = `
       @media print {
-        .nav-glass, .action-buttons, .btn-secondary, .animated-bg {
+        .nav-glass, .action-buttons, .btn-secondary, .animated-bg, .mobile-menu-slide, .mobile-menu-overlay {
           display: none !important;
         }
         

@@ -1,15 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <link rel="icon" type="image/png" href="icon.png">
-  <title>About Us | Atirath Technologies</title>
+  <!-- ===== TITLE & BASIC META ===== -->
+  <title>Atirath Technologies | Digital Growth Partner - Web Design, Development & Marketing</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Atirath Technologies - Your trusted digital growth partner offering web design, web development, mobile apps, digital marketing, SEO, and branding services in Hyderabad, India.">
+  <meta name="keywords"
+    content="web design, web development, digital marketing, SEO, mobile app development, branding, Hyderabad, India, Atirath Technologies">
+  <meta name="author" content="Atirath Technologies">
+  <meta name="robots" content="index, follow">
+
+  <!-- ===== OPEN GRAPH META TAGS ===== -->
+  <meta property="og:title" content="Atirath Technologies | Digital Growth Partner">
+  <meta property="og:description"
+    content="Transform your digital presence with our innovative web design, development, and marketing solutions.">
+  <meta property="og:image" content="https://atirathtechnologies.com/Atirath%20Technologies%20Transparent%20Logo.png">
+  <meta property="og:url" content="https://atirathtechnologies.com">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Atirath Technologies">
+  <meta property="og:locale" content="en_US">
+
+  <!-- ===== TWITTER CARD META TAGS ===== -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Atirath Technologies | Digital Growth Partner">
+  <meta name="twitter:description"
+    content="Transform your digital presence with our innovative web design, development, and marketing solutions.">
+  <meta name="twitter:image" content="https://atirathtechnologies.com/Atirath%20Technologies%20Transparent%20Logo.png">
+  <meta name="twitter:site" content="@atirathtech">
+
+  <!-- ===== CONTACT & BUSINESS META TAGS ===== -->
+  <meta name="contact:country_name" content="India">
+  <meta name="contact:region" content="Telangana">
+  <meta name="contact:city" content="Hyderabad">
+  <meta name="contact:postal_code" content="500081">
+  <meta name="contact:street_address" content="Jaihind Enclave, Madhapur">
+  <meta name="contact:email" content="info@atirathtechnologies.com">
+  <meta name="contact:phone_number" content="+919676464756">
+  <meta name="contact:website" content="https://atirathtechnologies.com">
+  <meta name="business:hours" content="Mo-Fr 09:00-18:00">
+
+  <!-- ===== STRUCTURED DATA / JSON-LD ===== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Atirath Technologies",
+    "description": "Digital Growth Partner offering web design, development, and marketing services",
+    "url": "https://atirathtechnologies.com",
+    "logo": "https://atirathtechnologies.com/Atirath%20Technologies%20Transparent%20Logo.png",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Jaihind Enclave, Madhapur",
+      "addressLocality": "Hyderabad",
+      "postalCode": "500081",
+      "addressRegion": "Telangana",
+      "addressCountry": "IN"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+919676464756",
+      "contactType": "customer service",
+      "email": "info@atirathtechnologies.com",
+      "availableLanguage": ["English", "Hindi", "Telugu"]
+    },
+    "sameAs": [
+      "https://www.facebook.com/profile.php?id=61585464714844",
+      "https://www.linkedin.com/company/atirath-technologies-india/",
+      "https://www.instagram.com/atirath_technologies"
+    ],
+    "openingHours": "Mo-Fr 09:00-18:00",
+    "priceRange": "$$"
+  }
+  </script>
 
   <!-- Bootstrap 5 CDN -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  
+
   <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- Font Awesome for icons -->
@@ -42,6 +113,134 @@
       z-index: 1000;
     }
 
+    /* ===== Mobile Menu Slide Animation ===== */
+    .mobile-menu-slide {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 300px;
+      height: 100vh;
+      background: rgba(10, 15, 35, 0.98);
+      backdrop-filter: blur(25px);
+      -webkit-backdrop-filter: blur(25px);
+      border-left: 1px solid rgba(139, 92, 246, 0.3);
+      box-shadow: -15px 0 35px rgba(0, 0, 0, 0.5);
+      padding: 80px 20px 30px;
+      transition: right 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      z-index: 999;
+      overflow-y: auto;
+    }
+
+    .mobile-menu-slide.show {
+      right: 0;
+    }
+
+    .mobile-menu-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(5px);
+      z-index: 998;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .mobile-menu-overlay.show {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .mobile-menu-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid rgba(124, 250, 255, 0.1);
+    }
+
+    .mobile-menu-header h3 {
+      font-size: 1.5rem;
+      background: linear-gradient(135deg, #7cfaff, #8b5cf6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .mobile-close-btn {
+      background: none;
+      border: none;
+      color: #7cfaff;
+      font-size: 1.5rem;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .mobile-close-btn:hover {
+      transform: rotate(90deg);
+    }
+
+    .mobile-menu-links {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .mobile-menu-links a {
+      display: block;
+      padding: 15px;
+      color: #e2e8f0;
+      text-decoration: none;
+      border-radius: 10px;
+      transition: all 0.3s ease;
+      border-left: 3px solid transparent;
+      font-size: 1.1rem;
+    }
+
+    .mobile-menu-links a:hover {
+      background: rgba(124, 250, 255, 0.1);
+      color: #7cfaff;
+      padding-left: 20px;
+      border-left: 3px solid #8b5cf6;
+    }
+
+    .mobile-submenu {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+      padding-left: 20px;
+    }
+
+    .mobile-submenu.show {
+      max-height: 400px;
+    }
+
+    .mobile-submenu a {
+      padding: 12px 15px;
+      font-size: 1rem;
+      color: #b0b8d0;
+    }
+
+    .mobile-submenu a i {
+      margin-right: 10px;
+    }
+
+    .mobile-menu-toggle {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+      padding: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.3s ease;
+    }
+
     /* ===== Brand Title ===== */
     .brand-title {
       font-size: 1.6rem;
@@ -61,15 +260,20 @@
     }
 
     @keyframes titleGlow {
-      0% { text-shadow: 0 0 20px rgba(139, 92, 246, 0.4); }
-      100% { text-shadow: 0 0 40px rgba(124, 250, 255, 0.6); }
+      0% {
+        text-shadow: 0 0 20px rgba(139, 92, 246, 0.4);
+      }
+
+      100% {
+        text-shadow: 0 0 40px rgba(124, 250, 255, 0.6);
+      }
     }
 
     /* ===== About Hero Section ===== */
     .about-hero {
       min-height: 70vh;
       background: linear-gradient(135deg, rgba(5, 11, 30, 0.9), rgba(10, 26, 60, 0.9)),
-                  url('https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+        url('https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
@@ -82,7 +286,7 @@
       position: absolute;
       inset: 0;
       background: radial-gradient(circle at 20% 30%, rgba(124, 250, 255, 0.1) 0%, transparent 50%),
-                  radial-gradient(circle at 80% 70%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
+        radial-gradient(circle at 80% 70%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
     }
 
     /* ===== Glass Card ===== */
@@ -165,12 +369,17 @@
 
     /* ===== Logo in Navbar ===== */
     .navbar-logo {
-      height: 90px;
+      height: auto;
+      /* Let height adjust automatically */
       width: 200px;
+      /* Adjust width to fit your logo */
+      max-width: 100%;
+      /* Make sure it doesn't overflow on mobile */
       margin-right: 5px;
       filter: drop-shadow(0 0 10px rgba(55, 56, 56, 0.5));
       transition: transform 0.3s ease;
-      
+      object-fit: cover;
+      /* Show full logo without cropping */
     }
 
     .navbar-logo:hover {
@@ -196,7 +405,7 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background: 
+      background:
         radial-gradient(circle at 20% 30%, rgba(124, 250, 255, 0.05) 0%, transparent 50%),
         radial-gradient(circle at 80% 70%, rgba(139, 92, 246, 0.05) 0%, transparent 50%),
         radial-gradient(circle at 40% 80%, rgba(255, 107, 157, 0.03) 0%, transparent 50%);
@@ -205,8 +414,13 @@
     }
 
     @keyframes bgFloat {
-      0% { transform: scale(1) rotate(0deg); }
-      100% { transform: scale(1.1) rotate(2deg); }
+      0% {
+        transform: scale(1) rotate(0deg);
+      }
+
+      100% {
+        transform: scale(1.1) rotate(2deg);
+      }
     }
 
     /* ===== Dropdown Menu ===== */
@@ -220,7 +434,7 @@
       position: absolute;
       top: 100%;
       left: 0;
-      min-width: 240px;
+      min-width: 270px;
       background: rgba(10, 15, 35, 0.98);
       backdrop-filter: blur(25px);
       border: 1px solid rgba(139, 92, 246, 0.3);
@@ -326,17 +540,6 @@
       gap: 10px;
     }
 
-    .footer-wave {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 80px;
-      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" fill="%238b5cf6"/><path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" fill="%238b5cf6"/><path d="M0,0V5.63C149.93,59,314.09,71.78,475.83,42.57,430,21.69,388.14,6.21,345,6c-48.97-.22-96.94,11.71-135.26,35C170.67,59.2,138.65,75.6,124.45,97.27c-14.19,21.78-21.77,45.79-29.11,70.36C71.48,190.7,60.93,224.27,60.18,259c-.63,29.25,11.22,56.86,32.67,80.55,20.93,23.09,49.8,40.29,81.14,49.13,60.21,17.23,126.63,15.2,187.16,5.22,61.84-10.18,121.36-25.75,181.79-41.25,54-13.72,107.45-28.65,158.74-50.31,38.36-16.34,71.12-38.88,104.41-60.7,13.19-8.57,26.14-17.59,39.4-26C1058.69,14.78,1126.12,7.13,1200,7.13V0Z" fill="%237cfaff"/></svg>');
-      background-size: cover;
-      opacity: 0.1;
-    }
-
     /* ===== Social Links ===== */
     .social-link {
       width: 42px;
@@ -414,9 +617,11 @@
       0% {
         box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
       }
+
       70% {
         box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
       }
+
       100% {
         box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
       }
@@ -430,76 +635,78 @@
     /* ============================ */
     /* COMPREHENSIVE RESPONSIVE DESIGN */
     /* ============================ */
-    
+
     /* Extra Small Devices (iPhone SE, very small phones) */
     @media (max-width: 320px) {
       .brand-title {
         font-size: 0.9rem;
       }
-      
+
       .navbar-logo {
         height: 35px;
       }
-      
+
       .about-hero {
         min-height: 60vh;
       }
-      
+
       .about-hero h1 {
         font-size: 2.2rem !important;
         line-height: 1.2;
       }
-      
+
       .about-hero p {
         font-size: 1rem !important;
       }
-      
+
       .section-padding {
         padding-top: 40px;
         padding-bottom: 40px;
       }
-      
+
       .glass-card {
         padding: 1.5rem 1rem !important;
       }
-      
+
       .timeline-container::after {
         left: 20px;
       }
-      
+
       .timeline-item {
         width: 100%;
         padding-left: 60px;
         padding-right: 15px;
       }
-      
-      .left-timeline, .right-timeline {
+
+      .left-timeline,
+      .right-timeline {
         left: 0;
       }
-      
-      .left-timeline::after, .right-timeline::after {
+
+      .left-timeline::after,
+      .right-timeline::after {
         left: 15px;
         right: auto;
       }
-      
+
       .timeline-content {
         padding: 15px;
       }
-      
+
       .footer-grid {
         grid-template-columns: 1fr;
         gap: 25px;
       }
-      
+
       .footer-column {
         padding: 0 !important;
         border: none !important;
       }
-      
+
       .unique-footer {
         padding: 30px 0 15px 0;
       }
-      
+
       .whatsapp-float-left {
         width: 50px;
         height: 50px;
@@ -507,13 +714,17 @@
         bottom: 15px;
         left: 15px;
       }
-      
+
       .grid-cols-4 {
         grid-template-columns: 1fr !important;
       }
-      
+
       .gap-16 {
         gap: 20px !important;
+      }
+      
+      .mobile-menu-slide {
+        width: 250px;
       }
     }
 
@@ -522,79 +733,85 @@
       .brand-title {
         font-size: 1rem;
       }
-      
+
       .navbar-logo {
         height: 40px;
       }
-      
+
       .about-hero {
         min-height: 65vh;
       }
-      
+
       .about-hero h1 {
         font-size: 2.8rem !important;
       }
-      
+
       .about-hero p {
         font-size: 1.1rem !important;
       }
-      
+
       .section-padding {
         padding-top: 50px;
         padding-bottom: 50px;
       }
-      
+
       .glass-card {
         padding: 2rem 1.5rem !important;
       }
-      
+
       .timeline-container::after {
         left: 30px;
       }
-      
+
       .timeline-item {
         width: 100%;
         padding-left: 70px;
         padding-right: 15px;
       }
-      
-      .left-timeline, .right-timeline {
+
+      .left-timeline,
+      .right-timeline {
         left: 0;
       }
-      
-      .left-timeline::after, .right-timeline::after {
+
+      .left-timeline::after,
+      .right-timeline::after {
         left: 20px;
         right: auto;
       }
-      
+
       .footer-grid {
         grid-template-columns: 1fr;
         gap: 30px;
       }
-      
+
       .footer-column:first-child {
         padding-right: 0;
         border-right: none;
       }
-      
+
       .footer-column:nth-child(2),
       .footer-column:nth-child(3) {
         padding-left: 0;
         padding-right: 0;
       }
-      
+
       .whatsapp-float-left {
         width: 60px;
         height: 60px;
         font-size: 28px;
       }
-      
+
       .grid-cols-4 {
         grid-template-columns: 1fr !important;
       }
-      
+
       .gap-8 {
         gap: 15px !important;
+      }
+      
+      .mobile-menu-slide {
+        width: 280px;
       }
     }
 
@@ -603,60 +820,60 @@
       .brand-title {
         font-size: 1.2rem;
       }
-      
+
       .navbar-logo {
         height: 45px;
       }
-      
+
       .about-hero h1 {
         font-size: 3.5rem !important;
       }
-      
+
       .about-hero p {
         font-size: 1.3rem !important;
       }
-      
+
       .section-padding {
         padding-top: 60px;
         padding-bottom: 60px;
       }
-      
+
       .timeline-container::after {
         left: 50%;
       }
-      
+
       .timeline-item {
         width: 50%;
       }
-      
+
       .timeline-content {
         padding: 15px 20px;
       }
-      
+
       .footer-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 40px;
       }
-      
+
       .footer-column:first-child {
         padding-right: 0;
         border-right: none;
       }
-      
+
       .footer-column:nth-child(2),
       .footer-column:nth-child(3) {
         padding-left: 0;
         padding-right: 0;
       }
-      
+
       .unique-footer {
         padding: 40px 0 20px 0;
       }
-      
+
       .grid-cols-4 {
         grid-template-columns: repeat(2, 1fr) !important;
       }
-      
+
       .grid-cols-2 {
         grid-template-columns: 1fr !important;
       }
@@ -667,38 +884,38 @@
       .brand-title {
         font-size: 1.4rem;
       }
-      
+
       .navbar-logo {
         height: 50px;
       }
-      
+
       .about-hero h1 {
         font-size: 4.5rem !important;
       }
-      
+
       .about-hero p {
         font-size: 1.5rem !important;
       }
-      
+
       .section-padding {
         padding-top: 80px;
         padding-bottom: 80px;
       }
-      
+
       .footer-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 50px;
       }
-      
+
       .footer-column:first-child {
         padding-right: 0;
         border-right: none;
       }
-      
+
       .grid-cols-4 {
         grid-template-columns: repeat(2, 1fr) !important;
       }
-      
+
       .glass-card {
         padding: 2.5rem 2rem !important;
       }
@@ -709,32 +926,32 @@
       .brand-title {
         font-size: 1.6rem;
       }
-      
+
       .navbar-logo {
         height: 60px;
       }
-      
+
       .about-hero h1 {
         font-size: 5.5rem !important;
       }
-      
+
       .about-hero p {
         font-size: 1.7rem !important;
       }
-      
+
       .section-padding {
         padding-top: 100px;
         padding-bottom: 100px;
       }
-      
+
       .footer-grid {
         grid-template-columns: 1.5fr 1fr 1fr 1fr;
       }
-      
+
       .grid-cols-4 {
         grid-template-columns: repeat(4, 1fr) !important;
       }
-      
+
       .glass-card {
         padding: 3rem 2rem !important;
       }
@@ -745,29 +962,31 @@
       .brand-title {
         font-size: 1.8rem;
       }
-      
+
       .navbar-logo {
         height: 70px;
       }
-      
+
       .about-hero h1 {
         font-size: 6.5rem !important;
       }
-      
+
       .about-hero p {
         font-size: 2rem !important;
       }
-      
+
       .section-padding {
         padding-top: 120px;
         padding-bottom: 120px;
       }
-      
+
       .glass-card {
         padding: 3.5rem 2.5rem !important;
       }
-      
-      .container, .max-w-7xl, .max-w-6xl {
+
+      .container,
+      .max-w-7xl,
+      .max-w-6xl {
         max-width: 90% !important;
       }
     }
@@ -777,32 +996,34 @@
       .brand-title {
         font-size: 2rem;
       }
-      
+
       .navbar-logo {
         height: 80px;
       }
-      
+
       .about-hero h1 {
         font-size: 8rem !important;
       }
-      
+
       .about-hero p {
         font-size: 2.5rem !important;
       }
-      
+
       .section-padding {
         padding-top: 140px;
         padding-bottom: 140px;
       }
-      
+
       .glass-card {
         padding: 4rem 3rem !important;
       }
-      
-      .container, .max-w-7xl, .max-w-6xl {
+
+      .container,
+      .max-w-7xl,
+      .max-w-6xl {
         max-width: 85% !important;
       }
-      
+
       .footer-grid {
         gap: 60px;
       }
@@ -814,22 +1035,26 @@
         min-height: 100vh !important;
         padding-top: 80px;
       }
-      
+
       .navbar-logo {
         height: 40px !important;
       }
-      
+
       .brand-title {
         font-size: 1rem !important;
       }
-      
+
       .section-padding {
         padding-top: 40px !important;
         padding-bottom: 40px !important;
       }
-      
+
       .glass-card {
         padding: 1.5rem !important;
+      }
+      
+      .mobile-menu-slide {
+        width: 350px;
       }
     }
 
@@ -838,48 +1063,54 @@
       .brand-title {
         font-size: 0.8rem;
       }
-      
+
       .navbar-logo {
         height: 30px;
       }
-      
+
       .about-hero h1 {
         font-size: 1.8rem !important;
       }
-      
+
       .about-hero p {
         font-size: 0.9rem !important;
       }
-      
+
       .glass-card {
         padding: 1rem 0.8rem !important;
       }
-      
+
       .timeline-item {
         padding-left: 50px;
         padding-right: 10px;
       }
-      
+
       .timeline-item::after {
         width: 15px;
         height: 15px;
+      }
+      
+      .mobile-menu-slide {
+        width: 220px;
       }
     }
 
     /* Responsive Typography */
     @media (max-width: 768px) {
-      h2, h3 {
+
+      h2,
+      h3 {
         font-size: 2rem !important;
       }
-      
+
       h4 {
         font-size: 1.5rem !important;
       }
-      
+
       .text-xl {
         font-size: 1.1rem !important;
       }
-      
+
       .text-lg {
         font-size: 1rem !important;
       }
@@ -892,7 +1123,9 @@
     }
 
     /* Responsive Containers */
-    .container, .max-w-7xl, .max-w-6xl {
+    .container,
+    .max-w-7xl,
+    .max-w-6xl {
       width: 100%;
       padding-right: 15px;
       padding-left: 15px;
@@ -905,11 +1138,11 @@
       .grid {
         grid-template-columns: 1fr !important;
       }
-      
+
       .grid-cols-2 {
         grid-template-columns: 1fr !important;
       }
-      
+
       .grid-cols-1 {
         grid-template-columns: 1fr !important;
       }
@@ -920,7 +1153,7 @@
       .flex-row {
         flex-direction: column !important;
       }
-      
+
       .flex-col {
         flex-direction: column !important;
       }
@@ -928,19 +1161,20 @@
 
     /* Touch-friendly elements for mobile */
     @media (max-width: 768px) {
-      button, 
+
+      button,
       .glass-card,
       .social-link,
       .timeline-content,
       .dropdown-content a {
         min-height: 44px;
       }
-      
-      a, 
+
+      a,
       .dropdown-content a {
         padding: 12px 15px;
       }
-      
+
       .whatsapp-float-left {
         min-height: 44px;
         min-width: 44px;
@@ -948,7 +1182,8 @@
     }
 
     /* Prevent horizontal scrolling */
-    body, html {
+    body,
+    html {
       max-width: 100%;
       overflow-x: hidden;
     }
@@ -963,7 +1198,7 @@
       padding-left: 1.5rem;
       padding-right: 1.5rem;
     }
-    
+
     @media (max-width: 768px) {
       .px-6 {
         padding-left: 1rem;
@@ -974,304 +1209,357 @@
 </head>
 
 <body>
+  <!-- ===== Mobile Menu Overlay ===== -->
+  <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
 
-<!-- ===== WhatsApp Floating Button ===== -->
-<a href="https://wa.me/919676464756" class="whatsapp-float-left" target="_blank">
-  <i class="fab fa-whatsapp"></i>
-</a>
-
-<!-- ===== Enhanced Glass Navbar ===== -->
-<nav class="fixed top-0 w-full z-50 nav-glass">
-  <div class="max-w-7xl mx-auto px-4 py-2 flex justify-between items-center">
-    <div class="flex items-center gap-1">
-      <img src="Atirath Technologies Transparent Logo.png" alt="Atirath Traders Logo" class="navbar-logo">
-      <h1 class="brand-title whitespace-nowrap"></h1>
+  <!-- ===== Mobile Menu Slide Panel ===== -->
+  <div class="mobile-menu-slide" id="mobileMenuSlide">
+    <div class="mobile-menu-header">
+      <h3>Menu</h3>
+      <button class="mobile-close-btn" id="mobileCloseBtn">
+        <i class="fas fa-times"></i>
+      </button>
     </div>
-    <div class="hidden md:flex space-x-6 font-medium">
-      <a href="index.html" class="hover:text-violet-400 transition hover:scale-105">Home</a>
-      <a href="#story" class="hover:text-violet-400 transition hover:scale-105">Our Story</a>
-      <a href="#values" class="hover:text-violet-400 transition hover:scale-105">Values</a>
-      <a href="#mission" class="hover:text-violet-400 transition hover:scale-105">Mission</a>
-      <div class="dropdown">
-        <a href="#services" class="hover:text-violet-400 transition hover:scale-105 flex items-center gap-1">
-          Services <i class="fas fa-chevron-down text-xs ml-1"></i>
+    
+    <div class="mobile-menu-links">
+      <a href="index.html" class="mobile-menu-link">Home</a>
+      <a href="#story" class="mobile-menu-link">Our Story</a>
+      <a href="#values" class="mobile-menu-link">Values</a>
+      <a href="#mission" class="mobile-menu-link">Mission</a>
+      
+      <!-- Services with submenu -->
+      <div class="mobile-menu-item">
+        <a href="javascript:void(0)" class="mobile-menu-link mobile-services-toggle">
+          Services <i class="fas fa-chevron-down float-right mt-1"></i>
         </a>
-        <div class="dropdown-content">
+        <div class="mobile-submenu" id="mobileServicesSubmenu">
           <a href="web-design.html"><i class="fas fa-paint-brush text-violet-400"></i> Web Design</a>
           <a href="web-development.html"><i class="fas fa-code text-cyan-400"></i> Web Development</a>
           <a href="mobile-app.html"><i class="fas fa-mobile-alt text-blue-400"></i> Mobile Application</a>
           <a href="digital-marketing.html"><i class="fas fa-chart-line text-pink-400"></i> Digital Marketing</a>
-          <a href="seo-optimization.html"><i class="fas fa-search text-green-400"></i> SEO Optimization</a>
+          <a href="seo-optimization.html"><i class="fas fa-search text-green-400"></i>AEO & SEO Strategies</a>
           <a href="branding.html"><i class="fas fa-palette text-yellow-400"></i> Branding</a>
         </div>
       </div>
-      <a href="index.html#contact" class="hover:text-violet-400 transition hover:scale-105">Contact Us</a>
+      
+      <a href="index.html#contact" class="mobile-menu-link">Contact Us</a>
+      <a href="terms-and-conditions.html" class="mobile-menu-link">Terms & Conditions</a>
     </div>
-    <button class="md:hidden text-2xl" id="mobileMenuBtn">
-      <i class="fas fa-bars"></i>
-    </button>
   </div>
-  <div class="md:hidden absolute top-full left-0 w-full bg-[#0a1329]/95 backdrop-filter backdrop-blur-lg hidden" id="mobileMenu">
-    <div class="flex flex-col p-6 space-y-4">
-      <a href="index.html" class="py-3 hover:text-violet-400 transition border-b border-gray-800">Home</a>
-      <a href="#story" class="py-3 hover:text-violet-400 transition border-b border-gray-800">Our Story</a>
-      <a href="#values" class="py-3 hover:text-violet-400 transition border-b border-gray-800">Values</a>
-      <a href="#mission" class="py-3 hover:text-violet-400 transition border-b border-gray-800">Mission</a>
-      <div class="py-3 border-b border-gray-800">
-        <div class="font-semibold mb-2">Services</div>
-        <div class="flex flex-col pl-4 space-y-3">
-          <a href="web-design.html" class="py-2 hover:text-violet-400 transition"><i class="fas fa-paint-brush text-violet-400 mr-3"></i> Web Design</a>
-          <a href="web-development.html" class="py-2 hover:text-cyan-400 transition"><i class="fas fa-code text-cyan-400 mr-3"></i> Web Development</a>
-          <a href="mobile-app.html" class="py-2 hover:text-blue-400 transition"><i class="fas fa-mobile-alt text-blue-400 mr-3"></i> Mobile Application</a>
-          <a href="digital-marketing.html" class="py-2 hover:text-pink-400 transition"><i class="fas fa-chart-line text-pink-400 mr-3"></i> Digital Marketing</a>
-          <a href="seo-optimization.html" class="py-2 hover:text-green-400 transition"><i class="fas fa-search text-green-400 mr-3"></i> SEO Optimization</a>
-          <a href="branding.html" class="py-2 hover:text-yellow-400 transition"><i class="fas fa-palette text-yellow-400 mr-3"></i> Branding</a>
+
+  <!-- ===== WhatsApp Floating Button ===== -->
+  <a href="https://wa.me/919676464756" class="whatsapp-float-left" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <!-- ===== Enhanced Glass Navbar ===== -->
+  <nav class="fixed top-0 w-full z-50 nav-glass">
+    <div class="max-w-7xl mx-auto px-4 py-2 flex justify-between items-center">
+      <div class="flex items-center gap-1">
+        <a href="index.html">
+           <img src="AT 12.png" alt="Atirath Technologies Logo" class="navbar-logo"
+            style="width:265px; height:60px; max-width:none;">
+        </a>
+        <h1 class="brand-title whitespace-nowrap"></h1>
+      </div>
+      <div class="hidden md:flex space-x-6 font-medium">
+        <a href="index.html" class="hover:text-violet-400 transition hover:scale-105">
+          <i class="fas fa-home mr-1"></i> Home
+        </a>
+
+        <a href="#story" class="hover:text-violet-400 transition hover:scale-105">
+          <i class="fas fa-book-open mr-1"></i> Our Story
+        </a>
+
+        <a href="#values" class="hover:text-violet-400 transition hover:scale-105">
+          <i class="fas fa-heart mr-1"></i> Values
+        </a>
+
+        <a href="#mission" class="hover:text-violet-400 transition hover:scale-105">
+          <i class="fas fa-bullseye mr-1"></i> Mission
+        </a>
+
+        <div class="dropdown">
+          <a href="#services" class="hover:text-violet-400 transition hover:scale-105 flex items-center gap-1">
+            <i class="fas fa-concierge-bell mr-1"></i> Services
+            <i class="fas fa-chevron-down text-xs ml-1"></i>
+          </a>
+
+          <div class="dropdown-content">
+            <a href="web-design.html"><i class="fas fa-paint-brush text-violet-400 mr-2"></i> Web Design</a>
+            <a href="web-development.html"><i class="fas fa-code text-cyan-400 mr-2"></i> Web Development</a>
+            <a href="mobile-app.html"><i class="fas fa-mobile-alt text-blue-400 mr-2"></i> Mobile Application</a>
+            <a href="digital-marketing.html"><i class="fas fa-chart-line text-pink-400 mr-2"></i> Digital Marketing</a>
+            <a href="seo-optimization.html"><i class="fas fa-search text-green-400 mr-2"></i>AEO & SEO Strategies</a>
+            <a href="branding.html"><i class="fas fa-palette text-yellow-400 mr-2"></i> Branding</a>
+          </div>
+        </div>
+        <a href="index.html#contact" class="hover:text-violet-400 transition hover:scale-105">Contact Us</a>
+      </div>
+      <button class="md:hidden mobile-menu-toggle" id="mobileMenuBtn">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ===== About Hero ===== -->
+  <section class="about-hero">
+    <div class="about-hero-overlay"></div>
+    <div class="max-w-7xl mx-auto px-6 w-full relative z-10">
+      <div class="text-center">
+        <h1 class="text-5xl md:text-7xl lg:text-8xl font-extrabold mb-6">
+          <span class="bg-gradient-to-r from-cyan-400 via-violet-500 to-pink-500 bg-clip-text text-transparent">
+            Our Story
+          </span>
+        </h1>
+        <p class="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto">
+          Pioneering digital transformation, Combining innovation, strategy, and technology to create exceptional
+          results for businesses worldwide.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Our Story ===== -->
+  <section id="story" class="section-padding px-6 section-bg">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div>
+          <h2 class="text-4xl md:text-5xl font-bold mb-8">
+            Crafting Digital <span class="text-cyan-400">Excellence</span>
+          </h2>
+          <p class="text-gray-300 text-lg mb-8">
+            At Atirath Technologies, we believe in the power of digital transformation to revolutionize businesses. Our
+            approach combines cutting-edge technology with strategic thinking to deliver solutions that drive measurable
+            results.
+          </p>
+
+          <div class="space-y-6">
+            <div class="flex items-start gap-4">
+              <div
+                class="w-12 h-12 rounded-full bg-gradient-to-r from-violet-600 to-pink-500 flex items-center justify-center flex-shrink-0">
+                <i class="fas fa-bullseye text-white"></i>
+              </div>
+              <div>
+                <h4 class="text-xl font-bold mb-2">Our Vision</h4>
+                <p class="text-gray-400">To be the leading digital transformation partner for businesses worldwide,
+                  recognized for innovation and excellence.</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4">
+              <div
+                class="w-12 h-12 rounded-full bg-gradient-to-r from-pink-500 to-cyan-500 flex items-center justify-center flex-shrink-0">
+                <i class="fas fa-handshake text-white"></i>
+              </div>
+              <div>
+                <h4 class="text-xl font-bold mb-2">Our Promise</h4>
+                <p class="text-gray-400">Delivering exceptional value through innovative solutions, transparent
+                  communication, and measurable results.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="relative">
+          <div class="glass-card p-8">
+            <h3 class="text-3xl font-bold mb-6">From Vision to Reality</h3>
+            <p class="text-gray-300 mb-6">
+              Atirath Technologies began as a small digital agency with a big vision: to transform how businesses
+              leverage technology for growth. What started with three passionate individuals has grown into a team of
+              50+ digital experts.
+            </p>
+            <p class="text-gray-300">
+              Our journey has been marked by continuous learning, innovation, and a relentless pursuit of excellence.
+              We've evolved from a web design studio to a full-service digital transformation partner.
+            </p>
+          </div>
         </div>
       </div>
-      <a href="#contact" class="py-3 hover:text-violet-400 transition">Contact</a>
     </div>
-  </div>
-</nav>
+  </section>
 
-<!-- ===== About Hero ===== -->
-<section class="about-hero">
-  <div class="about-hero-overlay"></div>
-  <div class="max-w-7xl mx-auto px-6 w-full relative z-10">
-    <div class="text-center">
-      <h1 class="text-5xl md:text-7xl lg:text-8xl font-extrabold mb-6">
-        <span class="bg-gradient-to-r from-cyan-400 via-violet-500 to-pink-500 bg-clip-text text-transparent">
-          Our Story
-        </span>
-      </h1>
-      <p class="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto">
-        Pioneering digital transformation, Combining innovation, strategy, and technology to create exceptional results for businesses worldwide.
+  <!-- ===== Timeline ===== -->
+  <section class="py-20 px-6 bg-gradient-to-b from-[#050b1e] to-[#0a1a3c]">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-4xl md:text-5xl font-bold text-center mb-16">
+        Our <span class="text-violet-400">Journey</span>
+      </h2>
+
+      <div class="timeline-container">
+        <div class="timeline-item left-timeline">
+          <div class="timeline-content">
+            <h4 class="text-xl font-bold mb-3">Foundation</h4>
+            <p class="text-gray-300">Atirath Technologies founded with focus on web design and development services.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item right-timeline">
+          <div class="timeline-content">
+            <h4 class="text-xl font-bold mb-3">Expansion</h4>
+            <p class="text-gray-300">Expanded services to include digital marketing and branding solutions.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item left-timeline">
+          <div class="timeline-content">
+            <h4 class="text-xl font-bold mb-3">Growth</h4>
+            <p class="text-gray-300">Team grew to 30+ professionals. Launched enterprise solutions division.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item right-timeline">
+          <div class="timeline-content">
+            <h4 class="text-xl font-bold mb-3">Innovation</h4>
+            <p class="text-gray-300">Introduced AI-powered solutions and advanced analytics services.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item left-timeline">
+          <div class="timeline-content">
+            <h4 class="text-xl font-bold mb-3">Global Reach</h4>
+            <p class="text-gray-300">Expanded operations internationally with clients in 15+ countries.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item right-timeline">
+          <div class="timeline-content">
+            <h4 class="text-xl font-bold mb-3">Today</h4>
+            <p class="text-gray-300">Leading digital transformation partner with 500+ successful projects.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Core Values ===== -->
+  <section id="values" class="section-padding px-6 section-bg">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-4xl md:text-5xl font-bold text-center mb-4">
+        Our <span class="text-pink-400">Core Values</span>
+      </h2>
+      <p class="text-gray-400 text-center max-w-2xl mx-auto mb-16">
+        The principles that guide every decision and action at Atirath Technologies
       </p>
-    </div>
-  </div>
-</section>
 
-<!-- ===== Our Story ===== -->
-<section id="story" class="section-padding px-6 section-bg">
-  <div class="max-w-7xl mx-auto">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-      <div>
-        <h2 class="text-4xl md:text-5xl font-bold mb-8">
-          Crafting Digital <span class="text-cyan-400">Excellence</span>
-        </h2>
-        <p class="text-gray-300 text-lg mb-8">
-          At Atirath Technologies, we believe in the power of digital transformation to revolutionize businesses. Our approach combines cutting-edge technology with strategic thinking to deliver solutions that drive measurable results.
-        </p>
-        
-        <div class="space-y-6">
-          <div class="flex items-start gap-4">
-            <div class="w-12 h-12 rounded-full bg-gradient-to-r from-violet-600 to-pink-500 flex items-center justify-center flex-shrink-0">
-              <i class="fas fa-bullseye text-white"></i>
-            </div>
-            <div>
-              <h4 class="text-xl font-bold mb-2">Our Vision</h4>
-              <p class="text-gray-400">To be the leading digital transformation partner for businesses worldwide, recognized for innovation and excellence.</p>
-            </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <!-- Innovation -->
+        <div class="glass-card p-8 text-center hover:border-cyan-400">
+          <div
+            class="w-20 h-20 rounded-full bg-gradient-to-r from-cyan-500 to-violet-600 flex items-center justify-center mx-auto mb-6">
+            <i class="fas fa-lightbulb text-2xl text-white"></i>
           </div>
-          
-          <div class="flex items-start gap-4">
-            <div class="w-12 h-12 rounded-full bg-gradient-to-r from-pink-500 to-cyan-500 flex items-center justify-center flex-shrink-0">
-              <i class="fas fa-handshake text-white"></i>
-            </div>
-            <div>
-              <h4 class="text-xl font-bold mb-2">Our Promise</h4>
-              <p class="text-gray-400">Delivering exceptional value through innovative solutions, transparent communication, and measurable results.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <div class="relative">
-        <div class="glass-card p-8">
-          <h3 class="text-3xl font-bold mb-6">From Vision to Reality</h3>
-          <p class="text-gray-300 mb-6">
-            Atirath Technologies began as a small digital agency with a big vision: to transform how businesses leverage technology for growth. What started with three passionate individuals has grown into a team of 50+ digital experts.
-          </p>
+          <h4 class="text-xl font-bold mb-4">Innovation</h4>
           <p class="text-gray-300">
-            Our journey has been marked by continuous learning, innovation, and a relentless pursuit of excellence. We've evolved from a web design studio to a full-service digital transformation partner.
+            Constantly pushing boundaries to deliver cutting-edge solutions that set new standards in digital
+            excellence.
+          </p>
+        </div>
+
+        <!-- Excellence -->
+        <div class="glass-card p-8 text-center hover:border-violet-400">
+          <div
+            class="w-20 h-20 rounded-full bg-gradient-to-r from-violet-600 to-pink-500 flex items-center justify-center mx-auto mb-6">
+            <i class="fas fa-medal text-2xl text-white"></i>
+          </div>
+          <h4 class="text-xl font-bold mb-4">Excellence</h4>
+          <p class="text-gray-300">
+            Commitment to the highest quality standards in every project, ensuring exceptional results for our clients.
+          </p>
+        </div>
+
+        <!-- Integrity -->
+        <div class="glass-card p-8 text-center hover:border-pink-400">
+          <div
+            class="w-20 h-20 rounded-full bg-gradient-to-r from-pink-500 to-cyan-500 flex items-center justify-center mx-auto mb-6">
+            <i class="fas fa-shield-alt text-2xl text-white"></i>
+          </div>
+          <h4 class="text-xl font-bold mb-4">Integrity</h4>
+          <p class="text-gray-300">
+            Building trust through transparency, honesty, and ethical practices in all our business relationships.
+          </p>
+        </div>
+
+        <!-- Collaboration -->
+        <div class="glass-card p-8 text-center hover:border-green-400">
+          <div
+            class="w-20 h-20 rounded-full bg-gradient-to-r from-cyan-500 to-green-500 flex items-center justify-center mx-auto mb-6">
+            <i class="fas fa-users text-2xl text-white"></i>
+          </div>
+          <h4 class="text-xl font-bold mb-4">Collaboration</h4>
+          <p class="text-gray-300">
+            Working closely with clients as partners to understand their vision and achieve shared success.
           </p>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ===== Timeline ===== -->
-<section class="py-20 px-6 bg-gradient-to-b from-[#050b1e] to-[#0a1a3c]">
-  <div class="max-w-7xl mx-auto">
-    <h2 class="text-4xl md:text-5xl font-bold text-center mb-16">
-      Our <span class="text-violet-400">Journey</span>
-    </h2>
-    
-    <div class="timeline-container">
-      <div class="timeline-item left-timeline">
-        <div class="timeline-content">
-          <h4 class="text-xl font-bold mb-3">Foundation</h4>
-          <p class="text-gray-300">Atirath Technologies founded with focus on web design and development services.</p>
+  <!-- ===== Mission & Vision ===== -->
+  <section id="mission" class="py-20 px-6 bg-gradient-to-b from-[#050b1e] to-[#0a1a3c]">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+        <!-- Mission -->
+        <div class="relative">
+          <div
+            class="absolute -top-6 -left-6 w-16 h-16 rounded-full bg-gradient-to-r from-cyan-500 to-violet-600 flex items-center justify-center z-10 shadow-xl">
+            <i class="fas fa-bullseye text-2xl text-white"></i>
+          </div>
+          <div class="glass-card p-10 relative z-0">
+            <h3 class="text-3xl font-bold mb-6 text-cyan-400">Our Mission</h3>
+            <p class="text-gray-300 text-lg mb-6">
+              To empower businesses with innovative digital solutions that drive growth, enhance efficiency, and create
+              sustainable competitive advantages in an ever-evolving digital landscape.
+            </p>
+            <ul class="space-y-4">
+              <li class="flex items-center gap-3">
+                <i class="fas fa-check-circle text-green-400"></i>
+                <span class="text-gray-300">Deliver exceptional digital experiences</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <i class="fas fa-check-circle text-green-400"></i>
+                <span class="text-gray-300">Drive measurable business results</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <i class="fas fa-check-circle text-green-400"></i>
+                <span class="text-gray-300">Foster long-term client partnerships</span>
+              </li>
+            </ul>
+          </div>
         </div>
-      </div>
-      
-      <div class="timeline-item right-timeline">
-        <div class="timeline-content">
-          <h4 class="text-xl font-bold mb-3">Expansion</h4>
-          <p class="text-gray-300">Expanded services to include digital marketing and branding solutions.</p>
-        </div>
-      </div>
-      
-      <div class="timeline-item left-timeline">
-        <div class="timeline-content">
-          <h4 class="text-xl font-bold mb-3">Growth</h4>
-          <p class="text-gray-300">Team grew to 30+ professionals. Launched enterprise solutions division.</p>
-        </div>
-      </div>
-      
-      <div class="timeline-item right-timeline">
-        <div class="timeline-content">
-          <h4 class="text-xl font-bold mb-3">Innovation</h4>
-          <p class="text-gray-300">Introduced AI-powered solutions and advanced analytics services.</p>
-        </div>
-      </div>
-      
-      <div class="timeline-item left-timeline">
-        <div class="timeline-content">
-          <h4 class="text-xl font-bold mb-3">Global Reach</h4>
-          <p class="text-gray-300">Expanded operations internationally with clients in 15+ countries.</p>
-        </div>
-      </div>
-      
-      <div class="timeline-item right-timeline">
-        <div class="timeline-content">
-          <h4 class="text-xl font-bold mb-3">Today</h4>
-          <p class="text-gray-300">Leading digital transformation partner with 500+ successful projects.</p>
+
+        <!-- Vision -->
+        <div class="relative">
+          <div
+            class="absolute -top-6 -right-6 w-16 h-16 rounded-full bg-gradient-to-r from-violet-600 to-pink-500 flex items-center justify-center z-10 shadow-xl">
+            <i class="fas fa-eye text-2xl text-white"></i>
+          </div>
+          <div class="glass-card p-10 relative z-0">
+            <h3 class="text-3xl font-bold mb-6 text-violet-400">Our Vision</h3>
+            <p class="text-gray-300 text-lg mb-6">
+              To be the most trusted digital transformation partner globally, recognized for revolutionizing how
+              businesses leverage technology to achieve unprecedented growth and success.
+            </p>
+            <ul class="space-y-4">
+              <li class="flex items-center gap-3">
+                <i class="fas fa-rocket text-cyan-400"></i>
+                <span class="text-gray-300">Lead digital innovation worldwide</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <i class="fas fa-globe text-cyan-400"></i>
+                <span class="text-gray-300">Expand global presence and impact</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <i class="fas fa-trophy text-cyan-400"></i>
+                <span class="text-gray-300">Set industry standards for excellence</span>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- ===== Core Values ===== -->
-<section id="values" class="section-padding px-6 section-bg">
-  <div class="max-w-7xl mx-auto">
-    <h2 class="text-4xl md:text-5xl font-bold text-center mb-4">
-      Our <span class="text-pink-400">Core Values</span>
-    </h2>
-    <p class="text-gray-400 text-center max-w-2xl mx-auto mb-16">
-      The principles that guide every decision and action at Atirath Technologies
-    </p>
-    
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-      <!-- Innovation -->
-      <div class="glass-card p-8 text-center hover:border-cyan-400">
-        <div class="w-20 h-20 rounded-full bg-gradient-to-r from-cyan-500 to-violet-600 flex items-center justify-center mx-auto mb-6">
-          <i class="fas fa-lightbulb text-2xl text-white"></i>
-        </div>
-        <h4 class="text-xl font-bold mb-4">Innovation</h4>
-        <p class="text-gray-300">
-          Constantly pushing boundaries to deliver cutting-edge solutions that set new standards in digital excellence.
-        </p>
-      </div>
-      
-      <!-- Excellence -->
-      <div class="glass-card p-8 text-center hover:border-violet-400">
-        <div class="w-20 h-20 rounded-full bg-gradient-to-r from-violet-600 to-pink-500 flex items-center justify-center mx-auto mb-6">
-          <i class="fas fa-medal text-2xl text-white"></i>
-        </div>
-        <h4 class="text-xl font-bold mb-4">Excellence</h4>
-        <p class="text-gray-300">
-          Commitment to the highest quality standards in every project, ensuring exceptional results for our clients.
-        </p>
-      </div>
-      
-      <!-- Integrity -->
-      <div class="glass-card p-8 text-center hover:border-pink-400">
-        <div class="w-20 h-20 rounded-full bg-gradient-to-r from-pink-500 to-cyan-500 flex items-center justify-center mx-auto mb-6">
-          <i class="fas fa-shield-alt text-2xl text-white"></i>
-        </div>
-        <h4 class="text-xl font-bold mb-4">Integrity</h4>
-        <p class="text-gray-300">
-          Building trust through transparency, honesty, and ethical practices in all our business relationships.
-        </p>
-      </div>
-      
-      <!-- Collaboration -->
-      <div class="glass-card p-8 text-center hover:border-green-400">
-        <div class="w-20 h-20 rounded-full bg-gradient-to-r from-cyan-500 to-green-500 flex items-center justify-center mx-auto mb-6">
-          <i class="fas fa-users text-2xl text-white"></i>
-        </div>
-        <h4 class="text-xl font-bold mb-4">Collaboration</h4>
-        <p class="text-gray-300">
-          Working closely with clients as partners to understand their vision and achieve shared success.
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== Mission & Vision ===== -->
-<section id="mission" class="py-20 px-6 bg-gradient-to-b from-[#050b1e] to-[#0a1a3c]">
-  <div class="max-w-7xl mx-auto">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
-      <!-- Mission -->
-      <div class="relative">
-        <div class="absolute -top-6 -left-6 w-16 h-16 rounded-full bg-gradient-to-r from-cyan-500 to-violet-600 flex items-center justify-center">
-          <i class="fas fa-bullseye text-2xl text-white"></i>
-        </div>
-        <div class="glass-card p-10">
-          <h3 class="text-3xl font-bold mb-6 text-cyan-400">Our Mission</h3>
-          <p class="text-gray-300 text-lg mb-6">
-            To empower businesses with innovative digital solutions that drive growth, enhance efficiency, and create sustainable competitive advantages in an ever-evolving digital landscape.
-          </p>
-          <ul class="space-y-4">
-            <li class="flex items-center gap-3">
-              <i class="fas fa-check-circle text-green-400"></i>
-              <span class="text-gray-300">Deliver exceptional digital experiences</span>
-            </li>
-            <li class="flex items-center gap-3">
-              <i class="fas fa-check-circle text-green-400"></i>
-              <span class="text-gray-300">Drive measurable business results</span>
-            </li>
-            <li class="flex items-center gap-3">
-              <i class="fas fa-check-circle text-green-400"></i>
-              <span class="text-gray-300">Foster long-term client partnerships</span>
-            </li>
-          </ul>
-        </div>
-      </div>
-      
-      <!-- Vision -->
-      <div class="relative">
-        <div class="absolute -top-6 -right-6 w-16 h-16 rounded-full bg-gradient-to-r from-violet-600 to-pink-500 flex items-center justify-center">
-          <i class="fas fa-eye text-2xl text-white"></i>
-        </div>
-        <div class="glass-card p-10">
-          <h3 class="text-3xl font-bold mb-6 text-violet-400">Our Vision</h3>
-          <p class="text-gray-300 text-lg mb-6">
-            To be the most trusted digital transformation partner globally, recognized for revolutionizing how businesses leverage technology to achieve unprecedented growth and success.
-          </p>
-          <ul class="space-y-4">
-            <li class="flex items-center gap-3">
-              <i class="fas fa-rocket text-cyan-400"></i>
-              <span class="text-gray-300">Lead digital innovation worldwide</span>
-            </li>
-            <li class="flex items-center gap-3">
-              <i class="fas fa-globe text-cyan-400"></i>
-              <span class="text-gray-300">Expand global presence and impact</span>
-            </li>
-            <li class="flex items-center gap-3">
-              <i class="fas fa-trophy text-cyan-400"></i>
-              <span class="text-gray-300">Set industry standards for excellence</span>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
- <!-- ===== CTA Section ===== -->
+  </section>
+  <!-- ===== CTA Section ===== -->
   <section class="section-padding px-6 section-bg">
     <div class="max-w-6xl mx-auto text-center">
       <h3 class="text-4xl md:text-5xl font-bold mb-6">Ready to Start Your Project?</h3>
@@ -1300,144 +1588,197 @@
   </section>
 
 
-<!-- ===== Footer ===== -->
-<footer class="py-16 unique-footer">
-  <div class="max-w-7xl mx-auto px-6">
-    <div class="footer-grid">
-      <!-- Column 1 -->
-      <div class="footer-column">
-        <div class="flex items-center gap-2 mb-6">
-          <img src="Atirath Technologies Transparent Logo.png" alt="Logo" class="navbar-logo">
-          <h2 class="brand-title whitespace-nowrap"></h2>
+  <!-- ===== Footer ===== -->
+  <footer class="py-16 unique-footer">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="footer-grid">
+        <!-- Column 1 -->
+        <div class="footer-column">
+          <div class="flex items-center gap-2 mb-6">
+            <img src="AT 12.png" alt="Atirath Technologies Logo" class="navbar-logo"
+            style="width:265px; height:60px; max-width:none;">
+           
+          </div>
+          <p class="text-gray-400 mb-6">
+            Transforming businesses through innovative digital solutions. Your trusted partner for digital growth.
+          </p>
+          <div class="flex space-x-4">
+            <a href="https://www.facebook.com/profile.php?id=61585464714844" class="social-link facebook">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="social-link twitter">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="https://www.instagram.com/atirath_technologies?igsh=OTVraThwaXNlZXU4"
+              class="social-link instagram">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.linkedin.com/company/atirath-technologies-india/" class="social-link linkedin">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+          </div>
         </div>
-        <p class="text-gray-400 mb-6">
-          Transforming businesses through innovative digital solutions. Your trusted partner for digital growth.
-        </p>
-        <div class="flex space-x-4">
-          <a href="https://www.facebook.com/profile.php?id=61585464714844" class="social-link facebook">
-            <i class="fab fa-facebook-f"></i>
-          </a>
-          <a href="#" class="social-link twitter">
-            <i class="fab fa-twitter"></i>
-          </a>
-          <a href="https://www.instagram.com/atirath_technologies?igsh=OTVraThwaXNlZXU4" class="social-link instagram">
-            <i class="fab fa-instagram"></i>
-          </a>
-          <a href="https://www.linkedin.com/company/110555899" class="social-link linkedin">
-            <i class="fab fa-linkedin-in"></i>
-          </a>
-        </div>
-      </div>
-      
-      <!-- Column 2 -->
-      <div class="footer-column">
+
+        <!-- Column 2 -->
+        <div class="footer-column">
         <h4>Quick Links</h4>
         <ul class="space-y-3">
-          <li><a href="index.html" class="text-gray-400 hover:text-cyan-400 transition">Home</a></li>
-          <li><a href="#story" class="text-gray-400 hover:text-cyan-400 transition">Our Story</a></li>
-          <li><a href="#values" class="text-gray-400 hover:text-cyan-400 transition">Values</a></li>
-          <li><a href="#mission" class="text-gray-400 hover:text-cyan-400 transition">Mission</a></li>
-          <li><a href="#contact" class="text-gray-400 hover:text-cyan-400 transition">Contact</a></li>
+          <li><a href="#home" class="text-gray-400 hover:text-cyan-400 transition">Home</a></li>
+          <li><a href="about.html" class="text-gray-400 hover:text-cyan-400 transition">About Us</a></li>
+          <li><a href="index.html#services" class="text-gray-400 hover:text-cyan-400 transition">Services</a></li>
+          <li><a href="portfolio.html" class="text-gray-400 hover:text-cyan-400 transition">Portfolio</a></li>
+          <li><a href="index.html#contact" class="text-gray-400 hover:text-cyan-400 transition">Contact</a></li>
+         
         </ul>
       </div>
-      
-      <!-- Column 3 -->
-      <div class="footer-column">
-        <h4>Our Services</h4>
-        <ul class="space-y-3">
-          <li><a href="web-design.html" class="text-gray-400 hover:text-violet-400 transition">Web Design</a></li>
-          <li><a href="web-development.html" class="text-gray-400 hover:text-violet-400 transition">Web Development</a></li>
-          <li><a href="mobile-app.html" class="text-gray-400 hover:text-blue-400 transition">Mobile Application</a></li>
-          <li><a href="digital-marketing.html" class="text-gray-400 hover:text-pink-400 transition">Digital Marketing</a></li>
-          <li><a href="seo-optimization.html" class="text-gray-400 hover:text-green-400 transition">SEO Optimization</a></li>
-          <li><a href="branding.html" class="text-gray-400 hover:text-yellow-400 transition">Branding</a></li>
-        </ul>
+
+        <!-- Column 3 -->
+        <div class="footer-column">
+          <h4>Our Services</h4>
+          <ul class="space-y-3">
+            <li><a href="web-design.html" class="text-gray-400 hover:text-violet-400 transition">Web Design</a></li>
+            <li><a href="web-development.html" class="text-gray-400 hover:text-violet-400 transition">Web
+                Development</a></li>
+            <li><a href="mobile-app.html" class="text-gray-400 hover:text-blue-400 transition">Mobile Application</a>
+            </li>
+            <li><a href="digital-marketing.html" class="text-gray-400 hover:text-pink-400 transition">Digital
+                Marketing</a></li>
+            <li><a href="seo-optimization.html" class="text-gray-400 hover:text-green-400 transition">AEO & SEO
+               Strategies</a></li>
+            <li><a href="branding.html" class="text-gray-400 hover:text-yellow-400 transition">Branding</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 4 -->
+        <div class="footer-column">
+          <h4>Contact Us</h4>
+          <ul class="space-y-4">
+            <li class="flex items-start gap-3">
+              <i class="fas fa-map-marker-alt text-cyan-400 mt-1"></i>
+              <a href="https://maps.google.com/?q=Plot+No.45%2C+Sy.No.74%2C+1st+Floor%2C+Jaihind+Enclave%2C+Madhapur%2C+Hyderabad+-+500081%2C+Telangana"
+                target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-cyan-400 transition">
+                Jaihind Enclave, Madhapur, Hyderabad - 500081, Telangana
+              </a>
+            </li>
+            <li class="flex items-center gap-3">
+              <i class="fas fa-phone-alt text-violet-400"></i>
+              <span class="text-gray-400">+91 96764 64756</span>
+            </li>
+            <li class="flex items-center gap-3">
+              <i class="fas fa-envelope text-pink-400"></i>
+              <span class="text-gray-400">info@atirathtechnologies.com</span>
+            </li>
+            <li class="flex items-center gap-3">
+              <i class="fas fa-clock text-green-400"></i>
+              <span class="text-gray-400">Mon-Fri: 9AM-6PM</span>
+            </li>
+          </ul>
+        </div>
       </div>
-      
-      <!-- Column 4 -->
-      <div class="footer-column">
-        <h4>Contact Us</h4>
-        <ul class="space-y-4">
-          <li class="flex items-start gap-3">
-            <i class="fas fa-map-marker-alt text-cyan-400 mt-1"></i>
-            <a href="https://maps.google.com/?q=Plot+No.45%2C+Sy.No.74%2C+1st+Floor%2C+Jaihind+Enclave%2C+Madhapur%2C+Hyderabad+-+500081%2C+Telangana" 
-               target="_blank" 
-               rel="noopener noreferrer" 
-               class="text-gray-400 hover:text-cyan-400 transition">
-              Plot No.45, Sy.No.74, 1st Floor, Jaihind Enclave, Madhapur, Hyderabad - 500081, Telangana
-            </a>
-          </li>
-          <li class="flex items-center gap-3">
-            <i class="fas fa-phone-alt text-violet-400"></i>
-            <span class="text-gray-400">+91 96764 64756</span>
-          </li>
-          <li class="flex items-center gap-3">
-            <i class="fas fa-envelope text-pink-400"></i>
-            <span class="text-gray-400">info@atirathtradersltd.com</span>
-          </li>
-          <li class="flex items-center gap-3">
-            <i class="fas fa-clock text-green-400"></i>
-            <span class="text-gray-400">Mon-Fri: 9AM-6PM</span>
-          </li>
-        </ul>
-      </div>
-    </div>
-    
-    <div class="border-t border-gray-800 pt-8 mt-8 text-center">
+
+       <div class="border-t border-gray-800 pt-8 mt-8 text-center">
       <p class="text-gray-400">© 2025 Atirath Technologies. All Rights Reserved. | Digital Growth Partner</p>
       <p class="text-gray-500 text-sm mt-2">Transforming businesses through innovative digital solutions</p>
+      <p class="text-gray-500 text-sm mt-1">
+        <a href="terms-and-conditions.html" class="text-cyan-400 hover:underline">Terms & Conditions</a> | 
+        <a href="privacypolicy.html" class="text-cyan-400 hover:underline">Privacy Policy</a>
+      </p>
     </div>
-  </div>
-  
-  <!-- Wave Effect -->
-  <div class="footer-wave"></div>
-</footer>
+    </div>
 
-<script>
-  // Mobile menu toggle
-  document.getElementById('mobileMenuBtn').addEventListener('click', function() {
-    const mobileMenu = document.getElementById('mobileMenu');
-    mobileMenu.classList.toggle('hidden');
+
+  </footer>
+
+  <script>
+    // Mobile Menu Functionality
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenuSlide = document.getElementById('mobileMenuSlide');
+    const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+    const mobileCloseBtn = document.getElementById('mobileCloseBtn');
+    const mobileServicesToggle = document.querySelector('.mobile-services-toggle');
+    const mobileServicesSubmenu = document.getElementById('mobileServicesSubmenu');
     
-    const icon = this.querySelector('i');
-    if (icon.classList.contains('fa-bars')) {
-      icon.classList.remove('fa-bars');
-      icon.classList.add('fa-times');
-    } else {
-      icon.classList.remove('fa-times');
-      icon.classList.add('fa-bars');
+    // Toggle mobile menu
+    function toggleMobileMenu() {
+      mobileMenuSlide.classList.toggle('show');
+      mobileMenuOverlay.classList.toggle('show');
+      document.body.style.overflow = mobileMenuSlide.classList.contains('show') ? 'hidden' : 'auto';
     }
-  });
-
-  // Smooth scrolling for anchor links
-  document.addEventListener('DOMContentLoaded', function() {
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        
-        const targetId = this.getAttribute('href');
-        if (targetId === '#') return;
-        
-        const targetElement = document.querySelector(targetId);
-        if (targetElement) {
-          window.scrollTo({
-            top: targetElement.offsetTop - 80,
-            behavior: 'smooth'
-          });
+    
+    // Open mobile menu
+    mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+    
+    // Close mobile menu
+    mobileCloseBtn.addEventListener('click', toggleMobileMenu);
+    mobileMenuOverlay.addEventListener('click', toggleMobileMenu);
+    
+    // Toggle services submenu
+    let isServicesOpen = false;
+    mobileServicesToggle.addEventListener('click', function(e) {
+      e.preventDefault();
+      isServicesOpen = !isServicesOpen;
+      
+      // Toggle submenu
+      mobileServicesSubmenu.classList.toggle('show');
+      
+      // Change icon
+      const icon = this.querySelector('i');
+      if (isServicesOpen) {
+        icon.classList.remove('fa-chevron-down');
+        icon.classList.add('fa-chevron-up');
+      } else {
+        icon.classList.remove('fa-chevron-up');
+        icon.classList.add('fa-chevron-down');
+      }
+    });
+    
+    // Close mobile menu when clicking on links
+    document.querySelectorAll('.mobile-menu-link').forEach(link => {
+      if (!link.classList.contains('mobile-services-toggle')) {
+        link.addEventListener('click', function(e) {
+          const href = this.getAttribute('href');
           
-          // Close mobile menu if open
-          const mobileMenu = document.getElementById('mobileMenu');
-          if (!mobileMenu.classList.contains('hidden')) {
-            mobileMenu.classList.add('hidden');
-            const icon = document.getElementById('mobileMenuBtn').querySelector('i');
-            icon.classList.remove('fa-times');
-            icon.classList.add('fa-bars');
+          // For all links except javascript, close menu
+          if (!href.startsWith('javascript')) {
+            toggleMobileMenu();
           }
-        }
+        });
+      }
+    });
+    
+    // Close menu on escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && mobileMenuSlide.classList.contains('show')) {
+        toggleMobileMenu();
+      }
+    });
+
+    // Smooth scrolling for anchor links
+    document.addEventListener('DOMContentLoaded', function () {
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+
+          const targetId = this.getAttribute('href');
+          if (targetId === '#') return;
+
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop - 80,
+              behavior: 'smooth'
+            });
+
+            // Close mobile menu if open
+            if (mobileMenuSlide.classList.contains('show')) {
+              toggleMobileMenu();
+            }
+          }
+        });
       });
     });
-  });
-</script>
+  </script>
 
 </body>
+
 </html>

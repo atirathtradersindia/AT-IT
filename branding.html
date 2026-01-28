@@ -4,9 +4,74 @@
 <head>
   <meta charset="UTF-8">
   <link rel="icon" type="image/png" href="icon.png">
-  <title>Branding Services | Atirath Technologies</title>
+ <!-- ===== TITLE & BASIC META ===== -->
+  <title>Atirath Technology | Digital Growth Partner - Web Design, Development & Marketing</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  <meta name="description" content="Atirath Technologies - Your trusted digital growth partner offering web design, web development, mobile apps, digital marketing, SEO, and branding services in Hyderabad, India.">
+  <meta name="keywords" content="web design, web development, digital marketing, SEO, mobile app development, branding, Hyderabad, India, Atirath Technologies">
+  <meta name="author" content="Atirath Technologies">
+  <meta name="robots" content="index, follow">
+  
+  <!-- ===== OPEN GRAPH META TAGS ===== -->
+  <meta property="og:title" content="Atirath Technology | Digital Growth Partner">
+  <meta property="og:description" content="Transform your digital presence with our innovative web design, development, and marketing solutions.">
+  <meta property="og:image" content="https://atirathtechnologies.com/Atirath%20Technologies%20Transparent%20Logo.png">
+  <meta property="og:url" content="https://atirathtechnologies.com">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Atirath Technologies">
+  <meta property="og:locale" content="en_US">
+  
+  <!-- ===== TWITTER CARD META TAGS ===== -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Atirath Technology | Digital Growth Partner">
+  <meta name="twitter:description" content="Transform your digital presence with our innovative web design, development, and marketing solutions.">
+  <meta name="twitter:image" content="https://atirathtechnologies.com/Atirath%20Technologies%20Transparent%20Logo.png">
+  <meta name="twitter:site" content="@atirathtech">
+  
+  <!-- ===== CONTACT & BUSINESS META TAGS ===== -->
+  <meta name="contact:country_name" content="India">
+  <meta name="contact:region" content="Telangana">
+  <meta name="contact:city" content="Hyderabad">
+  <meta name="contact:postal_code" content="500081">
+  <meta name="contact:street_address" content="Jaihind Enclave, Madhapur">
+  <meta name="contact:email" content="info@atirathtechnologies.com">
+  <meta name="contact:phone_number" content="+919676464756">
+  <meta name="contact:website" content="https://atirathtechnologies.com">
+  <meta name="business:hours" content="Mo-Fr 09:00-18:00">
+  
+  <!-- ===== STRUCTURED DATA / JSON-LD ===== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Atirath Technologies",
+    "description": "Digital Growth Partner offering web design, development, and marketing services",
+    "url": "https://atirathtechnologies.com",
+    "logo": "https://atirathtechnologies.com/Atirath%20Technologies%20Transparent%20Logo.png",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Jaihind Enclave, Madhapur",
+      "addressLocality": "Hyderabad",
+      "postalCode": "500081",
+      "addressRegion": "Telangana",
+      "addressCountry": "IN"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+919676464756",
+      "contactType": "customer service",
+      "email": "info@atirathtechnologies.com",
+      "availableLanguage": ["English", "Hindi", "Telugu"]
+    },
+    "sameAs": [
+      "https://www.facebook.com/profile.php?id=61585464714844",
+      "https://www.linkedin.com/company/atirath-technologies-india/",
+      "https://www.instagram.com/atirath_technologies"
+    ],
+    "openingHours": "Mo-Fr 09:00-18:00",
+    "priceRange": "$$"
+  }
+  </script>
   <!-- Bootstrap 5 CDN -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -25,6 +90,134 @@
       background: #050b1e;
       color: white;
       overflow-x: hidden;
+    }
+
+    /* ===== Mobile Menu Slide Animation ===== */
+    .mobile-menu-slide {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 300px;
+      height: 100vh;
+      background: rgba(10, 15, 35, 0.98);
+      backdrop-filter: blur(25px);
+      -webkit-backdrop-filter: blur(25px);
+      border-left: 1px solid rgba(139, 92, 246, 0.3);
+      box-shadow: -15px 0 35px rgba(0, 0, 0, 0.5);
+      padding: 80px 20px 30px;
+      transition: right 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      z-index: 999;
+      overflow-y: auto;
+    }
+
+    .mobile-menu-slide.show {
+      right: 0;
+    }
+
+    .mobile-menu-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(5px);
+      z-index: 998;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .mobile-menu-overlay.show {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .mobile-menu-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid rgba(124, 250, 255, 0.1);
+    }
+
+    .mobile-menu-header h3 {
+      font-size: 1.5rem;
+      background: linear-gradient(135deg, #7cfaff, #8b5cf6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .mobile-close-btn {
+      background: none;
+      border: none;
+      color: #7cfaff;
+      font-size: 1.5rem;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .mobile-close-btn:hover {
+      transform: rotate(90deg);
+    }
+
+    .mobile-menu-links {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .mobile-menu-links a {
+      display: block;
+      padding: 15px;
+      color: #e2e8f0;
+      text-decoration: none;
+      border-radius: 10px;
+      transition: all 0.3s ease;
+      border-left: 3px solid transparent;
+      font-size: 1.1rem;
+    }
+
+    .mobile-menu-links a:hover {
+      background: rgba(124, 250, 255, 0.1);
+      color: #7cfaff;
+      padding-left: 20px;
+      border-left: 3px solid #8b5cf6;
+    }
+
+    .mobile-submenu {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+      padding-left: 20px;
+    }
+
+    .mobile-submenu.show {
+      max-height: 400px;
+    }
+
+    .mobile-submenu a {
+      padding: 12px 15px;
+      font-size: 1rem;
+      color: #b0b8d0;
+    }
+
+    .mobile-submenu a i {
+      margin-right: 10px;
+    }
+
+    .mobile-menu-toggle {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+      padding: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.3s ease;
     }
 
     /* ===== Enhanced Glass Navbar ===== */
@@ -375,11 +568,12 @@
     .navbar-logo {
       height: 60px;
       /* Reduced from 100px to 50px */
-      width: 200px;
+      width: 265px;
       margin-right: 5px;
       /* Reduced from 12px to 5px */
       filter: drop-shadow(0 0 10px rgba(55, 56, 56, 0.5));
       transition: transform 0.3s ease;
+      object-fit: cover;
       
     }
 
@@ -451,7 +645,7 @@
       position: absolute;
       top: 100%;
       left: 0;
-      min-width: 240px;
+      min-width: 270px;
       background: rgba(10, 15, 35, 0.98);
       backdrop-filter: blur(25px);
       border: 1px solid rgba(139, 92, 246, 0.3);
@@ -1673,6 +1867,41 @@
 
 <body>
 
+  <!-- ===== Mobile Menu Overlay ===== -->
+  <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+
+  <!-- ===== Mobile Menu Slide Panel ===== -->
+  <div class="mobile-menu-slide" id="mobileMenuSlide">
+    <div class="mobile-menu-header">
+      <h3>Menu</h3>
+      <button class="mobile-close-btn" id="mobileCloseBtn">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    
+    <div class="mobile-menu-links">
+      <a href="index.html" class="mobile-menu-link">Home</a>
+      <a href="about.html" class="mobile-menu-link">About Us</a>
+      
+      <!-- Services with submenu -->
+      <div class="mobile-menu-item">
+        <a href="javascript:void(0)" class="mobile-menu-link mobile-services-toggle">
+          Services <i class="fas fa-chevron-down float-right mt-1"></i>
+        </a>
+        <div class="mobile-submenu" id="mobileServicesSubmenu">
+          <a href="web-design.html"><i class="fas fa-paint-brush text-violet-400"></i> Web Design</a>
+          <a href="web-development.html"><i class="fas fa-code text-cyan-400"></i> Web Development</a>
+          <a href="mobile-app.html"><i class="fas fa-mobile-alt text-blue-400"></i> Mobile Application</a>
+          <a href="digital-marketing.html"><i class="fas fa-chart-line text-pink-400"></i> Digital Marketing</a>
+          <a href="seo-optimization.html"><i class="fas fa-search text-green-400"></i>AEO & SEO Strategies</a>
+          <a href="branding.html"><i class="fas fa-palette text-yellow-400"></i> Branding</a>
+        </div>
+      </div>
+      
+      <a href="index.html#contact" class="mobile-menu-link">Contact Us</a>
+    </div>
+  </div>
+
   <!-- ===== Particles ===== -->
   <div class="particles" id="particles"></div>
 
@@ -1686,8 +1915,11 @@
   <nav class="fixed top-0 w-full z-50 nav-glass">
     <div class="max-w-7xl mx-auto px-4 py-2 flex justify-between items-center">
       <div class="flex items-center gap-1">
-        <img src="Atirath Technologies Transparent Logo.png" alt="Atirath Traders Logo" class="navbar-logo">
-        
+        <a href="index.html">
+          <img src="AT 12.png" alt="Atirath Technology Logo" class="navbar-logo"
+               style="width:265px; height:60px; max-width:none;">
+        </a>
+        <h1 class="brand-title whitespace-nowrap"></h1>
       </div>
       <div class="hidden md:flex space-x-8 font-medium">
         <a href="index.html" class="hover:text-violet-400 transition hover:scale-105">Home</a>
@@ -1701,40 +1933,15 @@
             <a href="web-development.html"><i class="fas fa-code text-cyan-400"></i> Web Development</a>
             <a href="mobile-app.html"><i class="fas fa-mobile-alt text-blue-400"></i> Mobile Application</a>
             <a href="digital-marketing.html"><i class="fas fa-chart-line text-pink-400"></i> Digital Marketing</a>
-            <a href="seo-optimization.html"><i class="fas fa-search text-green-400"></i> SEO Optimization</a>
+            <a href="seo-optimization.html"><i class="fas fa-search text-green-400"></i>AEO & SEO Strategies</a>
             <a href="branding.html"><i class="fas fa-palette text-yellow-400"></i> Branding</a>
           </div>
         </div>
         <a href="index.html#contact" class="hover:text-violet-400 transition hover:scale-105">Contact Us</a>
       </div>
-      <button class="md:hidden text-2xl" id="mobileMenuBtn">
+      <button class="md:hidden mobile-menu-toggle" id="mobileMenuBtn">
         <i class="fas fa-bars"></i>
       </button>
-    </div>
-    <div class="md:hidden absolute top-full left-0 w-full bg-[#0a1329]/95 backdrop-filter backdrop-blur-lg hidden"
-      id="mobileMenu">
-      <div class="flex flex-col p-6 space-y-4">
-        <a href="index.html" class="py-3 hover:text-violet-400 transition border-b border-gray-800">Home</a>
-        <a href="about.html" class="py-3 hover:text-violet-400 transition border-b border-gray-800">About Us</a>
-        <div class="py-3 border-b border-gray-800">
-          <div class="font-semibold mb-2">Services</div>
-          <div class="flex flex-col pl-4 space-y-3">
-            <a href="web-design.html" class="py-2 hover:text-violet-400 transition"><i
-                class="fas fa-paint-brush text-violet-400 mr-3"></i> Web Design</a>
-            <a href="web-development.html" class="py-2 hover:text-cyan-400 transition"><i
-                class="fas fa-code text-cyan-400 mr-3"></i> Web Development</a>
-            <a href="mobile-app.html" class="py-2 hover:text-blue-400 transition"><i
-                class="fas fa-mobile-alt text-blue-400 mr-3"></i> Mobile Application</a>
-            <a href="digital-marketing.html" class="py-2 hover:text-pink-400 transition"><i
-                class="fas fa-chart-line text-pink-400 mr-3"></i> Digital Marketing</a>
-            <a href="seo-optimization.html" class="py-2 hover:text-green-400 transition"><i
-                class="fas fa-search text-green-400 mr-3"></i> SEO Optimization</a>
-            <a href="branding.html" class="py-2 hover:text-yellow-400 transition"><i
-                class="fas fa-palette text-yellow-400 mr-3"></i> Branding</a>
-          </div>
-        </div>
-        <a href="#contact" class="py-3 hover:text-violet-400 transition">Contact</a>
-      </div>
     </div>
   </nav>
 
@@ -2019,21 +2226,34 @@
 
         <!-- Figma -->
         <div class="text-center">
-          <div class="tech-icon mb-4">
-            <i class="fab fa-figma text-purple-400"></i>
-          </div>
-          <h4 class="font-bold">Figma</h4>
-          <p class="text-gray-400 text-sm">UI/UX Design</p>
-        </div>
+  <div class="tech-icon mb-4">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" class="w-10 h-10 mx-auto">
+      <defs>
+        <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#8B5CF6"/>
+          <stop offset="100%" stop-color="#6366F1"/>
+        </linearGradient>
+      </defs>
+      <circle cx="24" cy="24" r="20" fill="url(#grad1)"/>
+      <circle cx="24" cy="24" r="10" fill="#FFFFFF" opacity="0.2"/>
+      <path d="M20 20l8 4-8 4z" fill="#FFFFFF"/>
+      <circle cx="28" cy="20" r="2" fill="#FBBF24"/>
+      <circle cx="20" cy="28" r="2" fill="#FBBF24"/>
+    </svg>
+  </div>
+  <h4 class="font-bold">Pixverse</h4>
+  <p class="text-gray-400 text-sm">AI Video</p>
+</div>
 
         <!-- Sketch -->
-        <div class="text-center">
-          <div class="tech-icon mb-4">
-            <i class="fas fa-pen-fancy text-orange-400"></i>
-          </div>
-          <h4 class="font-bold">Sketch</h4>
-          <p class="text-gray-400 text-sm">Vector Design</p>
-        </div>
+       <div class="text-center">
+  <div class="tech-icon mb-4">
+    <!-- Using camera-retro with Lightroom colors -->
+    <i class="fas fa-camera-retro text-4xl" style="color: #31A8FF; background: linear-gradient(135deg, #001E36, #0A1C2E); padding: 10px; border-radius: 8px;"></i>
+  </div>
+  <h4 class="font-bold text-lg">Lightroom</h4>
+  <p class="text-gray-400 text-sm">Photo Editing</p>
+</div>
 
         <!-- Illustrator -->
         <div class="text-center">
@@ -2100,23 +2320,24 @@
         <!-- Column 1 -->
         <div class="footer-column">
           <div class="flex items-center gap-4 mb-6">
-            <img src="Atirath Technologies Transparent Logo.png" alt="Logo" class="navbar-logo">
+              <img src="AT 12.png" alt="Atirath Technology Logo" class="navbar-logo"
+            style="width:265px; height:60px; max-width:none;">
             
           </div>
           <p class="text-gray-400 mb-6">
             Transforming businesses through innovative digital solutions. Your trusted partner for digital growth.
           </p>
           <div class="flex space-x-4">
-            <a href="#" class="social-icon facebook">
+            <a href="https://www.facebook.com/profile.php?id=61585464714844" class="social-icon facebook">
               <i class="fab fa-facebook-f"></i>
             </a>
-            <a href="#" class="social-icon twitter">
+            <a href="" class="social-icon twitter">
               <i class="fab fa-twitter"></i>
             </a>
-            <a href="#" class="social-icon instagram">
+            <a href="https://www.instagram.com/atirath_technologies?igsh=OTVraThwaXNlZXU4" class="social-icon instagram">
               <i class="fab fa-instagram"></i>
             </a>
-            <a href="#" class="social-icon linkedin">
+            <a href="https://www.linkedin.com/company/atirath-technologies-india/" class="social-icon linkedin">
               <i class="fab fa-linkedin-in"></i>
             </a>
           </div>
@@ -2128,8 +2349,10 @@
           <ul class="space-y-3">
             <li><a href="index.html" class="text-gray-400 hover:text-cyan-400 transition">Home</a></li>
             <li><a href="about.html" class="text-gray-400 hover:text-cyan-400 transition">About Us</a></li>
-            <li><a href="#services" class="text-gray-400 hover:text-cyan-400 transition">Services</a></li>
-            <li><a href="#contact" class="text-gray-400 hover:text-cyan-400 transition">Contact</a></li>
+            <li><a href="index.html#services" class="text-gray-400 hover:text-cyan-400 transition">Services</a></li>
+            <li><a href="Portfolio.html" class="text-gray-400 hover:text-cyan-400 transition">Portfolio</a></li>
+            <li><a href="index.html#contact" class="text-gray-400 hover:text-cyan-400 transition">Contact</a></li>
+            
           </ul>
         </div>
 
@@ -2144,8 +2367,8 @@
             </li>
             <li><a href="digital-marketing.html" class="text-gray-400 hover:text-pink-400 transition">Digital
                 Marketing</a></li>
-            <li><a href="seo-optimization.html" class="text-gray-400 hover:text-green-400 transition">SEO
-                Optimization</a></li>
+            <li><a href="seo-optimization.html" class="text-gray-400 hover:text-green-400 transition">AEO & SEO
+                Strategies</a></li>
             <li><a href="branding.html" class="text-gray-400 hover:text-yellow-400 transition">Branding</a></li>
           </ul>
         </div>
@@ -2158,7 +2381,7 @@
               <i class="fas fa-map-marker-alt text-cyan-400 mt-1"></i>
               <a href="https://maps.google.com/?q=Plot+No.45%2C+Sy.No.74%2C+1st+Floor%2C+Jaihind+Enclave%2C+Madhapur%2C+Hyderabad+-+500081%2C+Telangana"
                 target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-cyan-400 transition">
-                Plot No.45, Sy.No.74, 1st Floor, Jaihind Enclave, Madhapur, Hyderabad - 500081, Telangana
+                Jaihind Enclave, Madhapur, Hyderabad - 500081, Telangana
               </a>
             </li>
             <li class="flex items-center gap-3">
@@ -2167,7 +2390,7 @@
             </li>
             <li class="flex items-center gap-3">
               <i class="fas fa-envelope text-pink-400"></i>
-              <span class="text-gray-400">info@atirathtradersltd.com</span>
+              <span class="text-gray-400">info@atirathtechnologies.com</span>
             </li>
             <li class="flex items-center gap-3">
               <i class="fas fa-clock text-green-400"></i>
@@ -2178,16 +2401,82 @@
       </div>
 
       <div class="border-t border-gray-800 pt-8 mt-8 text-center">
-        <p class="text-gray-400">© 2025 Atirath Technologies. All Rights Reserved. | Digital Growth Partner</p>
-        <p class="text-gray-500 text-sm mt-2">Transforming businesses through innovative digital solutions</p>
-      </div>
+      <p class="text-gray-400">© 2025 Atirath Technologies. All Rights Reserved. | Digital Growth Partner</p>
+      <p class="text-gray-500 text-sm mt-2">Transforming businesses through innovative digital solutions</p>
+      <p class="text-gray-500 text-sm mt-1">
+        <a href="terms-and-conditions.html" class="text-cyan-400 hover:underline">Terms & Conditions</a> | 
+        <a href="privacypolicy.html" class="text-cyan-400 hover:underline">Privacy Policy</a>
+      </p>
+    </div>
     </div>
 
-    <!-- Wave Effect -->
-    <div class="footer-wave"></div>
+   
   </footer>
 
   <script>
+    // Mobile Menu Functionality
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenuSlide = document.getElementById('mobileMenuSlide');
+    const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+    const mobileCloseBtn = document.getElementById('mobileCloseBtn');
+    const mobileServicesToggle = document.querySelector('.mobile-services-toggle');
+    const mobileServicesSubmenu = document.getElementById('mobileServicesSubmenu');
+    
+    // Toggle mobile menu
+    function toggleMobileMenu() {
+      mobileMenuSlide.classList.toggle('show');
+      mobileMenuOverlay.classList.toggle('show');
+      document.body.style.overflow = mobileMenuSlide.classList.contains('show') ? 'hidden' : 'auto';
+    }
+    
+    // Open mobile menu
+    mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+    
+    // Close mobile menu
+    mobileCloseBtn.addEventListener('click', toggleMobileMenu);
+    mobileMenuOverlay.addEventListener('click', toggleMobileMenu);
+    
+    // Toggle services submenu
+    let isServicesOpen = false;
+    mobileServicesToggle.addEventListener('click', function(e) {
+      e.preventDefault();
+      isServicesOpen = !isServicesOpen;
+      
+      // Toggle submenu
+      mobileServicesSubmenu.classList.toggle('show');
+      
+      // Change icon
+      const icon = this.querySelector('i');
+      if (isServicesOpen) {
+        icon.classList.remove('fa-chevron-down');
+        icon.classList.add('fa-chevron-up');
+      } else {
+        icon.classList.remove('fa-chevron-up');
+        icon.classList.add('fa-chevron-down');
+      }
+    });
+    
+    // Close mobile menu when clicking on links (except services toggle)
+    document.querySelectorAll('.mobile-menu-link').forEach(link => {
+      if (!link.classList.contains('mobile-services-toggle')) {
+        link.addEventListener('click', function(e) {
+          const href = this.getAttribute('href');
+          
+          // For links to other pages, close menu
+          if (!href.startsWith('javascript')) {
+            toggleMobileMenu();
+          }
+        });
+      }
+    });
+    
+    // Close menu on escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && mobileMenuSlide.classList.contains('show')) {
+        toggleMobileMenu();
+      }
+    });
+
     // Create floating particles
     function createParticles() {
       const particlesContainer = document.getElementById('particles');
@@ -2212,21 +2501,6 @@
         particlesContainer.appendChild(particle);
       }
     }
-
-    // Mobile menu toggle
-    document.getElementById('mobileMenuBtn').addEventListener('click', function () {
-      const mobileMenu = document.getElementById('mobileMenu');
-      mobileMenu.classList.toggle('hidden');
-
-      const icon = this.querySelector('i');
-      if (icon.classList.contains('fa-bars')) {
-        icon.classList.remove('fa-bars');
-        icon.classList.add('fa-times');
-      } else {
-        icon.classList.remove('fa-times');
-        icon.classList.add('fa-bars');
-      }
-    });
 
     // Process steps animation on scroll
     function animateProcessSteps() {
@@ -2266,6 +2540,11 @@
     document.addEventListener('DOMContentLoaded', function () {
       createParticles();
 
+      // Mobile menu initialization
+      if (mobileMenuBtn && mobileMenuSlide) {
+        // Already set up above
+      }
+
       document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
           e.preventDefault();
@@ -2279,15 +2558,6 @@
               top: targetElement.offsetTop - 80,
               behavior: 'smooth'
             });
-
-            // Close mobile menu if open
-            const mobileMenu = document.getElementById('mobileMenu');
-            if (!mobileMenu.classList.contains('hidden')) {
-              mobileMenu.classList.add('hidden');
-              const icon = document.getElementById('mobileMenuBtn').querySelector('i');
-              icon.classList.remove('fa-times');
-              icon.classList.add('fa-bars');
-            }
           }
         });
       });
